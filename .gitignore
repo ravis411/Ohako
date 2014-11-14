@@ -1,5 +1,13 @@
 *.class
 
+# I added these #
+*.temp
+*.filepart
+*.ini
+Thumbs.db
+
+# End of the ones I added
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
