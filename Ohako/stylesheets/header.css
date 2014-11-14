@@ -1,0 +1,80 @@
+/*These are necessary for a floating footer and should be the same for all pages...*/
+html, body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:100%;
+	min-width:420px;
+}
+
+#wrapper{
+	min-height:100%;
+}
+
+#contents{
+	padding-bottom:50px; overflow:auto;
+}
+/*End of that */
+
+
+/*************************************/
+/*Header Styles*/
+#header{
+	background:teal;
+	text-align:center;
+	height:4em;
+	padding:5px;
+}
+
+#header a{
+	text-decoration:none;
+	color:inherit;
+}
+
+#header #title{
+	font-size:2em;
+	padding:.1em;
+	position:absolute;
+	top:0px;
+	left:0px;
+	cursor:pointer;
+}
+
+#header #title:hover{
+	color:white;
+}
+
+#header #header_user_div{
+	font-size:2em;
+	padding:.1em;
+	/*position:absolute;*/
+	top:0px;
+	right:0px;
+	float:right;
+	cursor:pointer;
+}
+
+
+
+
+
+/*************************/
+/*For CSS Drop Down Menus*/
+#header ul{
+	list-style-type:none;
+	margin-top:2.5em;
+	display:inline-table;
+	padding:0;
+}
+
+#header ul li{
+	float:left;
+	width:5em;
+	font-size:1.2em;
+	line-height:1.2em;
+}
+
+#header ul li:hover{
+	background:blue;
+	color:teal;
+}

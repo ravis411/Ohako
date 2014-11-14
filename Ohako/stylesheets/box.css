@@ -1,0 +1,10 @@
+/*box.css 
+	This is css for the ohako_box class
+
+*/
+
+.box{
+	border:1px solid black;
+	height:100px;
+	width:100%;
+}
