@@ -1,14 +1,34 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 	<title>OHAKO</title>
+
+	<!-- latest jQuery direct from google's CDN -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<!-- styles needed by jScrollPane -->
+	<link type="text/css" href="scripts/scrollbar/style/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+
+	<!-- the mousewheel plugin - optional to provide mousewheel support -->
+	<script type="text/javascript" src="scripts/scrollbar/jquery.mousewheel.js"></script>
+
+	<!-- the jScrollPane script -->
+	<script type="text/javascript" src="scripts/scrollbar/jquery.jscrollpane.min.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/box.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/header.css">
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function()
+		{	
+			$('#featuredContent').jScrollPane();
+		});
+	</script>
 </head>
 
 <body>
@@ -32,17 +52,31 @@
 
 			</div>
 		
-			<div class="box">
-				<h1>Welcome to Ohako</h1>
+			<div id="content">
+				<div id="featuredContent">
+					<div id="title"> Featured This Week </div>
+					<img class="contentVenueImage" src="images/venue1.png"/>
+					<img class="contentVenueImage" src="images/venue3.png"/>
+					<img class="contentVenueImage" src="images/venue4.png"/>
+					<img class="contentVenueImage" src="images/venue5.png"/>
+					<img class="contentVenueImage" src="images/venue6.png"/>
+				</div>
+
+				<div id="customContent">
+					<div id="title"> Happening Tonight </div>
+					<img class="contentVenueImage" src="images/venue2.png"/>
+				</div>
 			</div>
 			
-			<div class="box">
-			
-			</div>
-			
-			<div class="box">
-				<div id="controlsBox">
-					<p>Maintenance in progress...</p>
+			<div id="controlsBox">
+				<div id="settings">
+					<img class="option" src="images/mailbox.png" alt="Mailbox" />
+					<img class="option" src="images/songbook.png" alt="Songbook"/>
+					<img class="option" src="images/search.png" alt="Search" />
+					<img class="option" src="images/settings.png" alt="Settings" />
+				</div>
+				<div id="adspace">
+					<img src="images/ad.jpg" width="326px" height="100px"/>
 				</div>
 			</div>
 			

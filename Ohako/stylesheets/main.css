@@ -1,8 +1,86 @@
 
 #wrapper
 {
-	max-width: 500px;
+	max-width: 360px;
 	margin: auto;
+	overflow: hidden;
+}
+
+#content
+{
+	height: 400px;
+	width: 99%;
+}
+
+#featuredContent
+{
+	height: 200px;
+	width: 100%;
+	border: 1px solid black;
+	border-bottom: 2px solid #fdc473;
+	background-color: #ffe8c7;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+#title
+{
+	padding: 5px;
+}
+
+#customContent
+{
+	height: 195px;
+	width: 100%;
+	border: 1px solid black;
+	border-bottom: 2px solid #fdc473;
+	background-color: #fff1de;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	overflow: auto;
+}
+
+#controlsBox
+{
+	width: 99%;
+	height: 100px;
+	border: 1px solid black;
+}
+
+#settings
+{
+	width: 8%;
+	height: 99%;
+	float: left;
+
+	border: 1px solid black;
+	background-color: #ffb54b;
+}
+
+#adspace
+{
+	float: left;
+	width: 79%;
+	height: 99%;
+}
+
+.option
+{
+	padding: 2px;
+}
+
+.contentVenueImage
+{
+	padding: 5px;
+	display: inline;
 }
 
 @font-face {

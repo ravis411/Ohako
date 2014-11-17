@@ -4,7 +4,7 @@ html, body{
 	padding:0px;
 	height:100%;
 	width:99%;
-	min-width:420px;
+	overflow: hidden;
 }
 
 #wrapper{
@@ -13,7 +13,7 @@ html, body{
 
 #contents{
 	padding-bottom:50px; 
-	overflow:auto;
+	overflow:hidden;
 }
 
 /*End of that */
@@ -28,6 +28,7 @@ html, body{
 	font-size: 15pt;
 	width: 99%;
 	border:1px solid black;
+	border-bottom: 2px solid #ffc066;
 	font-family: viaFont;
 }
 
