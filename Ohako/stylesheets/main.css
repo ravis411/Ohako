@@ -26,13 +26,14 @@
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
 	overflow-x: scroll;
-	white-space: nowrap;
+	text-align:  center;
 }
 
 #title
 {
 	padding-top: 5px;
 	padding-left: 5px;
+	text-align: left;
 }
 
 #customContent
@@ -48,6 +49,7 @@
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
 	overflow: auto;
+	text-align: center;
 }
 
 #mailbox
@@ -119,7 +121,7 @@
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
-	background-color: #ffdcaa;
+	background-color: #ffffff;
 }
 
 #mailboxInterior
@@ -207,7 +209,7 @@
 .formField
 {
 	background: transparent;
-	width: 150px;
+	width: 125px;
 }
 
 .settingsLabel
