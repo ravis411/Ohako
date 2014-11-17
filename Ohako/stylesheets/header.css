@@ -6,6 +6,7 @@ html, body{
 	width:99%;
 	overflow: hidden;
 	font-family: 'Raleway', sans-serif;	
+	background-color: #cccccc;
 }
 
 #wrapper{
