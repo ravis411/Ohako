@@ -3,6 +3,9 @@
 View = {Home: "home", Venue: "venue", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
 view = null;
 
+// Temp for mail
+mail=false;
+
 // Called after page loads to set up functionality.
 function init(){
 	buttonsInit();
@@ -47,7 +50,14 @@ function displayView(div)
 }
 
 function displayMail(){
-	$('#mailView').html("<img src=\"images/email.png\">");
+	if (!mail){
+		$('#mailView').html("<img src=\"images/email.png\">");
+		mail=true;
+	}
+	else{
+		$('#mailView').html("Select a message from left.");
+		mail=false;
+	}
 }
 
 /*
