@@ -113,6 +113,13 @@
 	background-color: #fff1de;
 }
 
+#searchInput
+{
+	margin: auto;
+	text-align: center;
+	padding: 5px;
+}
+
 #songBookInterior
 {
 	width: 99%%;
