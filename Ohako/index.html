@@ -23,10 +23,13 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/box.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/header.css">
 
+	<script type="text/javascript" src="scripts/main.js"></script>
+
 	<script>
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();
+			init();
 		});
 	</script>
 </head>
@@ -39,7 +42,7 @@
 
 			<div id="header">
 
-				<a href="/"><span id="title"><img src="images/logo_ohako.png" alt="OHAKO" /></span></a>
+				<a href="/"><span id="title"><img id="logo" src="images/logo_ohako.png" alt="OHAKO" /></span></a>
 
 				<div id="header_user_div">
 					<div id="header_user_image">
@@ -53,27 +56,57 @@
 			</div>
 		
 			<div id="content">
-				<div id="featuredContent">
-					<div id="title"> Featured This Week </div>
-					<img class="contentVenueImage" src="images/venue1.png"/>
-					<img class="contentVenueImage" src="images/venue3.png"/>
-					<img class="contentVenueImage" src="images/venue4.png"/>
-					<img class="contentVenueImage" src="images/venue5.png"/>
-					<img class="contentVenueImage" src="images/venue6.png"/>
-				</div>
 
-				<div id="customContent">
-					<div id="title"> Happening Tonight </div>
-					<img class="contentVenueImage" src="images/venue2.png"/>
+				<!-- Main view...  View.Home -->
+				<div id="home">
+					<div id="featuredContent">
+						<div id="title"> Featured This Week </div>
+						<img class="contentVenueImage" src="images/venue1.png"/>
+						<img class="contentVenueImage" src="images/venue3.png"/>
+						<img class="contentVenueImage" src="images/venue4.png"/>
+						<img class="contentVenueImage" src="images/venue5.png"/>
+						<img class="contentVenueImage" src="images/venue6.png"/>
+					</div>
+
+					<div id="customContent">
+						<div id="title"> Happening Tonight </div>
+						<img class="contentVenueImage" src="images/venue2.png"/>
+					</div>
 				</div>
+				<!-- End main view...  View.Home -->
+
+				<!-- Mailbox: View.Mailbox -->
+				<div id="mailbox">
+					MAILBOX HERE
+				</div>
+				<!-- END Mailbox: View.Mailbox -->
+
+				<!-- SongBook: View.SongBook -->
+				<div id="songBook">
+					SONGBOOK HERE
+				</div>
+				<!-- END SongBook: View.SongBook -->
+
+				<!--Search: View.Search -->
+				<div id="search">
+					SEARCH HERE
+				</div>
+				<!-- END Search: View.Search -->
+
+				<!--Settings: View.Settings -->
+				<div id="settings">
+					SETTINGS HERE
+				</div>
+				<!-- END Settings: View.Settings -->
+
 			</div>
 			
 			<div id="controlsBox">
-				<div id="settings">
-					<img class="option" src="images/mailbox.png" alt="Mailbox" />
-					<img class="option" src="images/songbook.png" alt="Songbook"/>
-					<img class="option" src="images/search.png" alt="Search" />
-					<img class="option" src="images/settings.png" alt="Settings" />
+				<div id="controlsNav">
+					<img id="mailboxNav" class="option" src="images/mailbox.png" alt="Mailbox" />
+					<img id="songBookNav" class="option" src="images/songbook.png" alt="Songbook"/>
+					<img id="searchNav" class="option" src="images/search.png" alt="Search" />
+					<img id="settingsNav" class="option" src="images/settings.png" alt="Settings" />
 				</div>
 				<div id="adspace">
 					<img src="images/ad.jpg" width="326px" height="100px"/>
