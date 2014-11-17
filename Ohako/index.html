@@ -89,13 +89,38 @@
 
 				<!--Search: View.Search -->
 				<div id="search">
-					SEARCH HERE
+					<iframe
+					  width="200"
+					  height="250"
+					  frameborder="0" style="border:0"
+					  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyALqRx10_DMkJMChXFLtBBy6VJiBmyiZFc&q=record+stores+in+Seattle">
+					</iframe>
 				</div>
 				<!-- END Search: View.Search -->
 
 				<!--Settings: View.Settings -->
 				<div id="settings">
-					SETTINGS HERE
+					<div id="settingsInterior">
+						<form id="settingsForm" action="http://www.usc.edu/cgi-bin/mail_form/shiffer@usc.edu" method="post" name="ContactForm" >
+
+						<span class="settingsLabel">Display Name </span>
+							<input id="settingsName" class="formField" type="text" name="displayName" required placeholder="Britney" style="text-align: right;"/>
+						<br style="clear:both;"/> <br/>
+
+						<span class="settingsLabel">Email</span>
+							<input id="settingsEmail" class="formField" type="text" name="email" style="text-align: right;" required placeholder="britney@spears.com"/>
+						<br style="clear:both;"/> <br/>
+
+					    <span class="settingsLabel">Receive Notifications?</span>
+							<input type="radio" name="workRelated" id="chooseYes" value="Yes" /> Yes
+							<input type="radio" name="workRelated" id="chooseNo" value="Yes" /> No </span>
+						<br style="clear:both;"/> <br/>
+
+						<div id="submitContact" class="label" type="submit">
+				    		<input type="submit" value="Save" id="submit"/>
+				    	</div>
+						</form>
+					</div>
 				</div>
 				<!-- END Settings: View.Settings -->
 
