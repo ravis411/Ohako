@@ -1,6 +1,6 @@
 
 // View of what is currently being displayed.  None for main page without any of the overlaying divs.
-View = {Home: "home", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
+View = {Home: "home", Venue: "venue", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
 view = null;
 
 // Called after page loads to set up functionality.
@@ -20,6 +20,7 @@ function buttonsInit(){
 	$('#songBookNav').on('click', function(){displayView(View.SongBook)});
 	$('#searchNav').on('click', function(){displayView(View.Search)});
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
+	$('.contentVenueImage').on('click', function(){displayView(View.Venue)});
 }
 
 /*
