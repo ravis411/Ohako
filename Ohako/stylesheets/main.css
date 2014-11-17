@@ -83,9 +83,11 @@
 	height: 97.7%;
 	border: 2px solid white;
 	padding-top: 5px;
-	border-radius: 22px;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
 
-	background-color: #fff1de;
+	background-color: #ffb954;
+	overflow: hidden;
 }
 
 #settingsInterior
@@ -97,7 +99,7 @@
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
-	background-color: #fff1de;
+	background-color: #ffb954;
 }
 
 #searchInterior
@@ -110,7 +112,7 @@
 	border-bottom-right-radius: 22px;
 	overflow: hidden;
 
-	background-color: #fff1de;
+	background-color: #ffb954;
 }
 
 #searchInput
@@ -129,7 +131,7 @@
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
-	background-color: #ffffff;
+	background-color: #ffb954;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
@@ -143,7 +145,7 @@
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
-	background-color: #fff1de;
+	background-color: #ffb954;
 }
 
 #mailList
@@ -154,10 +156,7 @@
 	float: left;
 	border: 1px solid black;
 	font-size: 9pt;
-	margin-left: 5px;
 	background-color: #ffffff;
-	border-top-left-radius: 22px;
-	border-bottom-left-radius: 22px;
 	overflow: hidden;
 }
 
