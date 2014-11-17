@@ -115,11 +115,11 @@
 	width: 99%%;
 	height: 97.7%;
 	border: 2px solid red;
-	padding-top: 5px;
+	padding-top: 1px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
-	background-color: #fff1de;
+	background-color: #ffdcaa;
 }
 
 #mailboxInterior
@@ -136,20 +136,35 @@
 
 #mailList
 {
-	width: 50%;
+	width: 30%;
 	height: 300px;
 	padding: 5px;
 	float: left;
 	border: 1px solid black;
+	font-size: 9pt;
+	margin-left: 5px;
+	background-color: #ffffff;
+}
+
+.mailItem
+{
+	background-color: #ffffff;
+	margin-bottom: 2px;
+	border: 1px outset black;
+	padding: 2px;
+
 }
 
 #mailView
 {
-	width: 35%;
+	width: 60%;
 	height: 300px;
-	padding:; 5px;
+	padding: 5px;
 	float: left;
 	border: 1px solid black;
+	margin: auto;
+	text-align: center;
+	background-color: #ffdcaa;
 }
 
 #controlsBox

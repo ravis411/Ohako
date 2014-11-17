@@ -43,7 +43,7 @@ function displayView(div)
 }
 
 function displayMail(){
-	$('#mailView').html("HEY");
+	$('#mailView').html("<img src=\"images/email.png\">");
 }
 
 /*
