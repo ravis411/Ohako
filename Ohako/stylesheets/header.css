@@ -50,13 +50,9 @@ html, body{
 	float:right;
 	padding: 5px;
 	cursor:pointer;
-	margin-top: 8px;
 	color: #ffffff;
-   	text-shadow:
-   -2px -2px 0 #ffb504,  
-    2px -2px 0 #ffb504,
-    -2px 2px 0 #ffb504,
-     2px 2px 0 #ffb504;
+	text-shadow: 0 0 5px #ffb504;
+
 }
 
 
@@ -82,4 +78,15 @@ html, body{
 #header ul li:hover{
 	background:blue;
 	color:teal;
+}
+
+#header_user_image{
+	margin-top: 5px;
+	float: left;
+}
+
+#header_user_name{
+	margin-top: 8px;
+	float: left;
+	margin-left: 10px;
 }
