@@ -3,7 +3,7 @@ html, body{
 	margin:0px;
 	padding:0px;
 	height:100%;
-	width:100%;
+	width:99%;
 	min-width:420px;
 }
 
@@ -12,18 +12,23 @@ html, body{
 }
 
 #contents{
-	padding-bottom:50px; overflow:auto;
+	padding-bottom:50px; 
+	overflow:auto;
 }
+
 /*End of that */
 
 
 /*************************************/
 /*Header Styles*/
 #header{
-	background:teal;
-	text-align:center;
-	height:4em;
-	padding:5px;
+	background:#ffdcaa;
+	text-align:left;
+	height:50px;
+	font-size: 15pt;
+	width: 99%;
+	border:1px solid black;
+	font-family: viaFont;
 }
 
 #header a{
@@ -32,12 +37,9 @@ html, body{
 }
 
 #header #title{
-	font-size:2em;
-	padding:.1em;
-	position:absolute;
-	top:0px;
-	left:0px;
 	cursor:pointer;
+	float: left;
+	padding: 5px;
 }
 
 #header #title:hover{
@@ -45,13 +47,16 @@ html, body{
 }
 
 #header #header_user_div{
-	font-size:2em;
-	padding:.1em;
-	/*position:absolute;*/
-	top:0px;
-	right:0px;
 	float:right;
+	padding: 5px;
 	cursor:pointer;
+	margin-top: 8px;
+	color: #ffffff;
+   	text-shadow:
+   -2px -2px 0 #ffb504,  
+    2px -2px 0 #ffb504,
+    -2px 2px 0 #ffb504,
+     2px 2px 0 #ffb504;
 }
 
 

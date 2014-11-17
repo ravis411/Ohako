@@ -1,0 +1,11 @@
+
+#wrapper
+{
+	max-width: 500px;
+	margin: auto;
+}
+
+@font-face {
+    font-family: viaFont;
+    src: url("Viafont.otf");
+}
