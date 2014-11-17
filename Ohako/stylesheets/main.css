@@ -156,6 +156,9 @@
 	font-size: 9pt;
 	margin-left: 5px;
 	background-color: #ffffff;
+	border-top-left-radius: 22px;
+	border-bottom-left-radius: 22px;
+	overflow: hidden;
 }
 
 .mailItem
@@ -177,6 +180,9 @@
 	margin: auto;
 	text-align: center;
 	background-color: #ffdcaa;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+	overflow: hidden;
 }
 
 #controlsBox
