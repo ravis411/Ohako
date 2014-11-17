@@ -31,15 +31,19 @@ function buttonsInit(){
 */
 function displayView(div)
 {
-	if (view!=div)
-		closeCurrentView();
-	else
-		return;
+	closeCurrentView();
+
+	if (view==div)
+		div = 'home';
+	
+	
 
 	view = div;
 
 	$('#'+view).css("display", "inline");
 	$('#'+view+'Nav').css("background-color", "red");
+
+	$('#songBookInterior').jScrollPane();
 }
 
 function displayMail(){

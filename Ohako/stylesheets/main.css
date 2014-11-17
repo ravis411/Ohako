@@ -81,7 +81,7 @@
 {
 	width: 99%%;
 	height: 97.7%;
-	border: 2px solid red;
+	border: 2px solid white;
 	padding-top: 5px;
 	border-radius: 22px;
 
@@ -92,8 +92,8 @@
 {
 	width: 99%%;
 	height: 97.7%;
-	border: 2px solid red;
-	padding-top: 5px;
+	border: 2px solid white;
+	padding-top: 10px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
@@ -104,10 +104,11 @@
 {
 	width: 99%%;
 	height: 97.7%;
-	border: 2px solid red;
+	border: 2px solid white;
 	padding-top: 5px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
+	overflow: hidden;
 
 	background-color: #fff1de;
 }
@@ -116,19 +117,21 @@
 {
 	width: 99%%;
 	height: 97.7%;
-	border: 2px solid red;
+	border: 2px solid white;
 	padding-top: 1px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
 	background-color: #ffffff;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 #mailboxInterior
 {
 	width: 99%%;
 	height: 97.7%;
-	border: 2px solid red;
+	border: 2px solid white;
 	padding-top: 5px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
