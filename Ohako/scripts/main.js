@@ -21,6 +21,7 @@ function buttonsInit(){
 	$('#searchNav').on('click', function(){displayView(View.Search)});
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
 	$('.contentVenueImage').on('click', function(){displayView(View.Venue)});
+	$('.mailItem').on('click', function(){displayMail()});
 }
 
 /*
@@ -39,6 +40,10 @@ function displayView(div)
 
 	$('#'+view).css("display", "inline");
 	$('#'+view+'Nav').css("background-color", "red");
+}
+
+function displayMail(){
+	$('#mailView').html("HEY");
 }
 
 /*

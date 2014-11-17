@@ -134,6 +134,24 @@
 	background-color: #fff1de;
 }
 
+#mailList
+{
+	width: 50%;
+	height: 300px;
+	padding: 5px;
+	float: left;
+	border: 1px solid black;
+}
+
+#mailView
+{
+	width: 35%;
+	height: 300px;
+	padding:; 5px;
+	float: left;
+	border: 1px solid black;
+}
+
 #controlsBox
 {
 	width: 99%;
