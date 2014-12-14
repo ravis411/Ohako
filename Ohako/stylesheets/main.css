@@ -9,7 +9,7 @@
 #content
 {
 	height: 400px;
-	width: 99%;
+	width: 360px;
 	background-color: #ffe8c7;
 }
 
@@ -56,29 +56,52 @@
 	text-align: center;
 }
 
+#home{
+	position:absolute;
+	display:inline-block;
+	height: 400px;
+	width: 360px;
+
+}
+
 #mailbox
 {
 	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
 }
 
 #songBook
 {
 	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
 }
 
 #search
 {
 	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
 }
 
 #settings
 {
 	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
 }
 
 #venue
 {
 	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
 }
 
 #venueInterior

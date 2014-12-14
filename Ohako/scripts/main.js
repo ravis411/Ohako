@@ -43,7 +43,8 @@ function displayView(div)
 
 	view = div;
 
-	$('#'+view).css("display", "inline");
+	//$('#'+view).css("display", "inline");
+	$('#'+view).show( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#songBookInterior').jScrollPane();
@@ -65,6 +66,7 @@ function displayMail(){
 */
 function closeCurrentView()
 {
-	$('#'+view).css("display", "none");
+	//$('#'+view).css("display", "none");
+	$('#'+view).hide( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "#ffb54b");
 }
