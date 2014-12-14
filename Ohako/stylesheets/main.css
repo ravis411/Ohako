@@ -326,6 +326,7 @@
 	width:225px;
 	height:355px;
 	border:1px solid black;
+	overflow:auto;
 }
 
 #mailInputDiv{
@@ -345,6 +346,22 @@
 	height:20px;
 	width: 20px;
 	background-color:black;
+}
+
+.mailMessage{
+	width:150px;
+	text-align:left;
+	border:1px solid black;
+	margin:1px;
+	clear:both;
+}
+
+.mailSentMessage{
+	float:right;
+}
+
+.mailRecievedMessage{
+	float:left;
 }
 
 #controlsBox

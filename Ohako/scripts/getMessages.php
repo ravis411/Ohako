@@ -2,7 +2,7 @@
 
 	$con = mysqli_connect("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
-	$sql = "SELECT `message` FROM `messages` WHERE `thread`='$_POST[thread]' ORDER BY `messages`.`time` ASC";
+	$sql = "SELECT `message`, `sender` FROM `messages` WHERE `thread`='$_POST[thread]' ORDER BY `messages`.`time` ASC";
 	
 	$result = mysqli_query($con,$sql) or die('Query Error: ' . mysqli_error($con));
 	
@@ -12,7 +12,12 @@
 	}
 	
 	while( $row = mysqli_fetch_array($result) ){
-		echo '<div class="message">';
+		echo '<div class="mailMessage ';
+			if($row['sender'] == $_POST[thread])
+				echo 'mailRecievedMessage';
+			else
+				echo 'mailSentMessage';
+		echo '">';
 		echo $row['message'] . '</div>';
 	}
 	

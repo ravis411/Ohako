@@ -1,7 +1,7 @@
 <?php
 	$con = mysqli_connect("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
-	$sql = "SELECT DISTINCT `thread` FROM `messages` ORDER BY `time` DESC ";
+	$sql = "SELECT MAX(ID),`thread` FROM `messages` GROUP BY `thread` ORDER BY MAX(ID) DESC";
 	
 	$result = mysqli_query($con,$sql) or die('Query Error: ' . mysqli_error($con));
 	

@@ -63,7 +63,6 @@ function displayView(div)
 
 	view = div;
 
-	//$('#'+view).css("display", "inline");
 	$('#'+view).show( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "red");
 
@@ -185,10 +184,15 @@ function closeCurrentView()
 }
 
 
-/*
-	Functions for messages
+/* ****
+	Functions for mail messages
 */
+var mailMessagesDivScrollPaneAPI = null;
+
 function loadMailThreads(){
+	//Initialise the JScrollPane
+	mailMessagesDivScrollPaneAPI = $('#mailMessagesDiv').jScrollPane().data('jsp');
+
 	$.post("/scripts/getThreads.php",{}, function(result){
 		$("#mailList").html(result);
 	});
@@ -197,20 +201,23 @@ function loadMailThreads(){
 
 function handleMailClick(e){
 	if( $(this).hasClass("selectedMailThread") ){
-		$('#mailMessagesDiv').html("Select a message from left.");
+		mailMessagesDivScrollPaneAPI.getContentPane().html("Select a message from left.");
+		mailMessagesDivScrollPaneAPI.reinitialise();
 		$(this).removeClass("selectedMailThread");
 	}
 	else{
 		$(".selectedMailThread").removeClass("selectedMailThread");
-		displayMail(this);
+		$(this).addClass("selectedMailThread");
+		displayMailForSelectedThread();
 	}
 
 }
 
-function displayMail(thread){
-		$(thread).addClass("selectedMailThread");
-		$.post("/scripts/getMessages.php",{thread:$(thread).html()}, function(result){
-			$("#mailMessagesDiv").html(result);
+function displayMailForSelectedThread(){
+		$.post("/scripts/getMessages.php",{thread:$(".selectedMailThread").html()}, function(result){
+			mailMessagesDivScrollPaneAPI.getContentPane().html(result);
+			mailMessagesDivScrollPaneAPI.reinitialise();
+			mailMessagesDivScrollPaneAPI.scrollToBottom()
 		});
 }
 
@@ -228,13 +235,17 @@ function saveMessage(){
 		},
 		function(data, status){
 			if(data == "Success"){
-				//alert("Test Successful.");
+				displayMailForSelectedThread();
 			}else{
 				alert("Data: " + data + ". Success: " + status);
+				displayMailForSelectedThread();
 			}
 		});
 }
 
+/*
+	End of mail functions
+*/
 
 
 
