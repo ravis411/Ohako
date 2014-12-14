@@ -141,6 +141,12 @@
 	position:absolute;
 	height: 150px;
 	width: 360px;
+
+	text-align: center;
+}
+
+#buttonCheckIn{
+	margin-top: 125px;
 }
 
 #settingsInterior

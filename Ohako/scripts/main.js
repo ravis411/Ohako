@@ -6,8 +6,13 @@ view = null;
 PullDown = {CheckIn: "checkIn", Closed: "closed"};
 pullDown = PullDown.Closed;
 
+Home = {SearchAndDiscover: "searchAndDiscover", Venue: "venue"};
+home = Home.SearchAndDiscover;
+
 // Temp for mail
 mail=false;
+
+checkedIn = false; 
 
 // Called after page loads to set up functionality.
 function init(){
@@ -34,6 +39,8 @@ function buttonsInit(){
 	$('#mailMessageSubmitButton').on('click', saveMessage);
 
 	$('#pullDown').on('click', function(){displayPullDown()});
+
+	$('#buttonCheckIn').on('click', function(){checkIn()});
 }
 
 /*
@@ -61,6 +68,37 @@ function displayView(div)
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#songBookInterior').jScrollPane();
+}
+
+/*
+	Checks User into the received venue.
+
+		TODO:  Add parameter to allow function to check User in.
+			Will pull the necessary data for the Venue page, log user in on server, etc...
+*/
+function checkIn(){
+	checkedIn = true; 
+
+	changeHome();
+}
+
+/*
+	Switches User's home.
+*/
+function changeHome(){
+	if (home == Home.SearchAndDiscover && checkedIn){
+			home = Home.Venue;
+			$('#searchAndDiscover').fadeOut();
+			// Bring in new home
+		}
+
+	else if (home != Home.SearchAndDiscover){
+		home = Home.SearchAndDiscover;
+		$('#searchAndDiscover').fadeIn();
+	}
+
+
+
 }
 
 /*
