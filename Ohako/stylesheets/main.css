@@ -165,8 +165,8 @@
 
 #mailboxInterior
 {
-	width: 99%%;
-	height: 97.7%;
+	width: 356px;
+	height: 391px;
 	border: 2px solid white;
 	padding-top: 5px;
 	border-top-right-radius: 22px;
@@ -178,8 +178,8 @@
 
 #mailList
 {
-	width: 30%;
-	height: 300px;
+	width: 106px;
+	height: 379px;
 	padding: 5px;
 	float: left;
 	border: 1px solid black;
@@ -199,8 +199,8 @@
 
 #mailView
 {
-	width: 63%;
-	height: 97%;;
+	width: 224px;
+	height: 379px;
 	padding: 5px;
 	float: left;
 	border: 1px solid black;

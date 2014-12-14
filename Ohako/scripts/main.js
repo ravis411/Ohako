@@ -54,6 +54,20 @@ function displayView(div)
 	$('#songBookInterior').jScrollPane();
 }
 
+/*
+	Closes the current view and resets views that require a reset. 
+*/
+function closeCurrentView()
+{
+	//$('#'+view).css("display", "none");
+	$('#'+view).hide( "slide", 500);
+	$('#'+view+'Nav').css("background-color", "#ffb54b");
+}
+
+
+/*
+	Functions for messages
+*/
 function displayMail(){
 	if (!mail){
 		$('#mailView').html("<img src=\"images/email.png\">");
@@ -63,14 +77,4 @@ function displayMail(){
 		$('#mailView').html("Select a message from left.");
 		mail=false;
 	}
-}
-
-/*
-	Closes the current view and resets views that require a reset. 
-*/
-function closeCurrentView()
-{
-	//$('#'+view).css("display", "none");
-	$('#'+view).hide( "slide", 500);
-	$('#'+view+'Nav').css("background-color", "#ffb54b");
 }
