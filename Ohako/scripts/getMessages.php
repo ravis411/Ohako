@@ -2,7 +2,7 @@
 
 	$con = mysqli_connect("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
-	$sql = "SELECT `message` FROM `messages` WHERE `thread`='$_POST[thread]' ORDER BY `messages`.`time` ASC LIMIT 10";
+	$sql = "SELECT `message` FROM `messages` WHERE `thread`='$_POST[thread]' ORDER BY `messages`.`time` ASC";
 	
 	$result = mysqli_query($con,$sql) or die('Query Error: ' . mysqli_error($con));
 	
