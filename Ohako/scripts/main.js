@@ -34,6 +34,10 @@ function buttonsInit(){
 */
 function displayView(div)
 {
+	//Prevents closing and reopening home when we are already there
+	if(div == view && view == 'home')
+		return;
+	
 	closeCurrentView();
 
 	if (view==div)
