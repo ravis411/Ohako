@@ -77,7 +77,17 @@ function displayView(div)
 			Will pull the necessary data for the Venue page, log user in on server, etc...
 */
 function checkIn(){
-	checkedIn = true; 
+	if (!checkedIn){
+		checkedIn = true; 
+		$('#buttonCheckIn').attr("src", 'images/checkout.png');
+	}
+	else{
+		checkedIn = false;
+		$('#buttonCheckIn').attr("src", 'images/checkin.png');
+	}
+
+	if (pullDown != PullDown.Closed)
+		displayPullDown();
 
 	changeHome();
 }
@@ -89,16 +99,51 @@ function changeHome(){
 	if (home == Home.SearchAndDiscover && checkedIn){
 			home = Home.Venue;
 			$('#searchAndDiscover').fadeOut();
-			// Bring in new home
+			$('#homeVenue').fadeIn();
+			nightUI();
 		}
 
 	else if (home != Home.SearchAndDiscover){
 		home = Home.SearchAndDiscover;
+		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
+		dayUI();
 	}
+}
 
+function nightUI(){
+	$('#header').css("background", '#3e3e3e');
+	$('#header').css("border-bottom", '2px solid #a4a4a4');
 
+	$('#content').css("background-color", '#b0b0b0');
 
+	$('#controlsNav').css("background-color", '#ba26ff');
+
+	$('#logo').attr("src", 'images/logo_ohako_night.png');
+
+	updateNavs('#ba26ff');
+}
+
+function dayUI(){
+	$('#header').css("background", '#ffdcaa');
+	$('#header').css("border-bottom", '2px solid #ffc066');
+
+	$('#content').css("background-color", '#ffe8c7');
+
+	$('#controlsNav').css("background-color", '#ffb54b');
+
+	$('#logo').attr("src", 'images/logo_ohako.png');
+
+	updateNavs('#ffbf4b');
+}
+
+function updateNavs(color){
+	$('#mailboxNav').css("background-color", color);
+	$('#songBookNav').css("background-color", color);
+	$('#settingsNav').css("background-color", color);
+	$('#searchNav').css("background-color", color);
+
+	$('#'+view+'Nav').css("background-color", "red");
 }
 
 /*
@@ -117,13 +162,13 @@ function displayPullDown(){
 }
 
 function openPullDown(){
-	$('#pullDown').animate({top: "+=185px"}, 500, function(){});
+	$('#pullDown').animate({top: "+=199px"}, 500, function(){});
 	$('#checkIn').slideDown(500);
 }
 
 function closePullDown(){
 	$('#checkIn').slideUp(500);
-	$('#pullDown').animate({top: "-=185px"}, 500, function(){});
+	$('#pullDown').animate({top: "-=199px"}, 500, function(){});
 }
 
 /*
@@ -133,7 +178,10 @@ function closeCurrentView()
 {
 	//$('#'+view).css("display", "none");
 	$('#'+view).hide( "slide", 500);
-	$('#'+view+'Nav').css("background-color", "#ffb54b");
+	if (home==Home.SearchAndDiscover)
+		$('#'+view+'Nav').css("background-color", "#ffb54b");
+	else
+		$('#'+view+'Nav').css("background-color", "#ba26ff");
 }
 
 

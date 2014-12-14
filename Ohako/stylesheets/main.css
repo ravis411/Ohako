@@ -31,6 +31,74 @@
 	text-align:  center;
 }
 
+#homeVenue{
+	display: none;
+}
+
+#chatUsers{
+	height: 249px;
+	width: 90px;
+	position: absolute;
+	top: 5px;
+	left: 0px;
+
+	background-image: url("whiteBackgroundT.png");
+
+	border-right: 2px outset white;
+
+	z-index: 2;
+
+	text-align: center;
+}
+
+#usersLogo{
+	text-align: center;
+	margin: auto;
+}
+
+#chatUsersList{
+	padding: 5px;
+	font-size: 9pt;
+	width: 80px;
+	margin: auto;
+
+	overflow: hidden;
+
+	float: left;
+	text-align: left;
+}
+
+.userProfile{
+	background-color: #f2f2f2;
+	margin-bottom: 2px;
+	border: 1px outset white;
+	padding: 2px;
+
+	cursor:pointer;
+}
+
+#chatBox{
+	height: 250px;
+	width: 100%;
+	border: 1px solid black;
+	border-bottom: 2px solid #e5e5e5;
+	border-left: 1px solid #FFE0C0;
+	border-right: 1px solid #FFE0C0;
+	background-color: #858585;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	overflow-y: auto;
+	text-align:  left;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
 #title
 {
 	padding-top: 5px;
@@ -123,7 +191,10 @@
 	height: 15px;
 	width: 360px;
 
+	margin-top: -9px;
+
 	background-image: url("pulldown.png");
+	z-index: 3;
 }
 
 #checkIn
@@ -134,6 +205,7 @@
 	width: 360px;
 
 	background-image: url("blackBackground.png");
+	z-index: 2;
 }
 
 #checkInInterior
@@ -143,6 +215,7 @@
 	width: 360px;
 
 	text-align: center;
+	z-index: 2;
 }
 
 #buttonCheckIn{
