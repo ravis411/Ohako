@@ -3,6 +3,9 @@
 View = {Home: "home", Venue: "venue", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
 view = null;
 
+PullDown = {CheckIn: "checkIn", Closed: "closed"};
+pullDown = PullDown.Closed;
+
 // Temp for mail
 mail=false;
 
@@ -25,6 +28,8 @@ function buttonsInit(){
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
 	$('.contentVenueImage').on('click', function(){displayView(View.Venue)});
 	$('.mailItem').on('click', function(){displayMail()});
+
+	$('#pullDown').on('click', function(){displayPullDown()});
 }
 
 /*
@@ -52,6 +57,31 @@ function displayView(div)
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#songBookInterior').jScrollPane();
+}
+
+/*
+	Handles the pulldown.
+*/
+function displayPullDown(){
+	if (pullDown != PullDown.Closed){
+		pullDown = PullDown.Closed;
+		closePullDown();
+	}
+	
+	else if (pullDown == PullDown.Closed){
+		pullDown = PullDown.CheckIn;
+		openPullDown();
+	}
+}
+
+function openPullDown(){
+	$('#pullDown').animate({top: "+=185px"}, 500, function(){});
+	$('#checkIn').slideDown(500);
+}
+
+function closePullDown(){
+	$('#checkIn').slideUp(500);
+	$('#pullDown').animate({top: "-=185px"}, 500, function(){});
 }
 
 /*

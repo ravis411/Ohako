@@ -32,6 +32,8 @@ html, body{
 	border:1px solid black;
 	border-bottom: 2px solid #ffc066;
 	font-family: viaFont;
+
+	z-index: 5;
 }
 
 #header a{
