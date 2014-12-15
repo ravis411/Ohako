@@ -11,12 +11,17 @@ home = Home.SearchAndDiscover;
 
 checkedIn = false; 
 
+//The current user
+currentUser = "NAME";
+
 // Called after page loads to set up functionality.
 function init(){
 	buttonsInit();
 	view = View.Home;
 	initMail();
 	initChat();
+	
+	hackForChangeingUser();
 	
 	//Set to true when testing venueinterior
 	if(true){
@@ -429,13 +434,21 @@ function reloadChats(){
 		});
 }
 
+//Hack for changeing user
+function hackForChangeingUser(){
+	currentUser = "NAME";
+	$("#chatUsersList").on('click', '.userProfile' , function(){
+		currentUser = $(this).html();
+	});
+	$("#header_user_div").on('click', function(){currentUser = "NAME"});
+}
+
 function saveChat(){
 	var chatText = $("#chatBoxInputDiv input").val();
-	var userName = "NAME";
 	
 	$.post("http://wrytek.us/scripts/venueChat/saveChat.php",
 		{
-			sender:userName,
+			sender:currentUser,
 			message:chatText
 		},
 		function(data, status){
