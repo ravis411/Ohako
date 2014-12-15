@@ -41,6 +41,8 @@
 	height:250px;
 	width:360px;
 	overflow:hidden;
+
+	font-size: 10pt;
 }
 
 #chatUsers{
@@ -200,13 +202,18 @@
 	width: 360px;
 }
 
-#karaokeSongBookNav{
-	width: 145px;
+#karaokeSongBookNavMenu{
+	width: 135px;
 	height: 400px;
 	float: left;
+	padding-left: 5px;
 
-	background-color: #ffffff;
+	color: #ffffff;
+
+	background-color: #8d00cf;
 }
+
+
 
 #karaokeSongBook
 {

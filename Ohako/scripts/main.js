@@ -111,7 +111,13 @@ function changeHome(){
 		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
 		dayUI();
+		closeInteriorViews();
 	}
+}
+
+function closeInteriorViews(){
+	if (view == View.KaraokeSongBook)
+		displayView(View.Home);
 }
 
 function nightUI(){
