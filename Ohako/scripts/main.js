@@ -24,7 +24,7 @@ function init(){
 	hackForChangeingUser();
 	
 	//Set to true when testing venueinterior
-	if(true){
+	if(false){
 		checkIn();
 	}
 }
@@ -57,7 +57,7 @@ function buttonsInit(){
 function displayView(div)
 {
 	//Prevents closing and reopening home when we are already there
-	if(div == view && view == 'home')
+	if(div == view && view == View.Home)
 		return;
 	
 	closeCurrentView();
@@ -65,7 +65,12 @@ function displayView(div)
 	if (view==div)
 		div = 'home';
 	
-	
+	//Minor hack to make songbook menu fade :/
+	if(div == View.Home || div == View.KaraokeSongBook && home == Home.Venue)
+		$('#interiorNav').fadeIn();
+	else{
+		$('#interiorNav').fadeOut();
+	}
 
 	view = div;
 
