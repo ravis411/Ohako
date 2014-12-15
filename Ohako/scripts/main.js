@@ -64,15 +64,20 @@ function displayView(div)
 
 	if (view==div)
 		div = 'home';
-	
-	//Minor hack to make songbook menu fade :/
-	if(div == View.Home || div == View.KaraokeSongBook && home == Home.Venue)
-		$('#interiorNav').fadeIn();
-	else{
-		$('#interiorNav').fadeOut();
-	}
 
 	view = div;
+
+	if (home == Home.Venue){
+		if (view!=View.Home && view!=View.KaraokeSongBook)
+			$('#interiorControlsBox').fadeOut();
+		else
+			$('#interiorControlsBox').fadeIn();
+
+		if (view==View.KaraokeSongBook)
+			$('#interiorNavSongBook').css("border", "1px solid #ba26ff");
+		else
+			$('#interiorNavSongBook').css("border", "");
+	}
 
 	$('#'+view).show( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "red");
@@ -110,14 +115,14 @@ function changeHome(){
 			home = Home.Venue;
 			$('#searchAndDiscover').fadeOut();
 			$('#homeVenue').fadeIn();
-			$('#interiorNav').fadeIn();
+			$('#interiorControlsBox').fadeIn();
 			nightUI();
 			reloadChats();
 		}
 
 	else if (home != Home.SearchAndDiscover){
 		home = Home.SearchAndDiscover;
-		$('#interiorNav').fadeOut();
+		$('#interiorControlsBox').fadeOut();
 		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
 		dayUI();
