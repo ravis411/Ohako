@@ -24,7 +24,7 @@ function init(){
 	hackForChangeingUser();
 	
 	//Set to true when testing venueinterior
-	if(true){
+	if(false){
 		checkIn();
 	}
 }
