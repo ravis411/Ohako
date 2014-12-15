@@ -19,10 +19,10 @@ function init(){
 	buttonsInit();
 	view = View.Home;
 	initMail();
-	
+	initChat();
 	
 	//Set to true when testing venueinterior
-	if(true){
+	if(false){
 		checkIn();
 	}
 }
@@ -102,6 +102,7 @@ function changeHome(){
 			$('#searchAndDiscover').fadeOut();
 			$('#homeVenue').fadeIn();
 			nightUI();
+			reloadChats();
 		}
 
 	else if (home != Home.SearchAndDiscover){
@@ -177,7 +178,6 @@ function closePullDown(){
 */
 function closeCurrentView()
 {
-	//$('#'+view).css("display", "none");
 	$('#'+view).hide( "slide", 500);
 	if (home==Home.SearchAndDiscover)
 		$('#'+view+'Nav').css("background-color", "#ffb54b");
@@ -257,9 +257,198 @@ function saveMessage(){
 
 /*
 	End of mail functions
+*//* ****
+	Functions for mail messages
+*/
+var mailMessagesDivScrollPaneAPI = null;
+
+function initMail(){
+	//Initialise the JScrollPane
+	mailMessagesDivScrollPaneAPI = $('#mailMessagesDiv').jScrollPane().data('jsp');
+	
+	$('#mailList').on('click', '.mailItem' , handleMailClick);
+	
+	$('#mailMessageSubmitButton').on('click', saveMessage);
+	$("#mailInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveMessage();	}	});
+
+	loadMailThreads();
+}
+
+function loadMailThreads(){
+	$.post("/scripts/getThreads.php",{}, function(result){
+		$("#mailList").html(result);
+	});
+}
+
+
+function handleMailClick(e){
+	if( $(this).hasClass("selectedMailThread") ){
+		mailMessagesDivScrollPaneAPI.getContentPane().html("Select a message from left.");
+		mailMessagesDivScrollPaneAPI.reinitialise();
+		$(this).removeClass("selectedMailThread");
+	}
+	else{
+		$(".selectedMailThread").removeClass("selectedMailThread");
+		$(this).addClass("selectedMailThread");
+		displayMailForSelectedThread();
+	}
+
+}
+
+function displayMailForSelectedThread(){
+		$.post("/scripts/getMessages.php",{thread:$(".selectedMailThread").html()}, function(result){
+			mailMessagesDivScrollPaneAPI.getContentPane().html(result);
+			mailMessagesDivScrollPaneAPI.reinitialise();
+			mailMessagesDivScrollPaneAPI.scrollToBottom()
+		});
+}
+
+function saveMessage(){
+	var threadName = $(".selectedMailThread").html();
+	var messageText = $("#mailInputDiv input").val();
+	
+	if(threadName == undefined){
+		return;
+	}
+	$.post("/scripts/saveMessage.php",
+		{
+			thread:threadName,
+			message:messageText
+		},
+		function(data, status){
+			if(data == "Success"){
+				displayMailForSelectedThread();
+				$("#mailInputDiv input").val("");
+			}else{
+				//alert("Data: " + data + ". Success: " + status);
+				displayMailForSelectedThread();
+			}
+		});
+}
+
+/*
+	End of mail functions
 */
 
 
+/* ****
+	Functions for mail messages
+*/
+var mailMessagesDivScrollPaneAPI = null;
 
+function initMail(){
+	//Initialise the JScrollPane
+	mailMessagesDivScrollPaneAPI = $('#mailMessagesDiv').jScrollPane().data('jsp');
+	
+	$('#mailList').on('click', '.mailItem' , handleMailClick);
+	
+	$('#mailMessageSubmitButton').on('click', saveMessage);
+	$("#mailInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveMessage();	}	});
+	loadMailThreads();
+}
+
+function loadMailThreads(){
+	$.post("/scripts/mail/getThreads.php",{}, function(result){
+		$("#mailList").html(result);
+	});
+}
+
+
+function handleMailClick(e){
+	if( $(this).hasClass("selectedMailThread") ){
+		mailMessagesDivScrollPaneAPI.getContentPane().html("Select a message from left.");
+		mailMessagesDivScrollPaneAPI.reinitialise();
+		$(this).removeClass("selectedMailThread");
+	}
+	else{
+		$(".selectedMailThread").removeClass("selectedMailThread");
+		$(this).addClass("selectedMailThread");
+		displayMailForSelectedThread();
+	}
+
+}
+
+function displayMailForSelectedThread(){
+		$.post("/scripts/mail/getMessages.php",{thread:$(".selectedMailThread").html()}, function(result){
+			mailMessagesDivScrollPaneAPI.getContentPane().html(result);
+			mailMessagesDivScrollPaneAPI.reinitialise();
+			mailMessagesDivScrollPaneAPI.scrollToBottom()
+		});
+}
+
+function saveMessage(){
+	var threadName = $(".selectedMailThread").html();
+	var messageText = $("#mailInputDiv input").val();
+	
+	if(threadName == undefined){
+		return;
+	}
+	$.post("/scripts/mail/saveMessage.php",
+		{
+			thread:threadName,
+			message:messageText
+		},
+		function(data, status){
+			if(data == "Success"){
+				displayMailForSelectedThread();
+				$("#mailInputDiv input").val("");
+			}else{
+				//alert("Data: " + data + ". Success: " + status);
+				displayMailForSelectedThread();
+			}
+		});
+}
+
+/*
+	End of mail functions
+*/
+
+/* *******************************************************
+	Functions for venue chat
+******************************************************** */
+var chatMessagesDivScrollPaneAPI = null;
+
+function initChat(){
+	//Initialise the JScrollPane
+	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane().data('jsp');
+	
+	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
+
+	reloadChats();
+	
+	$("#chatBoxInputDiv input").focus(reloadChats);
+}
+
+function reloadChats(){
+		$.post("/scripts/venueChat/getChats.php",{user:"NAME"}, function(result){
+			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
+			chatMessagesDivScrollPaneAPI.reinitialise();
+			chatMessagesDivScrollPaneAPI.scrollToBottom()
+		});
+}
+
+function saveChat(){
+	var chatText = $("#chatBoxInputDiv input").val();
+	var userName = "NAME";
+	
+	$.post("/scripts/venueChat/saveChat.php",
+		{
+			sender:userName,
+			message:chatText
+		},
+		function(data, status){
+			if(data == "Success"){
+				reloadChats();
+				$("#chatBoxInputDiv input").val("");
+			}else{
+				//alert("Data: " + data + ". Success: " + status);
+				reloadChats();
+			}
+		});
+}
+
+/*
+	End of chat functions
+*/
 
 

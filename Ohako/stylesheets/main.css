@@ -48,7 +48,7 @@
 	width: 89px;
 	margin-top:5px;
 	position:relative;
-float:left;
+	float:left;
 	background-image: url("whiteBackgroundT.png");
 
 	border-right: 2px outset white;
@@ -60,9 +60,10 @@ float:left;
 
 #chatBox{
 	position: relative;
-	height: 245px;
-	width: 267px;
+	height: 205px;
+	width: 257px;
 	float:right;
+	padding:5px;
 	margin-top:5px;
 	border: 1px solid black;
 	border-bottom: 2px solid #e5e5e5;
@@ -79,6 +80,50 @@ float:left;
 
 	z-index: 1;
 }
+
+#chatBoxScroll{
+	position:relative;
+	height:100%;
+	width:100%;
+}
+
+#chatBoxInputDiv{
+	height:24px;
+	padding-top:1px;
+	padding-left:2px;
+	width:265px;
+	position:relative;
+	float:left;
+	border: 1px solid black;
+	border-bottom: 2px solid #e5e5e5;
+	border-left: 1px solid #FFE0C0;
+	border-right: 1px solid #FFE0C0;
+	background-color: #858585;
+}
+
+#chatBoxInputDiv input{
+	width:256px;
+}
+
+.chatMessage {
+	clear:both;
+	max-width:200px;
+	border:1px solid white;
+	border-radius:10px;
+	margin:1px;
+	padding:3px;
+}
+
+.recievedChat{
+	float:left;
+}
+
+.sentChat{
+	float:right;
+}
+
+
+
 
 #usersLogo{
 	text-align: center;
