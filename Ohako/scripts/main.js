@@ -355,7 +355,7 @@ function initMail(){
 }
 
 function loadMailThreads(){
-	$.post("/scripts/mail/getThreads.php",{}, function(result){
+	$.post("http://wrytek.us/scripts/mail/getThreads.php",{}, function(result){
 		$("#mailList").html(result);
 	});
 }
@@ -376,7 +376,7 @@ function handleMailClick(e){
 }
 
 function displayMailForSelectedThread(){
-		$.post("/scripts/mail/getMessages.php",{thread:$(".selectedMailThread").html()}, function(result){
+		$.post("http://wrytek.us/scripts/mail/getMessages.php",{thread:$(".selectedMailThread").html()}, function(result){
 			mailMessagesDivScrollPaneAPI.getContentPane().html(result);
 			mailMessagesDivScrollPaneAPI.reinitialise();
 			mailMessagesDivScrollPaneAPI.scrollToBottom()
@@ -390,7 +390,7 @@ function saveMessage(){
 	if(threadName == undefined){
 		return;
 	}
-	$.post("/scripts/mail/saveMessage.php",
+	$.post("http://wrytek.us/scripts/mail/saveMessage.php",
 		{
 			thread:threadName,
 			message:messageText
@@ -428,7 +428,7 @@ function initChat(){
 
 
 function reloadChats(){
-		$.post("/scripts/venueChat/getChats.php",{user:"NAME"}, function(result){
+		$.post("http://wrytek.us/scripts/venueChat/getChats.php",{user:"NAME"}, function(result){
 			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
 			chatMessagesDivScrollPaneAPI.reinitialise();
 			chatMessagesDivScrollPaneAPI.scrollToBottom()
@@ -439,7 +439,7 @@ function saveChat(){
 	var chatText = $("#chatBoxInputDiv input").val();
 	var userName = "NAME";
 	
-	$.post("/scripts/venueChat/saveChat.php",
+	$.post("http://wrytek.us/scripts/venueChat/saveChat.php",
 		{
 			sender:userName,
 			message:chatText
