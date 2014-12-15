@@ -59,6 +59,12 @@
 		
 			<div id="content">
 
+			<!-- PullDown:  -->
+				<div id="pullDown">
+
+				</div>
+				<!-- END PullDown:  -->
+
 				<!-- Main view...  View.Home -->
 				<div id="home">
 					<!-- Home.SearchAndDiscover -->
@@ -105,13 +111,6 @@
 								<input type="text" placeholder="Chat">
 							</div>
 						</div>
-                        
-                        <div id="interiorNav">
-                        	<div id="interiorNavSongBook" class="option">
-                            	Song Book
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 
@@ -205,8 +204,25 @@
 
 				<!-- KaraokeSongBook: View.KaraokeSongBook -->
 				<div id="karaokeSongBook">
-					<div id="karaokeSongBookNav">
-
+					<div id="karaokeSongBookNavMenu">
+						<img src="images/sortBy.png" alt="Sort By" />
+							<div id="sortByMenu">
+								<div id ="sortByArtist" class="karaokeSongBookNavMenu">
+									Artist
+								</div>
+								<div id ="sortByTitle" class="karaokeSongBookNavMenu">
+									Title
+								</div>
+							</div>
+						<img src="images/viewMy.png" alt="View My" />
+						<div id="viewMyMenu">
+								<div id="viewMySuggestions" class="karaokeSongBookNavMenu">
+									Suggestions
+								</div>
+								<div id="viewMyFavorites" class="karaokeSongBookNavMenu">
+									Faves
+								</div>
+						</div>
 					</div>
 					
 					<div id="karaokeSongBookList">
@@ -245,6 +261,12 @@
 					</div>
 				</div>
 				<!-- END KaraokeSongBook: View.KaraokeSongBook -->
+
+				<div id="interiorNav">
+                        	<div id="interiorNavSongBook" class="option">
+                            	Song Book
+                            </div>
+                </div>
                 
                 <!-- CheckIn:  -->
 				<div id="checkIn">
@@ -253,12 +275,6 @@
 					</div>
 				</div>
 				<!-- END CheckIn:  -->
-
-				<!-- PullDown:  -->
-				<div id="pullDown">
-
-				</div>
-				<!-- END PullDown:  -->
 
 			</div>
 			
