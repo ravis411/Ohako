@@ -72,6 +72,11 @@ function displayView(div)
 			$('#interiorControlsBox').fadeOut();
 		else
 			$('#interiorControlsBox').fadeIn();
+
+		if (view==View.KaraokeSongBook)
+			$('#interiorNavSongBook').css("border", "1px solid #ba26ff");
+		else
+			$('#interiorNavSongBook').css("border", "");
 	}
 
 	$('#'+view).show( "slide", 500);
