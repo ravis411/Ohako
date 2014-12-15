@@ -59,10 +59,15 @@ function displayView(div)
 
 	if (view==div)
 		div = 'home';
-	
-	
 
 	view = div;
+
+	if (home == Home.Venue){
+		if (view!=View.Home && view!=View.KaraokeSongBook)
+			$('#interiorControlsBox').fadeOut();
+		else
+			$('#interiorControlsBox').fadeIn();
+	}
 
 	$('#'+view).show( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "red");
@@ -100,14 +105,14 @@ function changeHome(){
 			home = Home.Venue;
 			$('#searchAndDiscover').fadeOut();
 			$('#homeVenue').fadeIn();
-			$('#interiorNav').fadeIn();
+			$('#interiorControlsBox').fadeIn();
 			nightUI();
 			reloadChats();
 		}
 
 	else if (home != Home.SearchAndDiscover){
 		home = Home.SearchAndDiscover;
-		$('#interiorNav').fadeOut();
+		$('#interiorControlsBox').fadeOut();
 		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
 		dayUI();

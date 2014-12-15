@@ -38,7 +38,7 @@
 
 #homeChatBoxDiv{
 	position:relative;
-	height:250px;
+	height:255px;
 	width:360px;
 	overflow:hidden;
 
@@ -71,7 +71,7 @@
 	border-bottom: 2px solid #e5e5e5;
 	border-left: 1px solid #FFE0C0;
 	border-right: 1px solid #FFE0C0;
-	background-color: #858585;
+	background-color: #cccccc;
 
 	font-family: 'Raleway', sans-serif;	
 	font-weight: bold;
@@ -273,21 +273,36 @@
 }
 
 #interiorNav{
-	width: 75px;
-	height: 130px;
+	width: 100px;
+	height: 100%;
 
-	border: 1px solid black;
-	background-color: #ba26ff;
+	border-right: 1px inset black;
+	background-color: #e3e3e3;
+
+	font-size: 10pt;
+
+	position: relative;
+
+	color: #8a8a8a;
+}
+
+#interiorControlsBox{
+	width: 350px;
+	height: 135px;
+
+	border: 1px inset gray;
+	background-color: #efefef;
 
 	font-size: 10pt;
 
 	position: relative;
 	display: none;
-	top: 265px;
+	top: 260px;
+	padding: 3px;
 }
 
 #interiorNavSongBook{
-	color: white;
+	color: #8a8a8a;
 }
 
 #search
