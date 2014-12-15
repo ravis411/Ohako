@@ -111,9 +111,15 @@
 	clear:both;
 	max-width:215px;
 	border:1px solid white;
-	border-radius:10px;
-	margin:1px;
-	padding:3px;
+	border-radius:8px;
+	margin:2px;
+	padding:4px;
+}
+
+.chatMessageDetails{
+	float:left;
+	clear:both;
+	font-weight:default;
 }
 
 .recievedChat{
@@ -295,7 +301,7 @@
 
 	font-size: 10pt;
 
-	position: relative;
+	position: absolute;
 	display: none;
 	top: 260px;
 	padding: 3px;

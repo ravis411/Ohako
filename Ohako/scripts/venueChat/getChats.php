@@ -10,8 +10,15 @@
 		echo '<h2 style="text-align:center;">No Messages</h2>';
 		return;
 	}
-	
+
+	$tempLastSender = null;
 	while( $row = mysqli_fetch_array($result) ){
+	
+		//If a different sender than the last sender and not the current user
+		if( $tempLastSender != null && $tempLastSender != $row['sender'] && $row['sender'] != $_POST[user] ){
+			echo '<div class="chatMessageDetails">' . $row['sender'] . ':</div>';
+		}
+		
 		echo '<div class="chatMessage ';
 			if($row['sender'] == $_POST[user])
 				echo 'sentChat';
@@ -19,6 +26,7 @@
 				echo 'recievedChat';
 		echo '" title="By: ' . $row['sender'] . ' On: ' . $row[time] . '">';
 		echo $row['message'] . '</div>';
+		$tempLastSender = $row['sender'];
 	}
 	
 	mysqli_close($con);
