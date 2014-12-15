@@ -28,12 +28,14 @@
 	font-weight: bold;
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
-	overflow-x: scroll;
 	text-align:  center;
+	overflow-x: none;
+	overflow-y: none;
 }
 
 #homeVenue{
 	display: none;
+	background-color: #3e3e3e;;
 }
 
 #homeChatBoxDiv{
@@ -62,13 +64,13 @@
 
 #chatBox{
 	position: relative;
-	height: 205px;
+	height: 209px;
 	width: 257px;
 	float:right;
 	padding:5px;
 	margin-top:5px;
 	border: 1px solid black;
-	border-bottom: 2px solid #e5e5e5;
+	border-bottom: 2px solid #3e3e3e;
 	border-left: 1px solid #FFE0C0;
 	border-right: 1px solid #FFE0C0;
 	background-color: #cccccc;
@@ -97,7 +99,6 @@
 	position:relative;
 	float:left;
 	border: 1px solid black;
-	border-bottom: 2px solid #e5e5e5;
 	border-left: 1px solid #FFE0C0;
 	border-right: 1px solid #FFE0C0;
 	background-color: #858585;
@@ -164,6 +165,7 @@
 	padding-top: 5px;
 	padding-left: 5px;
 	text-align: left;
+	position: absolute;
 }
 
 #customContent
@@ -180,7 +182,7 @@
 	font-weight: bold;
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
-	overflow: auto;
+	overflow: none;
 	text-align: center;
 }
 
@@ -288,6 +290,7 @@
 	font-size: 9.5pt;
 
 	position: relative;
+	float:left;
 
 	color: #ffffff;
 }
@@ -303,7 +306,8 @@
 	height: 135px;
 
 	border: 1px inset gray;
-	background-color: #efefef;
+	background-color: #626262;
+	border-bottom: 2px solid #3e3e3e;
 
 	font-size: 9pt;
 
@@ -319,6 +323,22 @@
 	padding-top: 5px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
+}
+
+#infoPanel{
+	float: left;
+	width: 242px;
+	height: 100%;
+	border-left: 1px inset gray;
+
+	font-size: 9.5pt;
+
+	position: relative;
+
+	color: #ffffff;
+	padding-top: -5px;
+
+	background-color: #3e3e3e;
 }
 
 #search
@@ -389,13 +409,14 @@
 	position:absolute;
 	height: 150px;
 	width: 360px;
+	padding-top: 5px;
 
 	text-align: center;
 	z-index: 2;
 }
 
 #buttonCheckIn{
-	margin-top: 125px;
+	margin-top: 45px;
 }
 
 #settingsInterior
@@ -580,7 +601,6 @@
 
 .contentVenueImage
 {
-	padding: 5px;
 	display: inline;
 	cursor:pointer;
 }
@@ -682,7 +702,7 @@ input#submit{
 #karaokeSongBookList li li .songSelection {
   text-decoration: none;
   padding: 3px 3px 3px 17px;
-  background-color: #999;
+  background-color: #cccccc;
   color: #111111;
 }
 #karaokeSongBookList li li .songSelection:active {

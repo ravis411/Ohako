@@ -24,7 +24,7 @@ function init(){
 	hackForChangeingUser();
 	
 	//Set to true when testing venueinterior
-	if(false){
+	if(true){
 		checkIn();
 	}
 }
@@ -47,6 +47,24 @@ function buttonsInit(){
 	$('#buttonCheckIn').on('click', function(){checkIn()});
 
 	$('#interiorNavSongBook').on('click', function(){displayView(View.KaraokeSongBook)});
+
+	slideImages();
+}
+
+function slideImages(){
+	setInterval(function(){
+		if ($('#featuredImage').attr("src") == "images/barAd1.png")
+			$('#featuredImage').attr("src", "images/barAd2.png");
+		else
+			$('#featuredImage').attr("src", "images/barAd1.png");
+	}, 10000);
+
+	setInterval(function(){
+		if ($('#customImage').attr("src") == "images/barAd3.png")
+			$('#customImage').attr("src", "images/barAd4.png");
+		else
+			$('#customImage').attr("src", "images/barAd3.png");
+	}, 7000);
 }
 
 /*
@@ -73,10 +91,16 @@ function displayView(div)
 		else
 			$('#interiorControlsBox').fadeIn();
 
-		if (view==View.KaraokeSongBook)
+		if (view==View.KaraokeSongBook){
 			$('#interiorNavSongBook').css("border", "1px solid #ba26ff");
-		else
+			$('#infoPanelImage').attr("src", "images/infoPanelKaraoke.png");
+			$('#infoPanel').css("background-color", "#c3c3c3");
+		}
+		else{
 			$('#interiorNavSongBook').css("border", "");
+			$('#infoPanelImage').attr("src", "images/infoPanel.png");
+			$('#infoPanel').css("background-color", "#3e3e3e");
+		}
 	}
 
 	$('#'+view).show( "slide", 500);
@@ -91,7 +115,7 @@ function displayView(div)
 		TODO:  Add parameter to allow function to check User in.
 			Will pull the necessary data for the Venue page, log user in on server, etc...
 */
-function checkIn(){
+function checkIn(){	
 	if (!checkedIn){
 		checkedIn = true; 
 		$('#buttonCheckIn').attr("src", 'images/checkout.png');
@@ -183,6 +207,11 @@ function displayPullDown(){
 		pullDown = PullDown.CheckIn;
 		openPullDown();
 	}
+
+	if (checkedIn)
+		$('#splashImage').attr("src", "images/splashImageExit.png");
+	else
+		$('#splashImage').attr("src", "images/splashImage.png");
 }
 
 function openPullDown(){
