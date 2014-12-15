@@ -100,14 +100,14 @@ function changeHome(){
 			home = Home.Venue;
 			$('#searchAndDiscover').fadeOut();
 			$('#homeVenue').fadeIn();
-			//$('#interiorNav').fadeIn();
+			$('#interiorNav').fadeIn();
 			nightUI();
 			reloadChats();
 		}
 
 	else if (home != Home.SearchAndDiscover){
 		home = Home.SearchAndDiscover;
-	//	$('#interiorNav').fadeOut();
+		$('#interiorNav').fadeOut();
 		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
 		dayUI();
@@ -467,6 +467,8 @@ function swap(targetId){
         else
             target.style.display = "none";      
   }
+
+  $('#karaokeSongBookList').jScrollPane();
 }
 
 
