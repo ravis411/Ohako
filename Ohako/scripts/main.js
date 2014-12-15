@@ -243,7 +243,7 @@ function saveMessage(){
 				displayMailForSelectedThread();
 				$("#mailInputDiv input").val("");
 			}else{
-				alert("Data: " + data + ". Success: " + status);
+				//alert("Data: " + data + ". Success: " + status);
 				displayMailForSelectedThread();
 			}
 		});
