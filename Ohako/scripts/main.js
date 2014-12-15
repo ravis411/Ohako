@@ -1,6 +1,6 @@
 
 // View of what is currently being displayed.  None for main page without any of the overlaying divs.
-View = {Home: "home", Venue: "venue", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
+View = {Home: "home", Venue: "venue", KaraokeSongBook: "karaokeSongBook", Mailbox: "mailbox", SongBook: "songBook", Search: "search", Settings: "settings"}; 
 view = null;
 
 PullDown = {CheckIn: "checkIn", Closed: "closed"};
@@ -37,6 +37,8 @@ function buttonsInit(){
 	$('#pullDown').on('click', function(){displayPullDown()});
 
 	$('#buttonCheckIn').on('click', function(){checkIn()});
+
+	$('#interiorNavSongBook').on('click', function(){displayView(View.KaraokeSongBook)});
 }
 
 /*
@@ -95,11 +97,13 @@ function changeHome(){
 			home = Home.Venue;
 			$('#searchAndDiscover').fadeOut();
 			$('#homeVenue').fadeIn();
+			//$('#interiorNav').fadeIn();
 			nightUI();
 		}
 
 	else if (home != Home.SearchAndDiscover){
 		home = Home.SearchAndDiscover;
+	//	$('#interiorNav').fadeOut();
 		$('#homeVenue').fadeOut();
 		$('#searchAndDiscover').fadeIn();
 		dayUI();
@@ -254,6 +258,14 @@ function saveMessage(){
 */
 
 
-
+function swap(targetId){
+  if (document.getElementById){
+        target = document.getElementById(targetId);
+        if (target.style.display == "none")
+             target.style.display = ""; 
+        else
+            target.style.display = "none";      
+  }
+}
 
 
