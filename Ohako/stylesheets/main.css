@@ -36,13 +36,19 @@
 	display: none;
 }
 
+#homeChatBoxDiv{
+	position:relative;
+	height:250px;
+	width:360px;
+	overflow:hidden;
+}
+
 #chatUsers{
 	height: 249px;
 	width: 89px;
-	position: absolute;
-	top: 5px;
-	left: 0px;
-
+	margin-top:5px;
+	position:relative;
+float:left;
 	background-image: url("whiteBackgroundT.png");
 
 	border-right: 2px outset white;
@@ -50,6 +56,28 @@
 	z-index: 2;
 
 	text-align: center;
+}
+
+#chatBox{
+	position: relative;
+	height: 245px;
+	width: 267px;
+	float:right;
+	margin-top:5px;
+	border: 1px solid black;
+	border-bottom: 2px solid #e5e5e5;
+	border-left: 1px solid #FFE0C0;
+	border-right: 1px solid #FFE0C0;
+	background-color: #858585;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	overflow-y: auto;
+	text-align:  left;
+
+	z-index: 1;
 }
 
 #usersLogo{
@@ -76,28 +104,6 @@
 	padding: 2px;
 
 	cursor:pointer;
-}
-
-#chatBox{
-	height: 250px;
-	width: 100%;
-	border: 1px solid black;
-	border-bottom: 2px solid #e5e5e5;
-	border-left: 1px solid #FFE0C0;
-	border-right: 1px solid #FFE0C0;
-	background-color: #858585;
-
-	font-family: 'Raleway', sans-serif;	
-	font-weight: bold;
-	color: #ffffff;
-	text-shadow: 0 0 5px #ffb400;
-	overflow-y: auto;
-	text-align:  left;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
 }
 
 #title

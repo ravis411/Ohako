@@ -19,6 +19,12 @@ function init(){
 	buttonsInit();
 	view = View.Home;
 	initMail();
+	
+	
+	//Set to true when testing venueinterior
+	if(true){
+		checkIn();
+	}
 }
 
 // Initializes all of the buttons
