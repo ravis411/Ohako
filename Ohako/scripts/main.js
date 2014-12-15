@@ -18,7 +18,7 @@ checkedIn = false;
 function init(){
 	buttonsInit();
 	view = View.Home;
-	loadMailThreads();
+	initMail();
 }
 
 // Initializes all of the buttons
@@ -33,10 +33,6 @@ function buttonsInit(){
 	$('#searchNav').on('click', function(){displayView(View.Search)});
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
 	$('.contentVenueImage').on('click', function(){displayView(View.Venue)});
-
-	$('.mailItem').on('click', function(){displayMail()});
-	$('#mailList').on('click', '.mailItem' , handleMailClick);
-	$('#mailMessageSubmitButton').on('click', saveMessage);
 
 	$('#pullDown').on('click', function(){displayPullDown()});
 
@@ -189,10 +185,19 @@ function closeCurrentView()
 */
 var mailMessagesDivScrollPaneAPI = null;
 
-function loadMailThreads(){
+function initMail(){
 	//Initialise the JScrollPane
 	mailMessagesDivScrollPaneAPI = $('#mailMessagesDiv').jScrollPane().data('jsp');
+	
+	$('#mailList').on('click', '.mailItem' , handleMailClick);
+	
+	$('#mailMessageSubmitButton').on('click', saveMessage);
+	$("#mailInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveMessage();	}	});
 
+	loadMailThreads();
+}
+
+function loadMailThreads(){
 	$.post("/scripts/getThreads.php",{}, function(result){
 		$("#mailList").html(result);
 	});
@@ -236,6 +241,7 @@ function saveMessage(){
 		function(data, status){
 			if(data == "Success"){
 				displayMailForSelectedThread();
+				$("#mailInputDiv input").val("");
 			}else{
 				alert("Data: " + data + ". Success: " + status);
 				displayMailForSelectedThread();

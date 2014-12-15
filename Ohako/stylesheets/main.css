@@ -195,6 +195,7 @@
 
 	background-image: url("pulldown.png");
 	z-index: 3;
+	cursor:pointer;
 }
 
 #checkIn
@@ -206,6 +207,7 @@
 
 	background-image: url("blackBackground.png");
 	z-index: 2;
+	cursor:pointer;
 }
 
 #checkInInterior
@@ -335,11 +337,19 @@
 	border:1px solid black;
 }
 
+#mailInputDiv input{
+	width:160px;
+	margin-top:1px;
+}
+
 #mailMessageSubmitButton{
 	float:right;
 	height:20px;
 	width: 20px;
 	background-color:green;
+	margin:2px;
+	margin-right:5px;
+	cursor:pointer;
 }
 #mailMessageSubmitButton:hover{
 	
