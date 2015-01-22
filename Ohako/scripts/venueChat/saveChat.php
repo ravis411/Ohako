@@ -1,5 +1,5 @@
 <?php 
-	$con=new mysqli("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . $con->connect_error);
+	$con=new mysqli("wrytek.net", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . $con->connect_error);
 	
 	function test_input($data)
 	{

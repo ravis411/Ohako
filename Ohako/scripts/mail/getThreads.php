@@ -1,5 +1,5 @@
 <?php
-	$con = mysqli_connect("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
+	$con = mysqli_connect("wrytek.net", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
 	$sql = "SELECT MAX(ID),`thread` FROM `messages` GROUP BY `thread` ORDER BY MAX(ID) DESC";
 	

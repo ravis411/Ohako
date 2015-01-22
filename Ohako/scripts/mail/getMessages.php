@@ -1,6 +1,6 @@
 <?php
 
-	$con = mysqli_connect("wrytek.net", "one", "conquest", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
+	$con = mysqli_connect("wrytek.net", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
 	$sql = "SELECT `message`, `sender` FROM `messages` WHERE `thread`='$_POST[thread]' ORDER BY `messages`.`time` ASC";
 	
