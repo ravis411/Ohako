@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 ob_start();
 
-include "functions.php";
+require_once __DIR__ . '/loginFunctions.php';
 
 // Email and password from form
 $email = $_POST["email"];
@@ -27,7 +27,7 @@ if (! ($query->num_rows === 1)) {
 }
 
 // Matching password?
-else if (! ($password === $realpw)) {
+else if (! ($password == $realpw)) {
     //echo "Login failed: incorrect password\n";
     //login_failure("Incorrect password");
 	$arry['success'] = false;

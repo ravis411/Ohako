@@ -1,14 +1,13 @@
 <?php
-
 /*******************************************/
 /************ Database variables ***********/
 /************ Do not modify EVER ***********/
 /*******************************************/
 
-$database_hostname = "ryanwalkerdavis.com";
-$database_username = "one";
-$database_password = "conquest";
-$database_name = "ryanwalkerdavis";
+$database_hostname = "wrytek.us";
+$database_username = "ohako";
+$database_password = "karaoke";
+$database_name = "ohako";
 
 // Creates connection
 $database_link = mysqli_connect("$database_hostname", "$database_username", "$database_password", "$database_name") or die("Error connecting to database\n");
@@ -19,7 +18,7 @@ $database_link = mysqli_connect("$database_hostname", "$database_username", "$da
 /************* URL manipulation ************/
 /*******************************************/
 
-$base_url = "http://ryanwalkerdavis.com/";
+$base_url = "http://wrytek.us/";
 $home_url = "";
 $login_url = "";
 $login_failure_url = $login_url;// . "?failure_reason=";
@@ -36,16 +35,6 @@ function redirect_to($new_url)
 /*******************************************/
 /**************** Login/out ****************/
 /*******************************************/
-
-/* Sends the user back to the login page for the supplied reason */
-function login_failure($reason)
-{
-	global $login_failure_url;
-	session_start();
-	$_SESSION["login_failure"] = $reason;
-   // redirect_to("$login_failure_url$reason");
-	redirect_to("$login_failure_url");
-}
 
 /* Checks if a user is logged in */
 function user_logged_in()
@@ -73,7 +62,7 @@ function user_logged_in()
 				if(isset($_COOKIE['userID'])){
 					if($_COOKIE['userID'] == $userID){
 						return initialize_user_session($userID);
-					}	
+					}
 				}
 				
 			}else{
@@ -116,8 +105,10 @@ function initialize_user_session($userID)
 	//
 	if(!isset($_COOKIE['seshID'])){
 		$expire = time()+60*60*24*30;
-		setCookie("seshID", session_id(), $expire, "/", ".ryanwalkerdavis.com", TRUE, true);
-		setCookie("userID", $userID, $expire, "/", ".ryanwalkerdavis.com", TRUE, true);
+		//setCookie("seshID", session_id(), $expire, "/", ".ryanwalkerdavis.com", TRUE, true);
+		//setCookie("userID", $userID, $expire, "/", ".ryanwalkerdavis.com", TRUE, true);
+		setCookie("seshID", session_id(), $expire, "/");
+		setCookie("userID", $userID, $expire, "/");
 		//save in database
 		$query = $database_link->prepare("INSERT INTO userSessions (userID, sessionID, expires) VALUES (?,?,?)");
 		$query->bind_param('sss', $userID, session_id(), $expire);
@@ -127,12 +118,12 @@ function initialize_user_session($userID)
 }
 
 /* Logs a user out */
-function log_out()
+function log_out($withRedirect = false)
 {
 	if(isset( $_COOKIE['seshID']) ){
 		$seshID = $_COOKIE['seshID'];
 		global $database_link;
-		$query = $database_link->prepare("DELETE FROM `ryanwalkerdavis`.`userSessions` WHERE `userSessions`.`sessionID` = ? ");
+		$query = $database_link->prepare("DELETE FROM `userSessions` WHERE `userSessions`.`sessionID` = ? ");
 		$query->bind_param('s', $seshID);
 		$query->execute();
 	}
@@ -141,24 +132,21 @@ function log_out()
 	$_SESSION = array();
 	if (ini_get("session.use_cookies")) {
 		$params = session_get_cookie_params();
-		setcookie(session_name(), '', time() - 42000, "/", ".ryanwalkerdavis.com", TRUE, true);
+		//setcookie(session_name(), '', time() - 42000, "/", ".ryanwalkerdavis.com", TRUE, true);
+		setcookie(session_name(), '', time() - 42000, "/");
 	}
     session_destroy();
 	
-	setCookie("seshID", "", time(), "/", ".ryanwalkerdavis.com", TRUE, true);
-	setCookie("userID", "", time(), "/", ".ryanwalkerdavis.com", TRUE, true);
+	//setCookie("seshID", "", time(), "/", ".ryanwalkerdavis.com", TRUE, true);
+	//setCookie("userID", "", time(), "/", ".ryanwalkerdavis.com", TRUE, true);
+	setCookie("seshID", "", time(), "/");
+	setCookie("userID", "", time(), "/");
 	
-    global $login_url;
-	redirect_to($login_url);
+	if($withRedirect){
+  		global $login_url;
+		redirect_to($login_url);
+	}
 }
 
-/* Returns error string if user not logged in. Use in request-handler PHP files */
-function error_if_not_logged_in()
-{
-    if ($_POST["testing"] != "magic" && ! user_logged_in()) {
-        echo "Error: user is not logged in.\n";
-        exit();
-    }
-}
 
 ?>

@@ -3,7 +3,7 @@
 //error_reporting(E_ALL);
 //ob_start();
 
-include "functions.php";
+require_once __DIR__ . '/loginFunctions.php';
 
 //echo "SHIT";
 

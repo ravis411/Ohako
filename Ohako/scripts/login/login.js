@@ -6,7 +6,7 @@ var upperDiv = null;
 var LOGINSTATES = {login:"login", register:"register"};
 var loginState = LOGINSTATES.login;
 
-$(document).ready(function(){
+$(document).on('ready',function(){
 	
 	$("#header #headerLogInDiv").on("click", menuClickHandler);
 	$("#upperDiv #loginForm #loginFormSubmitButton").on("click", logInClickHandler);
@@ -40,6 +40,8 @@ function switchLogRegClickHandler(e){
 }
 
 function menuClickHandler(e){
+	e.preventDefault();
+	e.stopPropagation();
 	if(upperDivState == UPPERDIVSTATES.closed){
 		
 		upperDivState = UPPERDIVSTATES.open;
@@ -136,7 +138,7 @@ function register(){
 		return false;
 	
 	$( "#upperDiv #registrationDiv #registrationFail").html("Submitting?....?");
-	$.post("https://www.ryanwalkerdavis.com/php/register.php",
+	$.post("http://wrytek.us/scripts/login/register.php",
 		{
 			userName:userName,
 			password:pass,
@@ -164,13 +166,14 @@ function logIn(){
 	var userName = $("#upperDiv #loginForm #loginFormUserName").val();
 	var pass = $("#upperDiv #loginForm #loginFormPassword").val();
 
-	$.post("https://" + window.location.hostname + "/php/checkLogin.php",
+	$.post("http://wrytek.us/scripts/login/checkLogin.php",
 		{
 			email:userName,
 			password:pass
 		},
 		function(data, status){
 			if(data.success)
+				//alert("loged in?" + document.cookie + "\n\n" + data.toSource());
 				location.reload(true);
 			else{
 				$("#upperDiv #loginForm #loginFail").html(data.errorMessage);
