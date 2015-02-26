@@ -1,7 +1,12 @@
+<?
+	require_once __DIR__ . 'scripts/login/loginFunctions.php';
+
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 	<title>OHAKO</title>
 	<link rel="shortcut icon" href="/images/logo_ohako_night.png">
 
@@ -42,17 +47,61 @@
 
 		<div id="contents">
 
+			
+		<?php //If user not logged in output the login/registration div
+
+		if(!user_logged_in()){
+			echo'<div id="upperDiv">
+			
+				<div id="loginDiv">
+					<form id="loginForm" name="loginForm" method="post" action="">
+						<h2>Log in</h2>
+						<div id="loginFail" class="fail"></div>
+						<input id="loginFormUserName" name="username" type="text" placeholder="User Name or Email" autofocus required /><br>
+						<input id="loginFormPassword" name="password" type="password" placeholder="Password" required /><br>
+						<input id="loginFormSubmitButton" type="submit" name="submit" class="button" value="Login" /><div id="loginFormSwitchToRegistrationButton">Register?</div>
+					</form>
+				</div>
+				
+				<div id="registrationDiv">
+					 <form id="registrationForm" name="registrationForm" method="post" action="">
+						<h2>Register!</h2>
+						<div id="registrationFail" class="fail"></div>
+						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>
+						<input id="registrationUserName" name="username" type="text" placeholder="User Name" required /><br>
+						<input id="registrationEmail" name="email" type="email" placeholder="Email" required /><br>
+						<input id="registrationPassword" name="password" type="password" placeholder="Password" required /><br>
+						<input id="registrationPassword2" name="password2" type="password" placeholder="Verify Password" required /><br>
+						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />
+						<div id="registrationSwitchToLoginButton">Login?</div>
+					</form>
+				</div>
+				
+			
+				
+				
+			</div><!--End of upperDiv-->';
+		} ?>
 			<div id="header">
 
 				<span id="title"><img id="logo" src="images/logo_ohako.png" alt="OHAKO" /></span>
 
 				<div id="header_user_div">
-					<div id="header_user_image">
-						<img src="images/userProfileImage.png" alt="Profile Picture" width ="25px" height="25px" /> 
-					</div>
-					<div id="header_user_name">
-						Name
-					</div>
+					<?php
+						//If user !logged in output login button
+							//Otherwise output username and userimage
+						if(!user_logged_in()){
+							echo'<div id="headerLogInDiv">Login</div>';
+						}else{
+							echo "<div id="header_user_image">
+									<img src="images/userProfileImage.png" alt="Profile Picture" width ="25px" height="25px" /> 
+								</div>
+								<div id="header_user_name">
+									$_SESSION['userName']
+								</div>
+								";
+						}
+					?>
 				</div>
 
 			</div>
