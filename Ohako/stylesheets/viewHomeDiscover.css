@@ -1,0 +1,45 @@
+
+#featuredContent
+{
+	height: 200px;
+	width: 100%;
+	border: 1px solid black;
+	border-bottom: 2px solid #fdc473;
+	border-left: 1px solid #FFE0C0;
+	border-right: 1px solid #FFE0C0;
+	background-color: #ffe8c7;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	text-align:  center;
+	overflow-x: none;
+	overflow-y: none;
+}
+
+#title
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	text-align: left;
+	position: absolute;
+}
+
+#customContent
+{
+	height: 195px;
+	width: 100%;
+	border: 1px solid black;
+	border-bottom: 2px solid #fdc473;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	background-color: #fff1de;
+
+	font-family: 'Raleway', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb400;
+	overflow: none;
+	text-align: center;
+}
