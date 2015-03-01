@@ -1,4 +1,4 @@
-#songBook
+#venue
 {
 	display: none;
 	position:absolute;
@@ -6,16 +6,15 @@
 	width: 360px;
 }
 
-#songBookInterior
+#venueInterior
 {
 	width: 99%%;
 	height: 97.7%;
 	border: 2px solid white;
-	padding-top: 1px;
+	padding-top: 5px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
 
 	background-color: #ffb954;
-	overflow-x: auto;
-	overflow-y: hidden;
+	overflow: hidden;
 }

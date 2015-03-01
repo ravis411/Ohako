@@ -43,3 +43,9 @@
 	overflow: none;
 	text-align: center;
 }
+
+.contentVenueImage
+{
+	display: inline;
+	cursor:pointer;
+}

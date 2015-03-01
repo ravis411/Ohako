@@ -1,4 +1,4 @@
-#songBook
+#search
 {
 	display: none;
 	position:absolute;
@@ -6,16 +6,22 @@
 	width: 360px;
 }
 
-#songBookInterior
+#searchInterior
 {
 	width: 99%%;
 	height: 97.7%;
 	border: 2px solid white;
-	padding-top: 1px;
+	padding-top: 5px;
 	border-top-right-radius: 22px;
 	border-bottom-right-radius: 22px;
+	overflow: hidden;
 
 	background-color: #ffb954;
-	overflow-x: auto;
-	overflow-y: hidden;
+}
+
+#searchInput
+{
+	margin: auto;
+	text-align: center;
+	padding: 5px;
 }

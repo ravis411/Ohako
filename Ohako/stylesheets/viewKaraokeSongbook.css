@@ -26,19 +26,6 @@
 	background-color: #707070;
 }
 
-.karaokeSongBookNavMenu{
-	cursor: pointer;
-	font-size: 10pt;
-	padding: 1px;
-	padding-left: 3px;
-	width: 100px;
-	text-align: center;
-
-	border: 1px solid #ffffff;
-	border-radius: 22px;
-	margin-bottom: 3px;
-}
-
 #sortByMenu{
 	margin-top: 3px;
 	margin-left: 10px;
@@ -66,4 +53,52 @@
 	font-size: 10pt;
 	overflow-y: auto;
 	overflow-x: none;
+}
+
+#karaokeSongBookList ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  text-align: left;
+  cursor: pointer;
+}
+#karaokeSongBookList a {
+  text-decoration: none;
+  display: block;
+  padding: 3px 12px 3px 8px;
+  background-color: #666;
+  color: #fff;
+  border: 1px solid #ddd;
+}
+#karaokeSongBookList a:active {
+  padding: 2px 13px 4px 7px;
+  background-color: #444;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+#karaokeSongBookList li li .songSelection {
+  text-decoration: none;
+  padding: 3px 3px 3px 17px;
+  background-color: #cccccc;
+  color: #111111;
+}
+#karaokeSongBookList li li .songSelection:active {
+  padding: 2px 4px 4px 16px;
+  background-color: #888;
+  color: #000;
+}
+
+.karaokeSongBookNavMenu{
+	cursor: pointer;
+	font-size: 10pt;
+	padding: 1px;
+	padding-left: 3px;
+	width: 100px;
+	text-align: center;
+
+	border: 1px solid #ffffff;
+	border-radius: 22px;
+	margin-bottom: 3px;
 }
