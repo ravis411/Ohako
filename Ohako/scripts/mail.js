@@ -210,3 +210,7 @@ function saveMessage(){
 			}
 		});
 }
+
+/*
+	End of mail functions
+*/
