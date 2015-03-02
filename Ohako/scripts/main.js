@@ -23,7 +23,7 @@ function init(){
 	
 	hackForChangeingUser();
 
-	hackCurrentView("venue");
+	hackCurrentView("songBook");
 	
 	//Set to true when testing venueinterior
 	if(false){
@@ -112,7 +112,7 @@ function displayView(div)
 	$('#'+view).show( "slide", 500);
 	$('#'+view+'Nav').css("background-color", "red");
 
-	$('#songBookInterior').jScrollPane();
+	$('#profileSongBook').jScrollPane();
 }
 
 /*

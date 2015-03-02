@@ -22,6 +22,33 @@
 	z-index: 2;
 }
 
+#checkInLogo
+{
+	width: 100px;
+	height: 88px;
+	float: left;
+
+	margin-top: 5px;
+	margin-left: 5px;
+	border: 2px outset black;
+
+	text-align: center;
+
+	background-color: gray;
+}
+
+#checkInDetails
+{
+	width: 215px;
+	height: 90px;
+
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+
+	background-color: gray;
+}
+
 #buttonCheckIn{
-	margin-top: 45px;
+	margin-top: 20px;
 }
