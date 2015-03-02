@@ -26,6 +26,19 @@
 	position: absolute;
 }
 
+#adHeader
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	text-align: left;
+	position: absolute;
+	padding-right: 10px;
+
+	border-bottom-right-radius: 22px;
+
+	background-color: #000000;
+}
+
 #customContent
 {
 	height: 195px;
