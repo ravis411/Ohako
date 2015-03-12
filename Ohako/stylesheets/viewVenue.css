@@ -1,0 +1,73 @@
+#venue
+{
+	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
+}
+
+#venueInterior
+{
+	width: 99%%;
+	height: 97.7%;
+	border: 2px solid white;
+	padding-top: 5px;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+
+	background-color: #ffb954;
+	overflow: hidden;
+}
+
+#venueInteriorLogo
+{
+	width: 135px;
+	height: 100px;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
+	text-align: center;
+
+	background-color: gray;
+}
+
+#venueDetails
+{
+	width: 200px;
+	height: 100px;
+	margin-top: 5px;
+	margin-right: 5px;
+
+	float: right;
+	text-align: center;
+
+	background-color: gray;
+}
+
+#venueRating
+{
+	width: 95%;
+	height: 45px;
+	margin: auto;
+	margin-top: 5px;
+	text-align: center;
+
+	background-color: gray;
+}
+
+#venueContent
+{
+	width:98%;
+	height: 300px;
+	margin-top: 5px;
+
+	border-top: 2px black inset;
+	border-right: 2px black inset;
+
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+
+	overflow: auto;
+
+	background-color: gray;
+}

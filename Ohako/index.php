@@ -25,15 +25,30 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewHomeDiscover.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewHomeVenue.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewKaraokeSongBook.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewMailbox.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewSearch.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewSettings.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewSongbook.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/viewVenue.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/interiorControls.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/checkIn.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/header.css">
 
 	<script type="text/javascript" src="scripts/main.js"></script>
+
 	<?php if(!user_logged_in()){
 		echo'<script type="text/javascript" src="scripts/login/login.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheets/login.css">';
 	 }?>
+
+	<script type="text/javascript" src="scripts/mail.js"></script>
+	<script type="text/javascript" src="scripts/venueChat.js"></script>
+
 
 	<script>
 		$(document).ready(function()
@@ -119,12 +134,12 @@
 					<!-- Home.SearchAndDiscover -->
                 	<div id="searchAndDiscover">
                         <div id="featuredContent">
-                            <div id="title"> Featured This Week </div>
+                            <div id="adHeader"> Featured This Week </div>
                             <img class="contentVenueImage" src="images/barAd1.png" id="featuredImage"/>
                         </div>
     
                         <div id="customContent">
-                            <div id="title"> Happening Tonight </div>
+                            <div id="adHeader"> Happening Tonight </div>
                             <img class="contentVenueImage" src="images/barAd3.png" id="customImage"/>
                         </div>
                     </div>
@@ -164,7 +179,29 @@
 				<!-- Venue: View.Venue -->
 				<div id="venue">
 					<div id="venueInterior">
-						<img src="images/venueprofile.png"/>
+						<div id="venueInteriorLogo" >
+							Logo here.
+						</div>
+
+						<div id="venueDetails" >
+							Details here.
+							Karaoke nights.
+							Smoking?  Drinking? 
+						</div>
+
+						<br style="clear: both;"/>
+
+						<div id="venueRating">
+							Rating here
+						</div>
+
+						<div id="venueContent">
+							Content goes here.
+							Currently top songs but could be other.
+							Could be tabs of different data.
+							Media!!!  Tabs to switch between content...
+							Media | Top Songs | Drink Specials? | etc..
+						</div>
 					</div>
 				</div>
 				<!-- END Venue: View.Venue -->
@@ -193,7 +230,27 @@
 				<!-- SongBook: View.SongBook -->
 				<div id="songBook">
 					<div id="songBookInterior">
-						<img src="images/profile.png"/>
+						<div id="profilePicture">
+							Profile Picture
+						</div>
+
+						<div id="profileUserName">
+							User's name here!
+						</div>
+
+						<div id="profileStarRating">
+							User's rating here.
+						</div>
+
+						<br style="clear: both;"/>
+
+						<div id="profileSongBook">
+							Multi-Tab content. 
+							Song list with comments/media/rating. 
+							Media for videos/pictures. 
+							Top songs 
+							etc...
+						</div>
 					</div>
 				</div>
 				<!-- END SongBook: View.SongBook -->
@@ -341,7 +398,16 @@
                 <!-- CheckIn:  -->
 				<div id="checkIn">
 					<div id="checkInInterior">
-						<img src="images/splashImage.png" id="splashImage" /> <br/>
+						<div id="checkInLogo">
+							Logo here
+						</div>
+
+						<div id="checkInDetails">
+							Details like current deals.
+							What's coming up...
+						</div>
+						<br style="clear: both;" />
+						
 						<img src="images/checkin.png" id="buttonCheckIn" />
 					</div>
 				</div>

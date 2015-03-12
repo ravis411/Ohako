@@ -1,0 +1,78 @@
+#songBook
+{
+	display: none;
+	position:absolute;
+	height: 400px;
+	width: 360px;
+}
+
+#songBookInterior
+{
+	width: 99%%;
+	height: 97.7%;
+	border: 2px solid white;
+	padding-top: 1px;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+
+	background-color: #ffb954;
+
+	overflow: hidden;
+}
+
+#profilePicture
+{
+	width: 120px;
+	height: 105px;
+	margin-top: 5px;
+	margin-left: 5px;
+
+	float: left;
+
+	border: 2px outset black;
+
+	text-align: center;
+
+	background-color: gray;
+}
+
+#profileUserName
+{
+	width: 200px;
+	height: 25px;
+
+	margin-top: 5px;
+	margin-left: 5px;
+
+	float: left;
+
+	background-color: white;
+}
+
+#profileStarRating
+{
+	height: 85px;
+	width: 200px;
+
+	margin-left: 5px;
+	text-align: center;
+
+	float: left;
+
+	background-color: gray;
+}
+
+#profileSongBook
+{
+	height: 300px;
+	width: 98%;
+	margin-top: 5px;
+
+	border-top: 2px inset black;
+	border-right: 2px inset black;
+	border-top-right-radius: 22px;
+
+	overflow-x: scroll;
+
+	background-color: gray;
+}
