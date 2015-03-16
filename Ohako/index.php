@@ -46,6 +46,17 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/login.css">';
 	 }?>
 
+	 <?php
+	 	require 'vendor/autoload.php';
+	 	require 'scripts/database.php';
+
+	 	use Illuminate\Database\Capsule\Manager as Capsule;
+
+	 	echo Venue::first()->name;
+	 	echo Venue::first()->description;
+
+	 ?>
+
 	<script type="text/javascript" src="scripts/mail.js"></script>
 	<script type="text/javascript" src="scripts/venueChat.js"></script>
 
