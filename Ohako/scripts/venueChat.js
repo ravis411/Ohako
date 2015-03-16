@@ -3,7 +3,7 @@
 ******************************************************** */
 var chatMessagesDivScrollPaneAPI = null;
 
-function initChat(){
+function initVenueChat(){
 	//Initialise the JScrollPane
 	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane().data('jsp');
 	
@@ -12,6 +12,8 @@ function initChat(){
 	reloadChats();
 	
 	$("#chatBoxInputDiv input").focus(reloadChats);
+
+	hackForChangeingUser();
 }
 
 

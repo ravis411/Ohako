@@ -19,9 +19,7 @@ function init(){
 	buttonsInit();
 	view = View.Home;
 	initMail();
-	initChat();
-	
-	hackForChangeingUser();
+	initVenueChat();
 
 	hackCurrentView("songBook");
 	
