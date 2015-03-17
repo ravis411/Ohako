@@ -53,7 +53,7 @@
 	 	use Illuminate\Database\Capsule\Manager as Capsule;
 
 	 	echo Venue::first()->name;
-	 	echo Venue::first()->description;
+	 	echo '<img src=localhost:3000' . Venue::first()->imageLocation . ' />';
 
 	 ?>
 
@@ -62,6 +62,7 @@
 
 
 	<script>
+		//$('body').html("<img src=" + location + "/>");
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();

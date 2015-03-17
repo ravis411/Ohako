@@ -91,6 +91,9 @@ function displayView(div)
 
 	view = div;
 
+	if (view==View.Venue)
+		getData(1);
+
 	if (home == Home.Venue){
 		if (view!=View.Home && view!=View.KaraokeSongBook)
 			$('#interiorControlsBox').fadeOut();
@@ -113,6 +116,15 @@ function displayView(div)
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#profileSongBook').jScrollPane();
+}
+
+function getData(venueID) {
+	console.log(venueID);
+	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
+			venueData = jQuery.parseJSON(result);
+			console.log(venueData[0].imageLocation);
+			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
+		});
 }
 
 /*
@@ -254,5 +266,7 @@ function swap(targetId){
   $('#karaokeSongBookList').jScrollPane();
 }
 
-
+function getVenueData(id){
+	
+}
 
