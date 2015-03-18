@@ -28,6 +28,7 @@
 	float: left;
 	text-align: center;
 	overflow: hidden;
+	border: 2px outset white;
 
 	background-color: gray;
 }

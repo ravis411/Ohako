@@ -119,10 +119,9 @@ function displayView(div)
 }
 
 function getData(venueID) {
-	console.log(venueID);
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
 			venueData = jQuery.parseJSON(result);
-			console.log(venueData[0].imageLocation);
+			console.log(venueData[0]);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
 		});
 }
