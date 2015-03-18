@@ -10,18 +10,28 @@ function initVenueChat(){
 	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
 
 	reloadChats();
+	reloadUsers();
 	
 	$("#chatBoxInputDiv input").focus(reloadChats);
+	//setInterval(reloadChats, 2000);
 
-	hackForChangeingUser();
+	//hackForChangeingUser();
+}
+
+function reloadUsers(){
+
+	$.post("http://wrytek.us/scripts/venueChat/getUsers.php",{},function(){
+		$("#chatUsersList").html(result);
+	});
+	
 }
 
 
 function reloadChats(){
-		$.post("http://wrytek.us/scripts/venueChat/getChats.php",{user:"NAME"}, function(result){
+		$.post("http://wrytek.us/scripts/venueChat/getChats.php",{}, function(result){
 			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
 			chatMessagesDivScrollPaneAPI.reinitialise();
-			chatMessagesDivScrollPaneAPI.scrollToBottom()
+			chatMessagesDivScrollPaneAPI.scrollToBottom();
 		});
 }
 
@@ -39,7 +49,6 @@ function saveChat(){
 	
 	$.post("http://wrytek.us/scripts/venueChat/saveChat.php",
 		{
-			sender:currentUser,
 			message:chatText
 		},
 		function(data, status){

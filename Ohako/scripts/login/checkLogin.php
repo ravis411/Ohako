@@ -11,7 +11,7 @@ $password = $_POST["password"];
 $arry = array('userName'=>$email, 'success'=>true, 'errorMessage'=>"");
 
 // Query for email and password
-$query = $database_link->prepare("SELECT ID, userName, password FROM users WHERE userName = ? OR email = ?");
+$query = $login_database_link->prepare("SELECT ID, userName, password FROM users WHERE userName = ? OR email = ?");
 $query->bind_param('ss', $email, $email);
 $query->execute() or die("Error executing query\n");
 $query->store_result();

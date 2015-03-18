@@ -10,7 +10,7 @@ $database_password = "karaoke";
 $database_name = "ohako";
 
 // Creates connection
-$database_link = mysqli_connect("$database_hostname", "$database_username", "$database_password", "$database_name") or die("Error connecting to database\n");
+$login_database_link = mysqli_connect("$database_hostname", "$database_username", "$database_password", "$database_name") or die("Error connecting to database\n");
 
 
 
@@ -49,8 +49,8 @@ function user_logged_in()
 			}
 			
 			$seshID = $_COOKIE['seshID'];
-			global $database_link;
-			$query = $database_link->prepare("SELECT userID, expires FROM userSessions WHERE sessionID=?");
+			global $login_database_link;
+			$query = $login_database_link->prepare("SELECT userID, expires FROM userSessions WHERE sessionID=?");
 			$query->bind_param('s', $seshID);
 			$query->execute();
 			$query->store_result();
@@ -85,8 +85,8 @@ function initialize_user_session($userID)
 	//If get data from database
 	
 		// Query for email and password
-		global $database_link;
-		$query = $database_link->prepare("SELECT firstName, lastName, userName, email FROM users WHERE ID = ?");
+		global $login_database_link;
+		$query = $login_database_link->prepare("SELECT firstName, lastName, userName, email FROM users WHERE ID = ?");
 		$query->bind_param('d', $userID);
 		$query->execute();
 		$query->store_result();
@@ -110,7 +110,7 @@ function initialize_user_session($userID)
 		setCookie("seshID", session_id(), $expire, "/");
 		setCookie("userID", $userID, $expire, "/");
 		//save in database
-		$query = $database_link->prepare("INSERT INTO userSessions (userID, sessionID, expires) VALUES (?,?,?)");
+		$query = $login_database_link->prepare("INSERT INTO userSessions (userID, sessionID, expires) VALUES (?,?,?)");
 		$query->bind_param('sss', $userID, session_id(), $expire);
 		$query->execute();
 	}
@@ -122,8 +122,8 @@ function log_out($withRedirect = false)
 {
 	if(isset( $_COOKIE['seshID']) ){
 		$seshID = $_COOKIE['seshID'];
-		global $database_link;
-		$query = $database_link->prepare("DELETE FROM `userSessions` WHERE `userSessions`.`sessionID` = ? ");
+		global $login_database_link;
+		$query = $login_database_link->prepare("DELETE FROM `userSessions` WHERE `userSessions`.`sessionID` = ? ");
 		$query->bind_param('s', $seshID);
 		$query->execute();
 	}

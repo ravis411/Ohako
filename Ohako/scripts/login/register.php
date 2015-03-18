@@ -42,7 +42,7 @@ if (strlen($password) == 0) {
 }
 
 
-$query = $database_link->prepare("SELECT * FROM users WHERE userName = ?") or die("Error preparing selection query");
+$query = $login_database_link->prepare("SELECT * FROM users WHERE userName = ?") or die("Error preparing selection query");
 $query->bind_param('s', $userName);
 $query->execute() or die("Error executing selection query");
 $query->store_result();
@@ -54,7 +54,7 @@ if ($query->num_rows != 0) {
 	exit;
 }
 
-$query = $database_link->prepare("SELECT * FROM users WHERE email=?") or die("Error preparing selection query");
+$query = $login_database_link->prepare("SELECT * FROM users WHERE email=?") or die("Error preparing selection query");
 $query->bind_param('s', $email);
 $query->execute() or die("Error executing selection query");
 $query->store_result();
@@ -66,12 +66,12 @@ if ($query->num_rows != 0) {
 	exit;
 }
 
-$query = $database_link->prepare("INSERT INTO users (firstName, lastName, userName, email, password) VALUES (?,?,?,?,?)") or die("Error preparing insertion query");
+$query = $login_database_link->prepare("INSERT INTO users (firstName, lastName, userName, email, password) VALUES (?,?,?,?,?)") or die("Error preparing insertion query");
 $query->bind_param('sssss', $firstName, $lastName, $userName, $email, $password) or die("Error preparing insertion query 2");
 
 if ($query->execute()) {
     $arry["errorMessage"] = "Registration successful\n";
-    initialize_user_session(mysqli_insert_id($database_link), $email, $name);
+    initialize_user_session(mysqli_insert_id($login_database_link), $email, $name);
    // redirect_to($home_url);
 }
 
