@@ -23,6 +23,8 @@
 	<!-- the jScrollPane script -->
 	<script type="text/javascript" src="scripts/scrollbar/jquery.jscrollpane.min.js"></script>
 
+	<script type="text/javascript" src="scripts/rateIt/jquery.rateit.js"></script>
+
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="stylesheets/viewHomeDiscover.css">
@@ -39,6 +41,8 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/header.css">
 
+	<link href="scripts/rateIt/rateit.css" rel="stylesheet" type="text/css">
+
 	<script type="text/javascript" src="scripts/main.js"></script>
 
 	<?php if(!user_logged_in()){
@@ -53,7 +57,7 @@
 	 	use Illuminate\Database\Capsule\Manager as Capsule;
 
 	 	echo Venue::first()->name;
-	 	echo Venue::first()->description;
+	 	echo '<img src=localhost:3000' . Venue::first()->imageLocation . ' />';
 
 	 ?>
 
@@ -62,6 +66,7 @@
 
 
 	<script>
+		//$('body').html("<img src=" + location + "/>");
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();
@@ -203,7 +208,9 @@
 						<br style="clear: both;"/>
 
 						<div id="venueRating">
-							Rating here
+							<div id="venueStarCount" class="rateit bigstars">
+
+							</div>
 						</div>
 
 						<div id="venueContent">
