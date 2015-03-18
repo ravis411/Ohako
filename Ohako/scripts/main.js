@@ -123,6 +123,8 @@ function getData(venueID) {
 			venueData = jQuery.parseJSON(result);
 			console.log(venueData[0]);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
+			$('#venueDetails').html(venueData[0].description);
+			$('#venueStarCount').rateit('value', venueData[0].rating);
 		});
 }
 

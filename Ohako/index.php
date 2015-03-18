@@ -23,6 +23,8 @@
 	<!-- the jScrollPane script -->
 	<script type="text/javascript" src="scripts/scrollbar/jquery.jscrollpane.min.js"></script>
 
+	<script type="text/javascript" src="scripts/rateIt/jquery.rateit.js"></script>
+
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="stylesheets/viewHomeDiscover.css">
@@ -38,6 +40,8 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/footer.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/header.css">
+
+	<link href="scripts/rateIt/rateit.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="scripts/main.js"></script>
 
@@ -204,7 +208,9 @@
 						<br style="clear: both;"/>
 
 						<div id="venueRating">
-							Rating here
+							<div id="venueStarCount" class="rateit bigstars">
+
+							</div>
 						</div>
 
 						<div id="venueContent">
