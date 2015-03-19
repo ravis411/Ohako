@@ -1,6 +1,6 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
-	require_once __DIR__ . '/../login/loginFunctions.php';
+	require_once __DIR__ . '/../login/User.php';
 
 	$con = mysqli_connect("wrytek.us", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
@@ -15,8 +15,8 @@
 	}
 
 	$tempLastSender = null;
-	if(user_logged_in())
-		$currentUser = $_SESSION['userName'];
+	if(User::isLoggedIn())
+		$currentUser = User::getUserName();
 	else
 		$currentUser = "Guest";
 	while( $row = mysqli_fetch_array($result) ){

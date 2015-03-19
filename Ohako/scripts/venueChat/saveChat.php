@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__ . '/../login/loginFunctions.php';
+	require_once __DIR__ . '/../login/User.php';
 	$con=new mysqli("wrytek.net", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . $con->connect_error);
 	
 	function test_input($data)
@@ -12,10 +12,10 @@
 		return $data;
 	}
 
-	if(!user_logged_in()){
+	if(!User::isLoggedIn()){
 		$sender = "Guest";
 	}else{
-		$sender = $_SESSION['userName'];
+		$sender = User::getUserName();
 	}
 	$message = test_input($_POST[message]);
 	

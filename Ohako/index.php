@@ -1,6 +1,6 @@
 <?php
 	error_reporting(E_ALL);
-	require_once __DIR__ . '/scripts/login/loginFunctions.php';
+	require_once __DIR__ . '/scripts/login/User.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
@@ -45,7 +45,7 @@
 
 	<script type="text/javascript" src="scripts/main.js"></script>
 
-	<?php if(!user_logged_in()){
+	<?php if(!User::isLoggedIn()){
 		echo'<script type="text/javascript" src="scripts/login/login.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheets/login.css">';
 	 }?>
@@ -84,7 +84,7 @@
 			
 		<?php //If user not logged in output the login/registration div
 
-		if(!user_logged_in()){
+		if(!User::isLoggedIn()){
 			echo'<div id="upperDiv">
 			
 				<div id="loginDiv">
@@ -124,13 +124,13 @@
 					<?php
 						//If user !logged in output login button
 							//Otherwise output username and userimage
-						if(!user_logged_in()){
+						if(!User::isLoggedIn()){
 							echo'<div id="headerLogInDiv">Login</div>';
 						}else{
 							echo '<div id="header_user_image">
 									<img src="images/userProfileImage.png" alt="Profile Picture" width ="25px" height="25px" /> 
 								</div>
-								<div id="header_user_name">' .	$_SESSION["userName"] .'</div>';
+								<div id="header_user_name">' .	User::getUserName() .'</div>';
 						}
 					?>
 				</div>
