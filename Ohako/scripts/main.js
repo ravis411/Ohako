@@ -21,7 +21,7 @@ function init(){
 	initMail();
 	initVenueChat();
 
-	hackCurrentView("songBook");
+	hackCurrentView("venue");
 	
 	//Set to true when testing venueinterior
 	if(false){
@@ -118,10 +118,12 @@ function displayView(div)
 
 function getData(venueID) {
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
+		console.log(result);
 			venueData = jQuery.parseJSON(result);
 			console.log(venueData[0]);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
-			$('#venueDetails').html(venueData[0].description);
+			//$('#venueDetails').html(venueData[0].description);
+			$('#karaokeNights').html(venueData[0].karaoke);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
 		});
 }

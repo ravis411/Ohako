@@ -11,10 +11,10 @@ class Venue extends Model {
 	}
 
 	public function dailyEvent() {
-		return $this->belongsTo('DailyEvent');
+		return $this->belongsTo('DailyEvent', 'dailyEvent_id');
 	}
 
 	public function venueDetail() {
-		return $this->belongsTo('VenueDetail');
+		return $this->belongsTo('VenueDetail', 'venueDetail_id');
 	}
 }

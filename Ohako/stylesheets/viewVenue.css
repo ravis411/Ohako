@@ -35,15 +35,34 @@
 
 #venueDetails
 {
-	width: 200px;
-	height: 100px;
+	width: 195px;
+	height: 95px;
 	margin-top: 5px;
 	margin-right: 5px;
+	padding: 5px;
 
 	float: right;
-	text-align: center;
 
 	background-color: gray;
+}
+
+#drinks
+{
+	float: left;
+	margin-right: 5px;
+}
+
+#patio
+{
+	float: left;
+	margin-right: 5px;
+}
+
+#smoking
+{
+	float: left;
+	margin-top: -5px;
+	margin-right: 5px;
 }
 
 #venueRating

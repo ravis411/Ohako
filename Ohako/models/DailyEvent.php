@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DailyEvent extends Model {
 
+	protected $table = 'dailyEvents';
+
 	protected $fillable = ['monday', 
 						   'tuesday',
 						   'wednesday',

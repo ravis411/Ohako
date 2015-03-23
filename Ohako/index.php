@@ -212,9 +212,11 @@
 						</div>
 
 						<div id="venueDetails" >
-							Details here.
-							Karaoke nights.
-							Smoking?  Drinking? 
+							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="smoking"/> </div>
+							<div id="patio"> P </div>
+							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="drinks" /> </div>
+
+							<div id="karaokeNights"> </div>
 						</div>
 
 						<br style="clear: both;"/>

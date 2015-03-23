@@ -16,7 +16,11 @@
 	]);
 
 	// Set Cache manager
-	// Set even dispatcher
+	// Set the event dispatcher used by Eloquent models... (optional)
+	use Illuminate\Events\Dispatcher;
+	use Illuminate\Container\Container;
+
+	//$capsule->setEventDispatcher(new Dispatcher(new Container));
 
 	$capsule->setAsGlobal();
 
