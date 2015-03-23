@@ -265,7 +265,13 @@
 						</div>
 
 						<div id="profileUserName">
-							User's name here!
+							<?php 
+								if( User::isLoggedIn() ){
+									echo User::getUserName();
+								}else{
+									echo "Log In -^";
+								}
+							?>
 						</div>
 
 						<div id="profileStarRating">
