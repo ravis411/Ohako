@@ -48,7 +48,10 @@
 	<?php if(!User::isLoggedIn()){
 		echo'<script type="text/javascript" src="scripts/login/login.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheets/login.css">';
-	 }?>
+	 }else{
+	 	echo '<script type="text/javascript" src="scripts/User/User.js"></script>';
+	}
+	 ?>
 
 	 <?php
 	 	require 'vendor/autoload.php';
@@ -64,13 +67,22 @@
 	<script type="text/javascript" src="scripts/mail.js"></script>
 	<script type="text/javascript" src="scripts/venueChat.js"></script>
 
-
 	<script>
-		//$('body').html("<img src=" + location + "/>");
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();
-			init();
+
+			<?php //This is kinda hacked should be waay cleaner...
+				if(User::isLoggedIn()){
+					echo 'currentUser = new User(' . User::getData() . ');';
+					echo '
+					init();';
+				}else{
+	 				echo '
+	 				init();';
+				}
+			?>
+	
 		});
 	</script>
 </head>
@@ -277,12 +289,12 @@
 				<div id="search">
 					<div id="searchInterior">
 						<div id="searchMap">
-							<iframe
+							<!--<iframe
 							  width="350"
 							  height="300"
 							  frameborder="0" style="border:0"
 							  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyALqRx10_DMkJMChXFLtBBy6VJiBmyiZFc&q=karaoke&zoom=12&center=36.150000,-115.174247">
-							</iframe>
+							</iframe>-->
 
 							<div id="searchInput">
 							<form id="settingsForm" action="http://www.usc.edu/cgi-bin/mail_form/shiffer@usc.edu" method="post" name="ContactForm" >
