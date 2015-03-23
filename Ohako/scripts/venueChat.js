@@ -10,7 +10,7 @@ function initVenueChat(){
 	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
 
 	reloadChats();
-	reloadUsers();
+	//reloadUsers();
 	
 	$("#chatBoxInputDiv input").focus(reloadChats);
 	//setInterval(reloadChats, 2000);

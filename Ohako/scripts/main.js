@@ -12,7 +12,7 @@ home = Home.SearchAndDiscover;
 checkedIn = false; 
 
 //The current user
-currentUser = "NAME";
+currentUser = null;
 
 // Called after page loads to set up functionality.
 function init(){
@@ -134,6 +134,10 @@ function getData(venueID) {
 */
 function checkIn(){	
 	if (!checkedIn){
+		
+		var venueID = 0;
+		currentUser.checkIn(venueID);
+		
 		checkedIn = true; 
 		$('#buttonCheckIn').attr("src", 'images/checkout.png');
 	}

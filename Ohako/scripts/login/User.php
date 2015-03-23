@@ -27,7 +27,7 @@ class User {
 
 	//returns the email of the currently logged in user, false otherwise
 	public static function getEmail(){
-		if( isLoggedIn() && isset( $_SESSION["email"] ) ){
+		if( self::isLoggedIn() && isset( $_SESSION["email"] ) ){
 			return $_SESSION["email"];
 		}else{
 			return null;
@@ -36,7 +36,7 @@ class User {
 
 	//returns the first name of the currently logged in user
 	public static function getFirstName(){
-		if( isLoggedIn() && isset( $_SESSION["firstName"] ) ){
+		if( self::isLoggedIn() && isset( $_SESSION["firstName"] ) ){
 			return $_SESSION["email"];
 		}else{
 			return null;
@@ -45,8 +45,24 @@ class User {
 
 	//returns the last name of the currently logged in user
 	public static function getLastName(){
-		if( isLoggedIn() && isset( $_SESSION["lastName"] ) ){
+		if( self::isLoggedIn() && isset( $_SESSION["lastName"] ) ){
 			return $_SESSION["email"];
+		}else{
+			return null;
+		}
+	}
+
+	//returns the user data as an associative array
+	public static function getData(){
+		if( self::isLoggedIn() ){
+			$arr = array();
+			$arr['ID'] = $_SESSION["userID"];
+			$arr['firstName'] = $_SESSION["firstName"];
+			$arr['lastName'] = $_SESSION["lastName"];
+			$arr['userName'] = $_SESSION["userName"];
+			$arr['email'] = $_SESSION["email"];
+			$arr['checkedIn'] = null;
+			return json_encode($arr);
 		}else{
 			return null;
 		}
