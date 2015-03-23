@@ -6,7 +6,12 @@
  	use Illuminate\Database\Capsule\Manager as Capsule;
 
  	ob_start();
- 	$location = Venue::find($_POST['id'])->get()->toJson();
- 	print $location;
+ 	// Get the Venue and also it's row from dailyEvents
+ 	$data = Venue::find($_POST['id'])
+ 			->join('dailyEvents', 'dailyEvents.id', '=', 'venues.dailyEvent_id')
+ 			->get();
 
- 	return $location;
+ 	// Get the Location for the Venue
+ 	$location = Venue::find($_POST['id'])->location->get();
+
+ 	print($data);
