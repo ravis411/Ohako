@@ -212,17 +212,19 @@
 						</div>
 
 						<div id="venueDetails" >
-							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="smoking"/> </div>
+							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
 							<div id="patio"> <img width="20px" height="20px" src="images/icons/patio.png" alt="patio"/> </div>
-							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="drinks" /> </div>
+							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="smoking" /> </div>
 							<br/> <br/>
 							<img id="karaokeIcon" width="20px" height="20px" src="images/icons/karaoke.png" alt="karaoke" /> <div id="karaokeNights">  </div>
+							<br/> 
+							<img id="locationIcon" width="20px" height="20px" src="images/icons/location.png" alt="location" /> <div id="location"> </div>
 						</div>
 
 						<br style="clear: both;"/>
 
 						<div id="venueRating">
-							<div id="venueStarCount" class="rateit bigstars">
+							<div id="venueStarCount" class="rateit">
 
 							</div>
 						</div>

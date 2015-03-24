@@ -130,6 +130,7 @@ function getData(venueID) {
 			if (venueData[0].details[0]['smoking']!="true")
 				$('#smoking').append("<img id=\"prohibited\" src=\"images/icons/prohibited.png\" width=\"25px\" height=\"25px\" \>");
 			$('#karaokeNights').html(venueData[0].karaoke);
+			$('#location').html(venueData[0].street);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
 		});
 }
