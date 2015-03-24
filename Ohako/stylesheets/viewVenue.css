@@ -54,6 +54,13 @@
 	margin-right: 5px;
 }
 
+#food
+{
+	position: relative;
+	float: left;
+	margin-right: 5px;
+}
+
 #patio
 {
 	position: relative;

@@ -213,6 +213,7 @@
 
 						<div id="venueDetails" >
 							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
+							<div id="food"> <img width="25px" height="25px" src="images/icons/food.png" alt="food"/> </div>
 							<div id="patio"> <img width="20px" height="20px" src="images/icons/patio.png" alt="patio"/> </div>
 							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="smoking" /> </div>
 							<br/> <br/>
