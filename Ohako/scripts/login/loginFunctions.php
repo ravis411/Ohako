@@ -78,27 +78,29 @@ function user_logged_in()
 }
 
 /* Starts a user's session with field from their row in the database */
-function initialize_user_session($userID)
+function initialize_user_session($user)
 {
     session_start();
+
+    $userID = $user['ID'];
 	
 	//If get data from database
 	
-		// Query for email and password
-		global $login_database_link;
-		$query = $login_database_link->prepare("SELECT firstName, lastName, userName, email FROM users WHERE ID = ?");
-		$query->bind_param('d', $userID);
-		$query->execute();
-		$query->store_result();
-		$query->bind_result($firstName, $lastName, $userName, $email);
-		$query->fetch();
-	
-	
-    $_SESSION["userID"] = $userID;
-    $_SESSION["email"] = $email;
-    $_SESSION["firstName"] = $firstName;
-	$_SESSION["lastName"] = $lastName;
-	$_SESSION["userName"] = $userName;
+		// // Query for email and password
+	       global $login_database_link;
+		// $query = $login_database_link->prepare("SELECT firstName, lastName, userName, email FROM users WHERE ID = ?");
+		// $query->bind_param('d', $userID);
+		// $query->execute();
+		// $query->store_result();
+		// $query->bind_result($firstName, $lastName, $userName, $email);
+		// $query->fetch();
+
+    $_SESSION["userID"] = $user['ID'];
+    $_SESSION["email"] = $user['email'];
+    $_SESSION["firstName"] = $user['firstName'];
+	$_SESSION["lastName"] = $user['lastName'];
+	$_SESSION["userName"] = $user['userName'];
+	$_SESSION["profilePic"] = $user['profilePicture_id'];
 	
 	//
 	//Lets set a cookie!! and save it in the database

@@ -31,7 +31,7 @@
 	}
 
 	else if($arry['success'])
-		initialize_user_session($user.ID);
+		initialize_user_session($user[0]);
 
 	//print($user);
 
