@@ -53,17 +53,6 @@
 	}
 	 ?>
 
-	 <?php
-	 	require 'vendor/autoload.php';
-	 	require 'scripts/database.php';
-
-	 	use Illuminate\Database\Capsule\Manager as Capsule;
-
-	 	echo Venue::first()->name;
-	 	echo '<img src=localhost:3000' . Venue::first()->imageLocation . ' />';
-
-	 ?>
-
 	<script type="text/javascript" src="scripts/mail.js"></script>
 	<script type="text/javascript" src="scripts/venueChat.js"></script>
 
@@ -212,14 +201,15 @@
 						</div>
 
 						<div id="venueDetails" >
-							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
-							<div id="food"> <img width="25px" height="25px" src="images/icons/food.png" alt="food"/> </div>
+							<div id="venueTitle"> </div> <br/>
+							<div id="drinks"> <img width="20px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
+							<div id="food"> <img width="20px" height="20px" src="images/icons/food.png" alt="food"/> </div>
 							<div id="patio"> <img width="20px" height="20px" src="images/icons/patio.png" alt="patio"/> </div>
-							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="smoking" /> </div>
-							<br/> <br/>
-							<img id="karaokeIcon" width="20px" height="20px" src="images/icons/karaoke.png" alt="karaoke" /> <div id="karaokeNights">  </div>
-							<br/> 
-							<img id="locationIcon" width="20px" height="20px" src="images/icons/location.png" alt="location" /> <div id="location"> </div>
+							<div id="smoking"> <img width="25px" height="30px" src="images/icons/smoking.png" alt="smoking" /> </div>
+							<br/><br/>
+							<div id="karaokeListing"> <img id="karaokeIcon" width="20px" height="20px" src="images/icons/karaoke.png" alt="karaoke" /> <div id="karaokeNights">  </div> </div>
+							<br/>
+							<div id="locationListing"> <img id="locationIcon" width="20px" height="20px" src="images/icons/location.png" alt="location" /> <div id="location"> </div> </div>
 						</div>
 
 						<br style="clear: both;"/>

@@ -166,18 +166,21 @@ function logIn(){
 	var userName = $("#upperDiv #loginForm #loginFormUserName").val();
 	var pass = $("#upperDiv #loginForm #loginFormPassword").val();
 
-	$.post("http://wrytek.us/scripts/login/checkLogin.php",
+	$.post("/scripts/login/checkLogin.php",
 		{
 			email:userName,
 			password:pass
 		},
-		function(data, status){
-			if(data.success)
+		function(data){
+			console.log(data);
+			data = jQuery.parseJSON(data);
+			console.log(data['success']);
+			if(data['success'])
 				//alert("loged in?" + document.cookie + "\n\n" + data.toSource());
 				location.reload(true);
 			else{
-				$("#upperDiv #loginForm #loginFail").html(data.errorMessage);
+				$("#upperDiv #loginForm #loginFail").html(data['errorMessage']);
 				$("#upperDiv #loginForm #loginFail").show();
 			}
-		}, "json");
+		});
 }

@@ -122,7 +122,7 @@ function getData(venueID) {
 			venueData = jQuery.parseJSON(result);
 			console.log(venueData[0]);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
-			
+			$('#venueTitle').html(venueData[0].name);
 			if (venueData[0].details[0]['patio']!="true")
 				$('#patio').append("<img id=\"prohibited\" src=\"images/icons/prohibited.png\" width=\"25px\" height=\"25px\" \>");
 			if (venueData[0].details[0]['drinks']!="true")
@@ -132,7 +132,7 @@ function getData(venueID) {
 			if (venueData[0].details[0]['food']!="true")
 				$('#food').append("<img id=\"prohibited\" src=\"images/icons/prohibited.png\" width=\"25px\" height=\"25px\" \>");
 			$('#karaokeNights').html(venueData[0].karaoke);
-			$('#location').html(venueData[0].street);
+			$('#location').html(venueData[0].location[0]['street']);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
 		});
 }

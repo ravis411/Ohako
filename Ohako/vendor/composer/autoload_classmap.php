@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'DailyEvent' => $baseDir . '/models/DailyEvent.php',
     'Location' => $baseDir . '/models/Location.php',
+    'User' => $baseDir . '/models/User.php',
     'Venue' => $baseDir . '/models/Venue.php',
     'VenueDetail' => $baseDir . '/models/VenueDetail.php',
 );
