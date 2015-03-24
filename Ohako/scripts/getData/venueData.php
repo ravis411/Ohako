@@ -26,5 +26,6 @@
  	}
 
  	$data[0]['karaoke']=$karaoke;
+ 	$data[0]['details']=$details;
 
  	print($data);

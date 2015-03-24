@@ -48,21 +48,42 @@
 
 #drinks
 {
+	position: relative;
 	float: left;
 	margin-right: 5px;
 }
 
 #patio
 {
+	position: relative;
 	float: left;
 	margin-right: 5px;
 }
 
 #smoking
 {
+	position: relative;
 	float: left;
-	margin-top: -5px;
 	margin-right: 5px;
+}
+
+#karaokeNights
+{
+	float: left;
+	font-size: 11pt;
+	margin-left: 2px;
+}
+
+#prohibited
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#karaokeIcon
+{
+	float: left;
 }
 
 #venueRating
