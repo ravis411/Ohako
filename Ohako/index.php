@@ -53,17 +53,6 @@
 	}
 	 ?>
 
-	 <?php
-	 	require 'vendor/autoload.php';
-	 	require 'scripts/database.php';
-
-	 	use Illuminate\Database\Capsule\Manager as Capsule;
-
-	 	echo Venue::first()->name;
-	 	echo '<img src=localhost:3000' . Venue::first()->imageLocation . ' />';
-
-	 ?>
-
 	<script type="text/javascript" src="scripts/mail.js"></script>
 	<script type="text/javascript" src="scripts/venueChat.js"></script>
 
@@ -163,12 +152,12 @@
                 	<div id="searchAndDiscover">
                         <div id="featuredContent">
                             <div id="adHeader"> Featured This Week </div>
-                            <img class="contentVenueImage" src="images/barAd1.png" id="featuredImage"/>
+                            <img value="1" class="contentVenueImage" src="images/ads/1.png" id="featuredImage"/>
                         </div>
     
                         <div id="customContent">
                             <div id="adHeader"> Happening Tonight </div>
-                            <img class="contentVenueImage" src="images/barAd3.png" id="customImage"/>
+                            <img value="1" class="contentVenueImage" src="images/ads/1.png" id="customImage"/>
                         </div>
                     </div>
                     <!-- End Home.SearchAndDiscover -->
@@ -212,14 +201,15 @@
 						</div>
 
 						<div id="venueDetails" >
-							<div id="drinks"> <img width="25px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
-							<div id="food"> <img width="25px" height="25px" src="images/icons/food.png" alt="food"/> </div>
+							<div id="venueTitle"> </div> <br/>
+							<div id="drinks"> <img width="20px" height="20px" src="images/icons/drinks.png" alt="drinks"/> </div>
+							<div id="food"> <img width="20px" height="20px" src="images/icons/food.png" alt="food"/> </div>
 							<div id="patio"> <img width="20px" height="20px" src="images/icons/patio.png" alt="patio"/> </div>
-							<div id="smoking"> <img width="30px" height="35px" src="images/icons/smoking.png" alt="smoking" /> </div>
+							<div id="smoking"> <img width="25px" height="30px" src="images/icons/smoking.png" alt="smoking" /> </div>
 							<br/> <br/>
-							<img id="karaokeIcon" width="20px" height="20px" src="images/icons/karaoke.png" alt="karaoke" /> <div id="karaokeNights">  </div>
+							<div id="karaokeListing"> <img id="karaokeIcon" width="20px" height="20px" src="images/icons/karaoke.png" alt="karaoke" /> <div id="karaokeNights"> </div>  </div>
 							<br/> 
-							<img id="locationIcon" width="20px" height="20px" src="images/icons/location.png" alt="location" /> <div id="location"> </div>
+							<div id="locationListing"> <img id="locationIcon" width="20px" height="20px" src="images/icons/location.png" alt="location" /> <div id="location"> </div> </div>
 						</div>
 
 						<br style="clear: both;"/>
@@ -341,6 +331,10 @@
 				    		<input type="submit" value="Save" id="submit"/>
 				    	</div>
 						</form>
+
+						<div id="settingsLogout">
+							<a href="/scripts/login/logout.php"> Log out</a>
+						</div>
 					</div>
 				</div>
 				<!-- END Settings: View.Settings -->
