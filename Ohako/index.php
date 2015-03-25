@@ -157,7 +157,7 @@
     
                         <div id="customContent">
                             <div id="adHeader"> Happening Tonight </div>
-                            <img value="1" class="contentVenueImage" src="images/ads/1.png" id="customImage"/>
+                            <img value="3" class="contentVenueImage" src="images/ads/3.png" id="customImage"/>
                         </div>
                     </div>
                     <!-- End Home.SearchAndDiscover -->

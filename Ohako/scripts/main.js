@@ -22,7 +22,7 @@ function init(){
 	initVenueChat();
 	//getAds("CA");
 
-	hackCurrentView("venue");
+	//hackCurrentView("venue");
 	
 	//Set to true when testing venueinterior
 	if(false){
@@ -46,7 +46,7 @@ function hackCurrentView(display){
 function buttonsInit(){
 	// Initialize header buttons
 	$('#logo').on('click', function(){displayView(View.Home)});
-	$('#header_user_div').on('click', function(){displayView(View.SongBook)});
+	$('#header_user_div').on('click', function(){displayView(View.SongBook, currentUser.ID)});
 
 	// Initialize control buttons
 	$('#mailboxNav').on('click', function(){displayView(View.Mailbox)});
@@ -54,6 +54,7 @@ function buttonsInit(){
 	$('#searchNav').on('click', function(){displayView(View.Search)});
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
 	$('#featuredImage').on('click', function(){displayView(View.Venue, $('#featuredImage').attr('value'))});
+	$('#customImage').on('click', function(){displayView(View.Venue, $('#customImage').attr('value'))});
 
 	$('#pullDown').on('click', function(){displayPullDown()});
 
@@ -77,13 +78,13 @@ function slideImages(){
 	}, 10000);
 
 	setInterval(function(){
-		if ($('#customImage').attr("src") == "images/ads/1.png"){
-			$('#customImage').attr("src", "images/ads/2.png");
-			$('#customImage').attr("value", "2");
+		if ($('#customImage').attr("src") == "images/ads/3.png"){
+			$('#customImage').attr("src", "images/ads/4.png");
+			$('#customImage').attr("value", "4");
 		}
 		else
-			$('#customImage').attr("src", "images/ads/1.png");
-			$('#customImage').attr("value", "1");
+			$('#customImage').attr("src", "images/ads/3.png");
+			$('#customImage').attr("value", "3");
 	}, 7000);
 }
 
@@ -137,6 +138,7 @@ function displayView(div, id)
 function getVenueData(venueID) {
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
 			venueData = jQuery.parseJSON(result);
+			console.log(result);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
 			$('#venueTitle').html(venueData[0].name);
 			if (venueData[0].details[0]['patio']!="true")
@@ -303,8 +305,3 @@ function swap(targetId){
 
   $('#karaokeSongBookList').jScrollPane();
 }
-
-function getVenueData(id){
-	
-}
-
