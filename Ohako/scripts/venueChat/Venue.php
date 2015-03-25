@@ -3,7 +3,7 @@
 
 class Venue {
 	
-	public static $name;
+	public $name;
 
 	function __construct() {
 		$this->name = null;
@@ -20,7 +20,7 @@ class Venue {
 
 	//Returns the list of active users in the venue
 	public function getUsers(){
-		return array("ravis411", "user1", "user2", "example");
+		
 	}
 
 	//Adds a user to the venue's list of active users

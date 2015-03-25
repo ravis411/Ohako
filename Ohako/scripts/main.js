@@ -21,10 +21,10 @@ function init(){
 	initMail();
 	initVenueChat();
 
-	hackCurrentView("venue");
+	//hackCurrentView("venue");
 	
 	//Set to true when testing venueinterior
-	if(false){
+	if(true){
 		checkIn();
 	}
 }
@@ -146,14 +146,20 @@ function getData(venueID) {
 function checkIn(){	
 	if (!checkedIn){
 		
+		//TODO Set venueID
 		var venueID = 0;
-		currentUser.checkIn(venueID);
+		if(currentUser != null)
+			currentUser.checkIn(venueID);
+		else
+			alert("You should probably log in before checking in!");
 		
 		checkedIn = true; 
 		$('#buttonCheckIn').attr("src", 'images/checkout.png');
 	}
 	else{
 		checkedIn = false;
+		if(currentUser != null)
+			currentUser.checkOut();
 		$('#buttonCheckIn').attr("src", 'images/checkin.png');
 	}
 

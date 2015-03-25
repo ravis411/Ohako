@@ -2,17 +2,19 @@
 	Functions for venue chat
 ******************************************************** */
 var chatMessagesDivScrollPaneAPI = null;
+var venueLastUpdate = 0;
 
 function initVenueChat(){
 	//Initialise the JScrollPane
 	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane().data('jsp');
 	
 	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
+	$("#chatUsersList").html("");
 
 	reloadChats();
-	//reloadUsers();
+	reloadUsers();
 	
-	$("#chatBoxInputDiv input").focus(reloadChats);
+	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
 	//setInterval(reloadChats, 2000);
 
 	//hackForChangeingUser();
@@ -20,15 +22,26 @@ function initVenueChat(){
 
 function reloadUsers(){
 
-	$.post("http://wrytek.us/scripts/venueChat/getUsers.php",{},function(){
-		$("#chatUsersList").html(result);
+	$.post("/scripts/venueChat/",{
+		intent:"getUsers",
+		lastUpdate:"0",
+		venueID:"0"
+	},function(result){
+		result = JSON.parse(result);
+		updateUsers(result);
 	});
 	
 }
 
+function updateUsers(data){
+	for (var userData in data){
+		$("#chatUsersList").prepend('<div class="userProfile">' + data[userData] + '</div>');
+	}
+}
+
 
 function reloadChats(){
-		$.post("http://wrytek.us/scripts/venueChat/getChats.php",{}, function(result){
+		$.post("/scripts/venueChat/getChats.php",{}, function(result){
 			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
 			chatMessagesDivScrollPaneAPI.reinitialise();
 			chatMessagesDivScrollPaneAPI.scrollToBottom();

@@ -17,7 +17,7 @@ User.prototype.checkIn = function(venueID) {
 	this.checkedIn = venueID;
 
 	//Update database
-	$.post("http://wrytek.us/scripts/User/",
+	$.post("/scripts/User/",
 		{
 			intent: "checkIn",
 			location: venueID
@@ -28,5 +28,20 @@ User.prototype.checkIn = function(venueID) {
 			}else{
 				//alert("Data: " + data + "\nStatus: " + status);
 			}
+	});
+};
+
+//Checks a User out of the venue
+User.prototype.checkOut = function() {
+
+	this.checkedIn = null;
+
+	//Update database
+	$.post("/scripts/User/",
+		{
+			intent: "checkOut"
+		},
+		function(data, status){
+
 	});
 };
