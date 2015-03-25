@@ -47,35 +47,17 @@ function getCurrentUsers($venueID){
 	$userName = null;
 	$lastUpdateTimestamp = null;
 
-	$userGet = $venueCon->prepare("SELECT userName FROM users WHERE ID=?");
-		$userGet->bind_param('i', $userID);
-		$userGet->bind_result($userName);
+	
 
-	$venueGet = $venueCon->prepare("SELECT userID FROM userVenueSessions WHERE venueID=?");
-		$venueGet->bind_param('i', $venueID);
-		$venueGet->execute();
-		$venueGet->store_result();
-		$venueGet->bind_result($userID);
-
-	if ($venueGet->num_rows != 0) {
-		while($venueGet->fetch()){
-			$userGet->execute();
-			$userGet->store_result();
-			if($userGet->fetch()){
-				$userList[] = $userName;
-			}
-		}
-	}
-
-	$venueGetLastUpdate = $venueCon->prepare("SELECT time FROM userVenueSessionsUpdateTime WHERE ID=0");
+	$venueGetLastUpdate = $venueCon->prepare("SELECT time FROM userVenueSessionsUpdateTime WHERE 1");
 		$venueGetLastUpdate->bind_result($lastUpdateTimestamp);
 		$venueGetLastUpdate->execute();
+		$venueGetLastUpdate->store_result();
 		$venueGetLastUpdate->fetch();
-
 	
 	
 	$data = array();
-	$data["userList"] = $userList;
+	
 	$data["time"] = (new DateTime())->getTimestamp();
 
 	//Lets see if we need to update or not...
@@ -97,7 +79,28 @@ function getCurrentUsers($venueID){
 	}
 
 
-	
+	if($data["updates"]){
+		$userGet = $venueCon->prepare("SELECT userName FROM users WHERE ID=?");
+			$userGet->bind_param('i', $userID);
+			$userGet->bind_result($userName);
+
+		$venueGet = $venueCon->prepare("SELECT userID FROM userVenueSessions WHERE venueID=?");
+			$venueGet->bind_param('i', $venueID);
+			$venueGet->execute();
+			$venueGet->store_result();
+			$venueGet->bind_result($userID);
+
+		if ($venueGet->num_rows != 0) {
+			while($venueGet->fetch()){
+				$userGet->execute();
+				$userGet->store_result();
+				if($userGet->fetch()){
+					$userList[] = $userName;
+				}
+			}
+		}
+		$data["userList"] = $userList;
+	}
 
 	
 	

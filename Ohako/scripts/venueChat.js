@@ -39,7 +39,7 @@ function updateUsers(data){
 		$("#chatUsersList").html("");
 
 		for (var userData in data["userList"]){
-			$("#chatUsersList").append('<div class="userProfile">' + data["userList"][userData] + '</div>');
+			$("#chatUsersList").prepend('<div class="userProfile">' + data["userList"][userData] + '</div>');
 		}
 	}
 }
