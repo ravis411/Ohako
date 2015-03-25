@@ -90,7 +90,7 @@ function displayView(div)
 	view = div;
 
 	if (view==View.Venue)
-		getData(1);
+		getData(2);
 
 	if (home == Home.Venue){
 		if (view!=View.Home && view!=View.KaraokeSongBook)
@@ -118,7 +118,7 @@ function displayView(div)
 
 function getData(venueID) {
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
-		console.log(result);
+			console.log(result);
 			venueData = jQuery.parseJSON(result);
 			console.log(venueData[0]);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");

@@ -16,6 +16,6 @@ class DailyEvent extends Model {
 
 	public function venues() {
 		// Each Venue Detail has many Venues
-		return $this->hasMany('Venue');
+		return $this->belongsTo('Venue');
 	}
 }
