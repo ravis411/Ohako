@@ -22,10 +22,10 @@ function init(){
 	initVenueChat();
 	//getAds("CA");
 
-	hackCurrentView("venue");
+	//hackCurrentView("venue");
 	
 	//Set to true when testing venueinterior
-	if(false){
+	if(true){
 		checkIn();
 	}
 }

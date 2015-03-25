@@ -2,7 +2,7 @@
 	Functions for venue chat
 ******************************************************** */
 var chatMessagesDivScrollPaneAPI = null;
-var venueLastUpdate = 0;
+var venueLastUpdate = null;
 
 function initVenueChat(){
 	//Initialise the JScrollPane
@@ -16,26 +16,31 @@ function initVenueChat(){
 	
 	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
 	//setInterval(reloadChats, 2000);
-
-	//hackForChangeingUser();
 }
+
 
 function reloadUsers(){
 
 	$.post("/scripts/venueChat/",{
 		intent:"getUsers",
-		lastUpdate:"0",
+		lastUpdate:venueLastUpdate,
 		venueID:"0"
 	},function(result){
 		result = JSON.parse(result);
 		updateUsers(result);
+		venueLastUpdate = result["time"];
 	});
 	
 }
 
 function updateUsers(data){
-	for (var userData in data){
-		$("#chatUsersList").prepend('<div class="userProfile">' + data[userData] + '</div>');
+
+	if(data["updates"]){
+		$("#chatUsersList").html("");
+
+		for (var userData in data["userList"]){
+			$("#chatUsersList").append('<div class="userProfile">' + data["userList"][userData] + '</div>');
+		}
 	}
 }
 
@@ -46,15 +51,6 @@ function reloadChats(){
 			chatMessagesDivScrollPaneAPI.reinitialise();
 			chatMessagesDivScrollPaneAPI.scrollToBottom();
 		});
-}
-
-//Hack for changeing user
-function hackForChangeingUser(){
-	currentUser = "NAME";
-	$("#chatUsersList").on('click', '.userProfile' , function(){
-		currentUser = $(this).html();
-	});
-	$("#header_user_div").on('click', function(){currentUser = "NAME"});
 }
 
 function saveChat(){

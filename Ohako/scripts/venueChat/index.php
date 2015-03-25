@@ -14,8 +14,9 @@ if(  isset($_POST['intent']) ){
 		case 'getUsers':
 			//Send the list of users
 
-			if(!isset($_POST['lastUpdate'])){
+			if(!isset($_POST['lastUpdate']) || $_POST['lastUpdate'] == null || ""){
 				//Fine for now...
+				$_POST['lastUpdate'] = (new DateTime("first day of January 2008"))->getTimestamp();
 			}
 
 			if(!isset($_POST['venueID'])){
@@ -44,6 +45,7 @@ function getCurrentUsers($venueID){
 	global $venueCon;
 	$userID = null;
 	$userName = null;
+	$lastUpdateTimestamp = null;
 
 	$userGet = $venueCon->prepare("SELECT userName FROM users WHERE ID=?");
 		$userGet->bind_param('i', $userID);
@@ -65,7 +67,42 @@ function getCurrentUsers($venueID){
 		}
 	}
 
-	return $userList;
+	$venueGetLastUpdate = $venueCon->prepare("SELECT time FROM userVenueSessionsUpdateTime WHERE ID=0");
+		$venueGetLastUpdate->bind_result($lastUpdateTimestamp);
+		$venueGetLastUpdate->execute();
+		$venueGetLastUpdate->fetch();
+
+	
+	
+	$data = array();
+	$data["userList"] = $userList;
+	$data["time"] = (new DateTime())->getTimestamp();
+
+	//Lets see if we need to update or not...
+		//Compare the clients' time with table update time
+	if( $lastUpdateTimestamp != null && isset($_POST['lastUpdate']) ){
+		$t0 = new DateTime($lastUpdateTimestamp);
+
+		$userLastCheckedTime = new DateTime();
+		$userLastCheckedTime->setTimestamp($_POST['lastUpdate']);
+		//$data["timer"] = $t0->format("U") ." ". $userLastCheckedTime->format("U");
+		if( $userLastCheckedTime < $t0 ){
+			$data["updates"] = true;
+		}
+		else{
+			$data["updates"] = false;
+		}
+	}else{
+		$data["updates"] = true;
+	}
+
+
+	
+
+	
+	
+	return $data;
+
 }
 
 
