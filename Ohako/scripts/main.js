@@ -20,6 +20,7 @@ function init(){
 	view = View.Home;
 	initMail();
 	initVenueChat();
+	//getAds("CA");
 
 	//hackCurrentView("venue");
 	
@@ -27,6 +28,14 @@ function init(){
 	if(true){
 		checkIn();
 	}
+}
+
+function getAds(location) {
+	$.post("/scripts/getData/getAds.php", {location: location}, function(result){
+			console.log(result);
+			venueData = jQuery.parseJSON(result);
+			console.log(venueData[0]);
+		});
 }
 
 function hackCurrentView(display){
@@ -37,14 +46,15 @@ function hackCurrentView(display){
 function buttonsInit(){
 	// Initialize header buttons
 	$('#logo').on('click', function(){displayView(View.Home)});
-	$('#header_user_div').on('click', function(){displayView(View.SongBook)});
+	$('#header_user_div').on('click', function(){displayView(View.SongBook, currentUser.ID)});
 
 	// Initialize control buttons
 	$('#mailboxNav').on('click', function(){displayView(View.Mailbox)});
-	$('#songBookNav').on('click', function(){displayView(View.SongBook)});
+	$('#songBookNav').on('click', function(){displayView(View.SongBook, currentUser.ID)});
 	$('#searchNav').on('click', function(){displayView(View.Search)});
 	$('#settingsNav').on('click', function(){displayView(View.Settings)});
-	$('.contentVenueImage').on('click', function(){displayView(View.Venue)});
+	$('#featuredImage').on('click', function(){displayView(View.Venue, $('#featuredImage').attr('value'))});
+	$('#customImage').on('click', function(){displayView(View.Venue, $('#customImage').attr('value'))});
 
 	$('#pullDown').on('click', function(){displayPullDown()});
 
@@ -57,17 +67,24 @@ function buttonsInit(){
 
 function slideImages(){
 	setInterval(function(){
-		if ($('#featuredImage').attr("src") == "images/barAd1.png")
-			$('#featuredImage').attr("src", "images/barAd2.png");
-		else
-			$('#featuredImage').attr("src", "images/barAd1.png");
+		if ($('#featuredImage').attr("src") == "images/ads/1.png") {
+			$('#featuredImage').attr("src", "images/ads/2.png");
+			$('#featuredImage').attr("value", "2");
+		}
+		else{
+			$('#featuredImage').attr("src", "images/ads/1.png");
+			$('#featuredImage').attr("value", "1");
+		}
 	}, 10000);
 
 	setInterval(function(){
-		if ($('#customImage').attr("src") == "images/barAd3.png")
-			$('#customImage').attr("src", "images/barAd4.png");
+		if ($('#customImage').attr("src") == "images/ads/3.png"){
+			$('#customImage').attr("src", "images/ads/4.png");
+			$('#customImage').attr("value", "4");
+		}
 		else
-			$('#customImage').attr("src", "images/barAd3.png");
+			$('#customImage').attr("src", "images/ads/3.png");
+			$('#customImage').attr("value", "3");
 	}, 7000);
 }
 
@@ -76,7 +93,7 @@ function slideImages(){
 
 	INPUT:  Div ID
 */
-function displayView(div)
+function displayView(div, id)
 {
 	//Prevents closing and reopening home when we are already there
 	if(div == view && view == View.Home)
@@ -90,7 +107,9 @@ function displayView(div)
 	view = div;
 
 	if (view==View.Venue)
-		getData(2);
+		getVenueData(id);
+	else if (view==View.SongBook)
+		getProfileData(id);
 
 	if (home == Home.Venue){
 		if (view!=View.Home && view!=View.KaraokeSongBook)
@@ -116,13 +135,12 @@ function displayView(div)
 	$('#profileSongBook').jScrollPane();
 }
 
-function getData(venueID) {
+function getVenueData(venueID) {
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
-			console.log(result);
 			venueData = jQuery.parseJSON(result);
-			console.log(venueData[0]);
+			console.log(result);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
-			
+			$('#venueTitle').html(venueData[0].name);
 			if (venueData[0].details[0]['patio']!="true")
 				$('#patio').append("<img id=\"prohibited\" src=\"images/icons/prohibited.png\" width=\"25px\" height=\"25px\" \>");
 			if (venueData[0].details[0]['drinks']!="true")
@@ -132,8 +150,16 @@ function getData(venueID) {
 			if (venueData[0].details[0]['food']!="true")
 				$('#food').append("<img id=\"prohibited\" src=\"images/icons/prohibited.png\" width=\"25px\" height=\"25px\" \>");
 			$('#karaokeNights').html(venueData[0].karaoke);
-			$('#location').html(venueData[0].street);
+			$('#location').html(venueData[0].location[0]['street']);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
+		});
+}
+
+function getProfileData(userID) {
+	$.post("/scripts/getData/userData.php", {id: userID}, function(result){
+			profileData = jQuery.parseJSON(result);
+			console.log(profileData[0]);
+			$('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 		});
 }
 
@@ -285,8 +311,3 @@ function swap(targetId){
 
   $('#karaokeSongBookList').jScrollPane();
 }
-
-function getVenueData(id){
-	
-}
-

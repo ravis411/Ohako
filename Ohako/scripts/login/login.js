@@ -166,7 +166,7 @@ function logIn(){
 	var userName = $("#upperDiv #loginForm #loginFormUserName").val();
 	var pass = $("#upperDiv #loginForm #loginFormPassword").val();
 
-	$.post("http://wrytek.us/scripts/login/checkLogin.php",
+	$.post("/scripts/login/checkLogin.php",
 		{
 			email:userName,
 			password:pass
