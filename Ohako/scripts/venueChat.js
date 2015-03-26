@@ -7,15 +7,15 @@ var venueLastChat = null;
 
 function initVenueChat(){
 	//Initialise the JScrollPane
-	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane().data('jsp');
+	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane({animateScroll:true, maintainPosition:true, stickToBottom:true}).data('jsp');
 	
 	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
 	$("#chatUsersList").html("");
 
 	reloadChats();
 	reloadUsers();
-	
-	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
+	chatMessagesDivScrollPaneAPI.scrollToBottom();
+	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers(); chatMessagesDivScrollPaneAPI.scrollToBottom();});
 	setInterval(function(){reloadChats(); reloadUsers();}, 2500);
 }
 
@@ -83,9 +83,11 @@ function updateChats(chats){
 
 function reloadChats(){
 		$.post("/scripts/venueChat/getChats.php",{}, function(result){
+			var scrollable = chatMessagesDivScrollPaneAPI.getIsScrollableV();
 			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
 			chatMessagesDivScrollPaneAPI.reinitialise();
-			chatMessagesDivScrollPaneAPI.scrollToBottom();
+			if(scrollable != chatMessagesDivScrollPaneAPI.getIsScrollableV())
+				chatMessagesDivScrollPaneAPI.scrollToBottom(false);
 		});
 }
 
