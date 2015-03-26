@@ -121,7 +121,7 @@ function getCurrentUsers($venueID){
 		$userLastCheckedTime = new DateTime();
 		$userLastCheckedTime->setTimestamp($_POST['lastUpdate']);
 		//$data["timer"] = $t0->format("U") ." ". $userLastCheckedTime->format("U");
-		if( $userLastCheckedTime < $t0 ){
+		if( $userLastCheckedTime <= $t0 ){
 			$data["updates"] = true;
 		}
 		else{
