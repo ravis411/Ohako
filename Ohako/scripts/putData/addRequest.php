@@ -11,16 +11,15 @@
 		    date_default_timezone_set('America/Los_Angeles');
 		}
 
-	// $request = new Request;
+	$request = new Request;
 
-	// $request->user_id = User::getUserID();
-	// $request->artist = $_POST['artist'];
-	// $request->song = $_POST['song'];
+	$request->user_id = User::getUserID();
+	$request->artist = $_POST['artist'];
+	$request->song = $_POST['song'];
 
-	// $request->save();
+	$request->save();
 
-
-	$check = Request::first()->orderBy('updated_at', 'ASC')->get();
+	$check = Request::orderBy('updated_at', 'ASC')->get();
 
 	$timezone = date_default_timezone_get();
 

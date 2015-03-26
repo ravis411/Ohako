@@ -33,9 +33,7 @@ function init(){
 
 function getAds(location) {
 	$.post("/scripts/getData/getAds.php", {location: location}, function(result){
-			console.log(result);
 			venueData = jQuery.parseJSON(result);
-			console.log(venueData[0]);
 		});
 }
 
@@ -167,10 +165,8 @@ function getVenueData(venueID) {
 function getSongBook(vID) {
 	$.post("/scripts/getData/songBook.php", {id: ""}, function(result){
 			songs = jQuery.parseJSON(result);
-			console.log(result);
 			songBook = "";
 			for (artist in songs){
-				console.log(songs[artist]);
 				if(songs[artist]['songs'].length<1)
 					break;
 
@@ -178,9 +174,7 @@ function getSongBook(vID) {
 					<a href=\"#\" onclick=\"swap('"+songs[artist]['id']+"');return false;\">"+songs[artist]['artist_name'] + "</a>\
 					<ul id="+songs[artist]['id']+" style=\"display: none;\">";
 
-				console.log(songs[artist]['songs'])
 				for (song in songs[artist]['songs']) {
-					console.log(songs[artist]['songs'][song]);
 					songBook +="<li><div class=\"songSelection\" value=\""+ songs[artist]['artist_name'] +"\">"+songs[artist]['songs'][song]['title']+"</div></li>";
 				}
 				songBook +="</ul>\
@@ -196,11 +190,8 @@ function getSongBook(vID) {
 }
 
 function getProfileData(userID) {
-	console.log(userID);
 	$.post("/scripts/getData/userData.php", {id: userID}, function(result){
 			profileData = jQuery.parseJSON(result);
-			console.log(profileData[0].profilePicture);
-			console.log(profileData[0]);
 			$('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			$('#profileUserName').html(profileData[0].userName);
 		});
@@ -366,7 +357,6 @@ function closeCurrentView()
 function swap(targetId){
   if (document.getElementById){
         target = document.getElementById(targetId);
-        console.log(targetId);
         if (target.style.display == "none")
              target.style.display = ""; 
         else
