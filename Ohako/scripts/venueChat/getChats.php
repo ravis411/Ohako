@@ -4,8 +4,10 @@
 
 	$con = mysqli_connect("wrytek.us", "ohako", "karaoke", "ohako") or die("Failed to connect to MySQL: " . mysqli_connect_error());
 	
-	$sql = "SELECT `message`, `sender`, `time` FROM `venueChat` ORDER BY `venueChat`.`time` ASC";
-	
+	//$sql = "SELECT `message`, `sender`, `time` FROM `venueChat` ORDER BY `venueChat`.`time` ASC";
+	$sql = "SELECT * FROM (
+			SELECT ID, message, sender, time FROM `venueChat` ORDER BY `venueChat`.`time` DESC LIMIT 50)
+		as tab ORDER BY `time` ASC";
 	$result = mysqli_query($con,$sql) or die('Query Error: ' . mysqli_error($con));
 	
 

@@ -34,12 +34,60 @@ if(  isset($_POST['intent']) ){
 			exit;
 		break;
 
+		case 'getChats':
+			echo json_encode(getChats($_POST["lastID"]));
+			exit;
+			break;
+
 
 		default:
 			echo "Unreccognized Intent";
 			exit;
 		break;
 	}
+}
+
+
+//Gets chats since specified 
+	//Returns all messages since $lastMessageRetrieved
+function getChats($lastMessageRetrieved = null){
+	global $venueCon;
+
+	$data = array();
+	$chats = array();
+
+	//Lets see if we need to send any new chats back or not...
+	if($lastMessageRetrieved == null){
+		$lastMessageRetrieved = 0;
+		$chatQuery = $venueCon->prepare("SELECT * FROM (
+			SELECT ID, message, sender, time FROM `venueChat` ORDER BY `venueChat`.`time` DESC LIMIT 50)
+		as tab ORDER BY `time` ASC");
+		$data["WHICH"] = "FIRST";
+	}else{
+		$chatQuery = $venueCon->prepare("SELECT ID, message, sender, time FROM `venueChat` WHERE ID>? ORDER BY `venueChat`.`time` ASC");
+		$chatQuery->bind_param("i", $lastMessageRetrieved);
+		$data["WHICH"] = "SECOND";
+	}
+
+	$chatQuery->bind_result($ID, $message, $sender, $time);
+	$chatQuery->execute();
+	$chatQuery->store_result();
+	if($chatQuery->num_rows != 0){
+		while($chatQuery->fetch()){
+			$chat = array();
+			$chat["ID"] = $ID;
+			$chat["message"] = $message;
+			$chat["sender"] = $sender;
+			$chat["time"] = $time;
+
+			$chats[] = $chat;
+		}
+	}
+
+	$data["lastMessage"] = $lastMessageRetrieved;
+	$data["chats"] = $chats;
+
+	return $data;
 }
 
 

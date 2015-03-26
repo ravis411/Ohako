@@ -3,6 +3,7 @@
 ******************************************************** */
 var chatMessagesDivScrollPaneAPI = null;
 var venueLastUpdate = null;
+var venueLastChat = null;
 
 function initVenueChat(){
 	//Initialise the JScrollPane
@@ -15,7 +16,7 @@ function initVenueChat(){
 	reloadUsers();
 	
 	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
-	//setInterval(reloadChats, 2000);
+	setInterval(function(){reloadChats(); reloadUsers();}, 2500);
 }
 
 
@@ -45,6 +46,39 @@ function updateUsers(data){
 		$(".userProfile").on('click', function(){displayView(View.SongBook, $(this).attr('value'))});
 	}
 }
+
+/*
+function reloadChats(){
+		$.post("/scripts/venueChat/",{
+			intent:"getChats",
+			lastID:venueLastChat
+		}, function(data){
+			data = JSON.parse(data);
+			updateChats(data);
+		});
+}
+
+function updateChats(chats){
+	if(chats["chats"].length == 0){
+		return;
+	}
+	if(venueLastChat == null){
+		chatMessagesDivScrollPaneAPI.getContentPane().html("");
+	}
+	venueLastChat = chats["chats"][chats["chats"].length - 1]["ID"];
+
+
+	var tempLastSender = null;
+
+	for(var chat in chats["chats"]){
+		var temp = "Sender: " + chats["chats"][chat]["sender"] + "<br>";
+
+		chatMessagesDivScrollPaneAPI.getContentPane().append(temp);
+	}
+	chatMessagesDivScrollPaneAPI.reinitialise();
+	chatMessagesDivScrollPaneAPI.scrollToBottom();
+}*/
+
 
 
 function reloadChats(){
