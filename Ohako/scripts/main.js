@@ -25,9 +25,10 @@ function init(){
 	//hackCurrentView("venue");
 	
 	//Set to true when testing venueinterior
-	if(true){
+	if(false){
 		checkIn();
 	}
+	initCheckIn();
 }
 
 function getAds(location) {
@@ -171,11 +172,13 @@ function getProfileData(userID) {
 		TODO:  Add parameter to allow function to check User in.
 			Will pull the necessary data for the Venue page, log user in on server, etc...
 */
-function checkIn(){	
+function checkIn(venueID){
+	 venueID = typeof a !== 'undefined' ? venueID : 0;
+
 	if (!checkedIn){
 		
 		//TODO Set venueID
-		var venueID = 0;
+		//var venueID = 0;
 		if(currentUser != null)
 			currentUser.checkIn(venueID);
 		else
@@ -195,6 +198,24 @@ function checkIn(){
 		displayPullDown();
 
 	changeHome();
+}
+
+//Checks if a user is checked in and then calls checkIn
+function initCheckIn(){
+	
+	//This doesn't belong here....
+	if(currentUser != null){
+		$.post("/scripts/User/",
+			{
+				intent: "checkedIn"
+			},
+			function(data, status){
+				data = JSON.parse(data);
+				if(data["checkedIn"] === true){
+					checkIn(data["venueID"]);
+				}
+		});
+	}
 }
 
 /*
