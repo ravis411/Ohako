@@ -45,3 +45,8 @@ User.prototype.checkOut = function() {
 
 	});
 };
+
+//Don't trust this yet...
+User.prototype.checkedIn = function(){
+	return this.checkedIn;
+}

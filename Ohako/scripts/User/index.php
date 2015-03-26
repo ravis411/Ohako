@@ -28,6 +28,11 @@ if(  isset($_POST['intent']) ){
 			checkOut();
 		break;
 
+		case 'checkedIn':
+			echo checkedIn();
+			exit;
+			break;
+
 		default:
 			echo "Unreccognized Intent";
 			exit;
@@ -101,8 +106,30 @@ function checkOut(){
 	return $deleteQuery->execute();
 }
 
+//Returns the venueID of the checked in venue or false
+function checkedIn(){
+	global $userCon;
+	$data = array();
 
+	if(!User::isLoggedIn()){
+		return false;
+	}
+	$userID = User::getUserID();
 
+	$queryGet = $userCon->prepare("SELECT venueID FROM userVenueSessions WHERE userID=?");
+		$queryGet->bind_param('i', $userID);
+		$queryGet->execute();
+		$queryGet->store_result();
+		$queryGet->bind_result($venueID);
+	if ($queryGet->num_rows != 0) {
+		if($queryGet->fetch())
+			$data["checkedIn"] = true;
+			$data["venueID"] = $venueID;
+	}else{
+		$data["checkedIn"] = false;
+	}
+	return json_encode($data);
+}
 
 
 ?>
