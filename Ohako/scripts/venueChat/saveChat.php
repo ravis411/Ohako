@@ -17,7 +17,7 @@
 	}else{
 		$sender = User::getUserName();
 	}
-	$message = test_input($_POST[message]);
+	$message = test_input($_POST["message"]);
 	
 	$stmt = $con->prepare("INSERT INTO venueChat (message, sender) VALUES ( ?, ?)");
 	
