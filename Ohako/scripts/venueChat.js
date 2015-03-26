@@ -16,7 +16,7 @@ function initVenueChat(){
 	reloadUsers();
 	
 	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
-	//setInterval(reloadChats, 2000);
+	setInterval(function(){reloadChats(); reloadUsers();}, 2500);
 }
 
 
