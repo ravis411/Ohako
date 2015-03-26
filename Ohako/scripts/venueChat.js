@@ -2,20 +2,23 @@
 	Functions for venue chat
 ******************************************************** */
 var chatMessagesDivScrollPaneAPI = null;
+var chatUsersDivScrollPaneAPI = null;
 var venueLastUpdate = null;
 var venueLastChat = null;
 
 function initVenueChat(){
 	//Initialise the JScrollPane
-	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane().data('jsp');
-	
+	chatMessagesDivScrollPaneAPI = $('#chatBoxScroll').jScrollPane({animateScroll:true, maintainPosition:true, stickToBottom:true}).data('jsp');
+	chatUsersDivScrollPaneAPI = ($("#chatUsersList").jScrollPane()).data('jsp');
+	chatUsersDivScrollPaneAPI.getContentPane().html("");
+	chatUsersDivScrollPaneAPI.reinitialise();
+
 	$("#chatBoxInputDiv input").keyup(function (e) {	if (e.keyCode == 13) {	saveChat();	}	});
-	$("#chatUsersList").html("");
 
 	reloadChats();
 	reloadUsers();
-	
-	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers();});
+	chatMessagesDivScrollPaneAPI.scrollToBottom();
+	$("#chatBoxInputDiv input").focus(function(){reloadChats(); reloadUsers(); chatMessagesDivScrollPaneAPI.scrollToBottom();});
 	setInterval(function(){reloadChats(); reloadUsers();}, 2500);
 }
 
@@ -37,13 +40,14 @@ function reloadUsers(){
 function updateUsers(data){
 
 	if(data["updates"]){
-		$("#chatUsersList").html("");
+		chatUsersDivScrollPaneAPI.getContentPane().html("");
 		data['userList'] = jQuery.parseJSON(data['userList']);
 
 		for (var user in data['userList']){
-			$("#chatUsersList").prepend('<div class="userProfile" value="'+ data['userList'][user]['userID'] + '">' + data['userList'][user]['userName'] + '</div>');
+			chatUsersDivScrollPaneAPI.getContentPane().prepend('<div class="userProfile" value="'+ data['userList'][user]['userID'] + '">' + data['userList'][user]['userName'] + '</div>');
 		}
 		$(".userProfile").on('click', function(){displayView(View.SongBook, $(this).attr('value'))});
+		chatUsersDivScrollPaneAPI.reinitialise();
 	}
 }
 
@@ -83,9 +87,11 @@ function updateChats(chats){
 
 function reloadChats(){
 		$.post("/scripts/venueChat/getChats.php",{}, function(result){
+			var scrollable = chatMessagesDivScrollPaneAPI.getIsScrollableV();
 			chatMessagesDivScrollPaneAPI.getContentPane().html(result);
 			chatMessagesDivScrollPaneAPI.reinitialise();
-			chatMessagesDivScrollPaneAPI.scrollToBottom();
+			if(scrollable != chatMessagesDivScrollPaneAPI.getIsScrollableV())
+				chatMessagesDivScrollPaneAPI.scrollToBottom(false);
 		});
 }
 
