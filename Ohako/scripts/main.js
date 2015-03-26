@@ -111,6 +111,8 @@ function displayView(div, id)
 		getVenueData(id);
 	else if (view==View.SongBook)
 		getProfileData(id);
+	else if (view==View.KaraokeSongBook)
+		getSongBook(id);
 
 	if (home == Home.Venue){
 		if (view!=View.Home && view!=View.KaraokeSongBook)
@@ -152,6 +154,35 @@ function getVenueData(venueID) {
 			$('#karaokeNights').html(venueData[0].karaoke);
 			$('#location').html(venueData[0].location[0]['street']);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
+		});
+}
+
+function getSongBook(vID) {
+	$.post("/scripts/getData/songBook.php", {id: ""}, function(result){
+			songs = jQuery.parseJSON(result);
+			console.log(result);
+			songBook = "";
+			for (artist in songs){
+				console.log(songs[artist]);
+				if(songs[artist]['songs'].length<1)
+					break;
+
+				songBook += " <li>\
+					<a href=\"#\" onclick=\"swap('"+songs[artist]['id']+"');return false;\">"+songs[artist]['artist_name'] + "</a>\
+					<ul id="+songs[artist]['id']+" style=\"display: none;\">";
+
+				console.log(songs[artist]['songs'])
+				for (song in songs[artist]['songs']) {
+					console.log(songs[artist]['songs'][song]);
+					songBook +="<li><div class=\"songSelection\">"+songs[artist]['songs'][song]['title']+"</div></li>";
+				}
+				songBook +="</ul>\
+				            </li>";
+			}
+			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
+			// $('#profileUserName').html(profileData[0].userName);
+			$('#songBookAdd').html(songBook);
+			//$('#karaokeSongBookList').jScrollPane();
 		});
 }
 
@@ -323,6 +354,7 @@ function closeCurrentView()
 function swap(targetId){
   if (document.getElementById){
         target = document.getElementById(targetId);
+        console.log(targetId);
         if (target.style.display == "none")
              target.style.display = ""; 
         else

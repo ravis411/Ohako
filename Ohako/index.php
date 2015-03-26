@@ -369,37 +369,8 @@
 					</div>
 					
 					<div id="karaokeSongBookList">
-						<ul>
-				            <li>
-				                <a href="#" onclick="swap('abba');return false;">ABBA</a>
-				                <ul id="abba" style="display: none;">
-				                  <li><div class="songSelection">Dancing Queen</div></li>
-				                  <li><div class="songSelection">Gimme! Gimme! Gimme!</div></li>
-				                  <li><div class="songSelection">Lay All Your Love On Me</div></li>
-				                  <li><div class="songSelection">Mamma Mia</div></li>
-				                  <li><div class="songSelection">Money Money Money</div></li>
-				                  <li><div class="songSelection">S.O.S.</div></li>
-				                </ul>
-				            </li>
-				            <li>
-				                <a href="#" onclick="swap('aerosmith');return false;">Aerosmith</a>
-				                <ul id="aerosmith" style="display: none;">
-				                  <li><div class="songSelection">Back In The Saddle</div></li>
-				                  <li><div class="songSelection">Dream On</div></li>
-				                  <li><div class="songSelection">Dude (Looks Like A Lady)</div></li>
-				                  <li><div class="songSelection">Hole In My Soul</div></li>
-				                  <li><div class="songSelection">Love In An Elevator</div></li>
-				                  <li><div class="songSelection">Walk This Way</div></li>
-				                </ul>
-				            </li>
-				            <li>
-				                <a href="#" onclick="swap('dollyParton');return false;">Dolly Parton</a>
-				                <ul id="dollyParton" style="display: none;">
-				                  <li><div class="songSelection">9 to 5</div></li>
-				                  <li><div class="songSelection">Baby I'm Burnin'</div></li>
-				                  <li><div class="songSelection">Tennessee Homesick Blues</div></li>
-				                </ul>
-				            </li>
+						<ul id="songBookAdd">
+
 				        </ul>
 					</div>
 				</div>

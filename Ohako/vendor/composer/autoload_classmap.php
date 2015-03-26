@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Artist' => $baseDir . '/models/Artist.php',
     'DailyEvent' => $baseDir . '/models/DailyEvent.php',
     'Location' => $baseDir . '/models/Location.php',
+    'Song' => $baseDir . '/models/Song.php',
     'User' => $baseDir . '/models/User.php',
     'UserPictures' => $baseDir . '/models/UserPictures.php',
     'Venue' => $baseDir . '/models/Venue.php',
