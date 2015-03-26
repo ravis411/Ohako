@@ -414,6 +414,8 @@
 	                </div>
 
 	                <div id="infoPanel">
+	                	<div id="toggleSongBook">
+	                	</div>
 	                	<img src="images/infoPanel.png" id="infoPanelImage"/>
 		                <div id="infoPanelRightNow">
 

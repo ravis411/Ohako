@@ -99,6 +99,8 @@ function displayView(div, id)
 	//Prevents closing and reopening home when we are already there
 	if(div == view && view == View.Home)
 		return;
+
+	$('#toggleSongBook').hide();
 	
 	closeCurrentView();
 
@@ -113,6 +115,8 @@ function displayView(div, id)
 		getProfileData(id);
 	else if (view==View.KaraokeSongBook){
 		getSongBook(id);
+		getSongs();
+		$('#toggleSongBook').show();
 	}
 
 	if (home == Home.Venue){

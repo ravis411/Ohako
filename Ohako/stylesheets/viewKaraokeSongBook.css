@@ -14,12 +14,24 @@
 	overflow: hidden;
 }
 
+#toggleSongBook
+{
+	width: 25px;
+	height: 25px;
+	background-color: #A0522D;
+	opacity: .7;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: none;
+	cursor: pointer;
+}
+
 #requestScreen
 {
 	width: 350px;
 	height: 250px;
 	background-color: white;
-	display: none;
 }
 
 #waitingDiv
