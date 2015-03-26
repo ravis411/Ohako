@@ -9,6 +9,7 @@ return array(
     'Artist' => $baseDir . '/models/Artist.php',
     'DailyEvent' => $baseDir . '/models/DailyEvent.php',
     'Location' => $baseDir . '/models/Location.php',
+    'Request' => $baseDir . '/models/Request.php',
     'Song' => $baseDir . '/models/Song.php',
     'User' => $baseDir . '/models/User.php',
     'UserPictures' => $baseDir . '/models/UserPictures.php',

@@ -7,8 +7,9 @@
 	require_once __DIR__ . '/../login/User.php';
 
 	$target_dir = "../../images/users/";
+	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
-	 //$target_dir . basename($_FILES["fileToUpload"]["name"]);
+	$target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	$target_file = $target_dir . User::getUserID() . '.' . $imageFileType;
@@ -24,9 +25,14 @@
 
 	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 	        $picture = UserPictures::where('user_id', User::getUserID())->first();
+	        if(sizeof($picture)<1){
+	        	$picture = new UserPictures;
+	        	$picture->user_id=User::getUserID();
+	        }
 	        $picture->location = 'images/users/' . User::getUserID() . '.' . $imageFileType;
 	        $picture->save();
 	    }	    
 
+	    return;
 	    header("location:" . $base_url);
 }

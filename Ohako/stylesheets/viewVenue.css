@@ -143,6 +143,7 @@
 	width:98%;
 	height: 300px;
 	margin-top: 5px;
+	padding-right: 5px;
 
 	border-top: 2px black inset;
 	border-right: 2px black inset;
@@ -152,5 +153,5 @@
 
 	overflow: auto;
 
-	background-color: gray;
+	background-color: white;
 }

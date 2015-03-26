@@ -111,8 +111,9 @@ function displayView(div, id)
 		getVenueData(id);
 	else if (view==View.SongBook)
 		getProfileData(id);
-	else if (view==View.KaraokeSongBook)
+	else if (view==View.KaraokeSongBook){
 		getSongBook(id);
+	}
 
 	if (home == Home.Venue){
 		if (view!=View.Home && view!=View.KaraokeSongBook)
@@ -154,6 +155,8 @@ function getVenueData(venueID) {
 			$('#karaokeNights').html(venueData[0].karaoke);
 			$('#location').html(venueData[0].location[0]['street']);
 			$('#venueStarCount').rateit('value', venueData[0].rating);
+
+			$('#venueContent').html(venueData[0].description);
 		});
 }
 
@@ -174,7 +177,7 @@ function getSongBook(vID) {
 				console.log(songs[artist]['songs'])
 				for (song in songs[artist]['songs']) {
 					console.log(songs[artist]['songs'][song]);
-					songBook +="<li><div class=\"songSelection\">"+songs[artist]['songs'][song]['title']+"</div></li>";
+					songBook +="<li><div class=\"songSelection\" value=\""+ songs[artist]['artist_name'] +"\">"+songs[artist]['songs'][song]['title']+"</div></li>";
 				}
 				songBook +="</ul>\
 				            </li>";
@@ -182,6 +185,8 @@ function getSongBook(vID) {
 			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			// $('#profileUserName').html(profileData[0].userName);
 			$('#songBookAdd').html(songBook);
+			karaokeInit();
+
 			//$('#karaokeSongBookList').jScrollPane();
 		});
 }

@@ -55,6 +55,7 @@
 
 	<script type="text/javascript" src="scripts/mail.js"></script>
 	<script type="text/javascript" src="scripts/venueChat.js"></script>
+	<script type="text/javascript" src="scripts/karaoke.js"></script>
 
 	<script>
 		$(document).ready(function()
@@ -270,17 +271,13 @@
 						</div>
 
 						<div id="profileStarRating">
-							User's rating here.
+							User's details here. 
 						</div>
 
 						<br style="clear: both;"/>
 
 						<div id="profileSongBook">
 							Multi-Tab content. 
-							Song list with comments/media/rating. 
-							Media for videos/pictures. 
-							Top songs 
-							etc...
 						</div>
 					</div>
 				</div>
@@ -347,6 +344,30 @@
 
 				<!-- KaraokeSongBook: View.KaraokeSongBook -->
 				<div id="karaokeSongBook">
+					<div id="requestScreen">
+
+						<div id="waitingDiv">
+							<div id="waitingTitle"> Right Now: </div>
+							<div id="currentDetails">
+								<div id="currentSong">
+								</div>
+								<div id="currentArtist">
+								</div>
+								<div id="currentSinger">
+								</div>
+							</div>
+
+						</div>
+
+						<div id="queueTitle">
+							Coming Up...
+						</div> <br style="clear:both;"/>
+
+						<div id="queue">
+
+						</div>
+
+					</div>
 					<div id="karaokeSongBookNavMenu">
 						<img src="images/sortBy.png" alt="Sort By" />
 							<div id="sortByMenu">
@@ -415,8 +436,7 @@
 						</div>
 
 						<div id="checkInDetails">
-							Details like current deals.
-							What's coming up...
+							Going on's here.
 						</div>
 						<br style="clear: both;" />
 						

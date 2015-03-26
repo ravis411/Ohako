@@ -14,6 +14,88 @@
 	overflow: hidden;
 }
 
+#requestScreen
+{
+	width: 350px;
+	height: 250px;
+	background-color: white;
+	display: none;
+}
+
+#waitingDiv
+{
+	width: 125px;
+	height: 200px;
+	float: left;
+}
+#currentDetails
+{
+	width: 100%;
+	text-align: right;
+	font-size: 10pt;
+	float: left;
+}
+
+#queueTitle
+{
+	float: left;
+	height: 15px;
+	color: #ffffff;
+	text-shadow: 0 0 5px #8A2E8A;
+	font-family: viaFont;
+}
+
+#waitingTitle
+{
+	color: #ffffff;
+	text-shadow: 0 0 5px #8A2E8A;
+	font-family: viaFont;
+}
+
+#currentSong
+{
+	float: right;
+	font-size: 10pt;
+	text-align: center;
+}
+
+#currentArtist
+{
+	font-size: 7pt;
+	font-style: italic;
+}
+
+#currentSinger
+{
+	font-size: 8pt;
+}
+
+#queue
+{
+	padding: 2px;
+	width: 215px;
+	height: 220px;
+	overflow-x: auto;
+	float: right;
+	font-size: 10pt;
+	margin-top: -175px;
+
+	border: 1px inset black;
+}
+
+.requestSong
+{
+	float: right;
+	font-weight: 600;
+}
+
+.requestArtist
+{
+	float: right;
+	font-size: 8pt;
+	font-style: italic;
+}
+
 #karaokeSongBookNavMenu{
 	width: 135px;
 	height: 250px;

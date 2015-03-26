@@ -38,11 +38,12 @@
 
 #profileUserName
 {
-	width: 200px;
+	width: 195px;
 	height: 25px;
 
 	margin-top: 5px;
 	margin-left: 5px;
+	padding-left: 5px;
 
 	float: left;
 
@@ -74,5 +75,5 @@
 
 	overflow-x: scroll;
 
-	background-color: gray;
+	background-color: white;
 }
