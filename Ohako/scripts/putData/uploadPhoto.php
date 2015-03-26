@@ -33,6 +33,5 @@
 	        $picture->save();
 	    }	    
 
-	    return;
 	    header("location:" . $base_url);
 }
