@@ -170,7 +170,9 @@ function getProfileData(userID) {
 		TODO:  Add parameter to allow function to check User in.
 			Will pull the necessary data for the Venue page, log user in on server, etc...
 */
-function checkIn(venueID = 0){	
+function checkIn(venueID){
+	 venueID = typeof a !== 'undefined' ? venueID : 0;
+
 	if (!checkedIn){
 		
 		//TODO Set venueID
