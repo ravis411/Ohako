@@ -6,7 +6,7 @@
 
 	require_once __DIR__ . '/../login/User.php';
 
-	$target_dir = __DIR__ . "../../images/users/";
+	$target_dir = "../../images/users/";
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 	$target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -33,5 +33,6 @@
 	        $picture->save();
 	    }	    
 
+	    return;
 	    header("location:" . $base_url);
 }
