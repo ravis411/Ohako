@@ -107,7 +107,6 @@ function displayView(div, id)
 
 	view = div;
 
-	console.log(id);
 	if (view==View.Venue)
 		getVenueData(id);
 	else if (view==View.SongBook)
@@ -140,7 +139,6 @@ function displayView(div, id)
 function getVenueData(venueID) {
 	$.post("/scripts/getData/venueData.php", {id: venueID}, function(result){
 			venueData = jQuery.parseJSON(result);
-			console.log(result);
 			$('#venueInteriorLogo').html("<img width=135 height=100 src=\"" + venueData[0].imageLocation +"\" />");
 			$('#venueTitle').html(venueData[0].name);
 			if (venueData[0].details[0]['patio']!="true")
@@ -160,7 +158,6 @@ function getVenueData(venueID) {
 function getProfileData(userID) {
 	$.post("/scripts/getData/userData.php", {id: userID}, function(result){
 			profileData = jQuery.parseJSON(result);
-			console.log(profileData[0]);
 			$('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			$('#profileUserName').html(profileData[0].userName);
 		});

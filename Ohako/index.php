@@ -332,6 +332,12 @@
 				    	</div>
 						</form>
 
+						<form action="/scripts/putData/uploadPhoto.php" method="post" enctype="multipart/form-data">
+						    Select image to upload:
+						    <input type="file" name="fileToUpload" id="fileToUpload">
+						    <input type="submit" value="Upload Image" name="submit">
+						</form>
+
 						<div id="settingsLogout">
 							<a href="/scripts/login/logout.php"> Log out</a>
 						</div>
