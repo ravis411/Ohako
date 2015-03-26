@@ -37,10 +37,12 @@ function updateUsers(data){
 
 	if(data["updates"]){
 		$("#chatUsersList").html("");
+		data['userList'] = jQuery.parseJSON(data['userList']);
 
-		for (var userData in data["userList"]){
-			$("#chatUsersList").prepend('<div class="userProfile">' + data["userList"][userData] + '</div>');
+		for (var user in data['userList']){
+			$("#chatUsersList").prepend('<div class="userProfile" value="'+ data['userList'][user]['userID'] + '">' + data['userList'][user]['userName'] + '</div>');
 		}
+		$(".userProfile").on('click', function(){displayView(View.SongBook, $(this).attr('value'))});
 	}
 }
 

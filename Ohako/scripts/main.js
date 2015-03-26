@@ -106,6 +106,7 @@ function displayView(div, id)
 
 	view = div;
 
+	console.log(id);
 	if (view==View.Venue)
 		getVenueData(id);
 	else if (view==View.SongBook)
@@ -160,6 +161,7 @@ function getProfileData(userID) {
 			profileData = jQuery.parseJSON(result);
 			console.log(profileData[0]);
 			$('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
+			$('#profileUserName').html(profileData[0].userName);
 		});
 }
 
