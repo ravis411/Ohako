@@ -1,0 +1,156 @@
+#venue
+{
+	position:absolute;
+	height: 400px;
+	width: 360px;
+}
+
+#venueInterior
+{
+	width: 99%%;
+	height: 97.7%;
+	border: 2px solid white;
+	padding-top: 5px;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+
+	background-color: #ffb954;
+	overflow: hidden;
+}
+
+#venueInteriorLogo
+{
+	width: 135px;
+	height: 100px;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+	border: 2px outset white;
+
+	background-color: gray;
+}
+
+#venueDetails
+{
+	width: 191px;
+	height: 91px;
+	margin-top: 5px;
+	margin-right: 5px;
+	padding: 5px;
+
+	float: right;
+
+	background-color: white;
+	border: 2px inset gray;
+}
+
+#drinks
+{
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+#food
+{
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+#patio
+{
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+#smoking
+{
+	position: relative;
+	float: left;
+	margin-right: 5px;
+}
+
+#locationIcon
+{
+	float: left;
+	margin-top: 5px;
+}
+
+#location
+{
+	float: left;
+	font-size: 10pt;
+	margin-top: 5px;
+	margin-left: 2px;
+}
+
+#karaokeNights
+{
+	float: left;
+	font-size: 10pt;
+	margin-left: 2px;
+}
+
+#karaokeListing
+{
+	margin-top: -10px;
+}
+
+#venueTitle
+{
+	float: left;
+	font-weight: 500;
+	margin-top: -5px;
+}
+
+#prohibited
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#karaokeIcon
+{
+	float: left;
+}
+
+#venueRating
+{
+	width: 95%;
+	height: 45px;
+	margin: auto;
+	margin-top: 5px;
+
+	background-color: white;
+	border: 2px inset gray;
+}
+
+#venueStarCount
+{
+	margin-top: 12px;
+	margin-left: 5px;
+
+}
+
+#venueContent
+{
+	width:98%;
+	height: 300px;
+	margin-top: 5px;
+	padding-right: 5px;
+
+	border-top: 2px black inset;
+	border-right: 2px black inset;
+
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+
+	overflow: auto;
+
+	background-color: white;
+}

@@ -1,0 +1,97 @@
+/*These are necessary for a floating footer and should be the same for all pages...*/
+html, body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:99%;
+	overflow: hidden;
+	font-family: 'Raleway', sans-serif;	
+	background-color: #cccccc;
+}
+
+#wrapper{
+	min-height:100%;
+}
+
+#contents{
+	padding-bottom:50px; 
+	overflow:hidden;
+}
+
+/*End of that */
+
+
+/*************************************/
+/*Header Styles*/
+#header{
+	background:#ffdcaa;
+	text-align:left;
+	height:50px;
+	font-size: 15pt;
+	width: 100%;
+	border:1px solid black;
+	border-bottom: 2px solid #ffc066;
+	font-family: viaFont;
+
+	z-index: 5;
+}
+
+#header a{
+	text-decoration:none;
+	color:inherit;
+}
+
+#header #title{
+	cursor:pointer;
+	float: left;
+	padding: 5px;
+}
+
+#header #title:hover{
+	color:white;
+}
+
+#header #header_user_div{
+	float:right;
+	padding: 5px;
+	cursor:pointer;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffb504;
+
+}
+
+
+
+
+
+/*************************/
+/*For CSS Drop Down Menus*/
+#header ul{
+	list-style-type:none;
+	margin-top:2.5em;
+	display:inline-table;
+	padding:0;
+}
+
+#header ul li{
+	float:left;
+	width:5em;
+	font-size:1.2em;
+	line-height:1.2em;
+}
+
+#header ul li:hover{
+	background:blue;
+	color:teal;
+}
+
+#header_user_image{
+	margin-top: 5px;
+	float: left;
+}
+
+#header_user_name{
+	margin-top: 8px;
+	float: left;
+	margin-left: 10px;
+}

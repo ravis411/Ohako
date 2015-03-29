@@ -1,0 +1,54 @@
+#interiorControlsBox{
+	width: 350px;
+	height: 135px;
+
+	border: 1px inset gray;
+	background-color: #626262;
+	border-bottom: 2px solid #3e3e3e;
+
+	font-size: 9pt;
+
+	position: absolute;
+	display: none;
+	top: 260px;
+	padding: 3px;
+}
+
+#interiorNav{
+	width: 100px;
+	height: 100%;
+
+	border-right: 1px inset black;
+	background-color: #e3e3e3;
+
+	font-size: 9.5pt;
+
+	position: relative;
+	float:left;
+
+	color: #ffffff;
+}
+
+#interiorNavSongBook{
+	color: #8a8a8a;
+
+	padding-top: 5px;
+	border-top-right-radius: 22px;
+	border-bottom-right-radius: 22px;
+}
+
+#infoPanel{
+	float: left;
+	width: 242px;
+	height: 100%;
+	border-left: 1px inset gray;
+
+	font-size: 9.5pt;
+
+	position: relative;
+
+	color: #ffffff;
+	padding-top: -5px;
+
+	background-color: #3e3e3e;
+}
