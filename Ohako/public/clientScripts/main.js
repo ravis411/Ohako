@@ -156,8 +156,8 @@ function displayView(div, id)
 }
 
 function getVenueData(venueID) {
-	$.get("/venueProfile/"+venueID, function(result){
-			$('#mainContent').html(result);
+	$.get("/venueProfile/"+venueID.value, function(result){
+			famousDisplay(result);
 		});
 }
 

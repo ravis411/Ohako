@@ -12,6 +12,9 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
+	  <link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.4/famous.css" />
+    <script type="text/javascript" src="http://code.famo.us/famous/0.3.4/famous-global.min.js"></script>
+
 		{!! HTML::script('/clientScripts/rateIt/jquery.rateit.js') !!}
 		{!! HTML::style('/clientScripts/rateIt/rateit.css') !!}
 
@@ -19,6 +22,7 @@
 		{!! HTML::script('/clientScripts/scrollbar/jquery.mousewheel.js') !!}
 		{!! HTML::style('/clientScripts/scrollbar/style/jquery.jscrollpane.css') !!}
 
+		{!! HTML::script('/clientScripts/famous.js') !!}
 
 		{!! HTML::script('/clientScripts/main.js') !!}
 		{!! HTML::script('/clientScripts/user/User.js') !!}
@@ -54,6 +58,7 @@
 	<script>
 		$(document).ready(function()
 		{	
+			famousInit();
 			$('#featuredContent').jScrollPane();
 
 			init();
@@ -81,7 +86,7 @@
 		<div id="contents">
 
 			<div id="header">
-
+<!-- 
 				<span id="title"><img id="logo" src="images/logo_ohako.png" alt="OHAKO" /></span>
 
 				<div id="header_user_div">
@@ -97,11 +102,11 @@
 								<div id="header_user_name">' .	User::getUserName() .'</div>';
 						}*/
 					?>
-				</div>
+				</div>  -->
 
-			</div>
+			</div> 
 
-			<div id="content">
+		<div id="content">
 				<!-- PullDown:  -->
 				<div id="pullDown">
 
@@ -143,9 +148,7 @@
 					<img src="images/ad.jpg" width="326px" height="100px"/>
 				</div>
 			</div>
-			
-			
-			
+	
 		</div><!--End contents-->
 
 	</div><!--End wrapper-->
