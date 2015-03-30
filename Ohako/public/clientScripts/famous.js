@@ -1,3 +1,9 @@
+/*
+	Do NOT animated a div inside a Surface.
+	Animate surfaces.
+
+	http://book.famousmobileapps.com/full_app/footer.html
+*/
 
 var Engine = famous.core.Engine; //require('famous/src/core/Engine');
 var Surface = famous.core.Surface; //require('famous/src/core/Surface');
@@ -114,7 +120,9 @@ function famousDisplay(html){
 		content: html
 	});
 
-	var stateModifier = new StateModifier();
+	var stateModifier = new StateModifier({
+		transform: Transform.translate(0,0,0)
+	});
 
 	var spring = {
 		method: 'spring',
