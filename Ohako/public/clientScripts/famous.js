@@ -7,6 +7,7 @@ var Transform = famous.core.Transform;
 var StateModifier = famous.modifiers.StateModifier;
 var Transitionable = famous.transitions.Transitionable;
 var SpringTransition = famous.transitions.Spring;
+var Easing = famous.transitions.Easing;
 
 Transitionable.registerMethod('spring', SpringTransition);
 
@@ -109,12 +110,11 @@ function famousInit(){
 function famousDisplay(html){
 	console.log(html);
 	var displayContent = new Surface({
+		origin: [-360, 0],
 		content: html
 	});
 
-	var stateModifier = new StateModifier({
-		origin: [0, 0]
-	});
+	var stateModifier = new StateModifier();
 
 	var spring = {
 		method: 'spring',
@@ -124,7 +124,7 @@ function famousDisplay(html){
 
 	mainContext.add(stateModifier).add(displayContent);
 
-	stateModifier.setTransform(Transform.translate(0, 360, 0), spring);
+	stateModifier.setTransform(Transform.translate(0, 0, 0), {duration: 1500, curve: Easing.outBounce});
 }
 
 function enableButtons(){

@@ -149,7 +149,9 @@ function displayView(div, id)
 		}
 	}
 
-	$('#'+view).show( "slide", 500);
+	// Famous opens the view
+	//$('#'+view).show( "slide", 500);
+
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#profileSongBook').jScrollPane();
@@ -346,7 +348,7 @@ function closePullDown(){
 */
 function closeCurrentView()
 {
-	$('#'+view).hide( "slide", 500);
+	//$('#'+view).hide( "slide", 500);
 	if (home==Home.SearchAndDiscover)
 		$('#'+view+'Nav').css("background-color", "#ffb54b");
 	else
