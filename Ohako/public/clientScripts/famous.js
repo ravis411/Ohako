@@ -8,11 +8,13 @@ var StateModifier = famous.modifiers.StateModifier;
 var Transitionable = famous.transitions.Transitionable;
 var SpringTransition = famous.transitions.Spring;
 var Easing = famous.transitions.Easing;
+var Lightbox = famous.views.Lightbox;
 
 Transitionable.registerMethod('spring', SpringTransition);
 
 var headerContext;
 var mainContext;
+var clickLocation;
 
 function famousInit(){
 
@@ -99,6 +101,8 @@ function famousInit(){
 	mainContext.add(content); 
 
 	content.on("click", function(data) {
+		console.log(data);
+		clickLocation = {layerX: data.layerX, layerY: data.layerY};
 		id = data.target.attributes.value;
 		if (id)
 			displayView(View.Venue, id);
@@ -108,23 +112,67 @@ function famousInit(){
 }
 
 function famousDisplay(html){
-	console.log(html);
+	// Create the surface with the returned html
 	var displayContent = new Surface({
-		origin: [-360, 0],
 		content: html
 	});
 
-	var stateModifier = new StateModifier();
+	// Create the Mod
+		/*
+			Mod can include many things to change the Surface.
+			Everything added AFTER a mod obtains the mods.
+			
+			We will use transform to have the mod transform the surface.
+				Here we scale it down to 0,0,0.
 
-	var spring = {
-		method: 'spring',
-		period: 1000,
-		dampingRatio: 0.3
-	};
+			This will grow the page
+		*/
+	var growMod = new Modifier({
+		transform: Transform.scale(0, 0, 0)
+	});
 
-	mainContext.add(stateModifier).add(displayContent);
+	var positionMod = new Modifier({
+		transform: Transform.translate(clickLocation.layerX, clickLocation.layerY, 0)
+	});
 
-	stateModifier.setTransform(Transform.translate(0, 0, 0), {duration: 1500, curve: Easing.outBounce});
+	// Set the transform of the mod
+		/*
+			We want to scale the surface all the way up. 
+		*/
+	growMod.setTransform(Transform.scale(1,1,1), {duration: 1000, curve: Easing.outBounce});
+
+	positionMod.setTransform(Transform.translate(0,0,0), {duration: 1000, curve: Easing.outBounce});
+
+	// Set the transition
+	//transitionable.set([300, 400], {duration: 5000});
+
+	mainContext.add(positionMod).add(growMod).add(displayContent);
+
+
+
+
+	// displayContent.lightbox = new Lightbox({
+	// 	inTransform: Transform.translate(0,500,0),
+	//     outTransform: Transform.translate(0,500,0),
+	//     inTransition: {duration:1000, curve:Easing.outElastic},
+	//     outTransition: {duration:200, curve:Easing.inOutQuad},
+	// });
+
+	// mainContext.add(new Modifier({origin: [0, 0]})).add(displayContent.lightbox);
+
+	// displayContent.lightbox.show(displayContent);
+
+	// var stateModifier = new StateModifier();
+
+	// var spring = {
+	// 	method: 'spring',
+	// 	period: 1000,
+	// 	dampingRatio: 0.3
+	// };
+
+	// mainContext.add(stateModifier).add(displayContent);
+
+	// stateModifier.setTransform(Transform.translate(0, 0, 0), {duration: 1500, curve: Easing.outBounce});
 }
 
 function enableButtons(){
