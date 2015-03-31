@@ -54,6 +54,8 @@
 	 {!! HTML::script('/clientScripts/mail.js') !!}
 	 {!! HTML::script('/clientScripts/venueChat.js') !!}
 	 {!! HTML::script('/clientScripts/karaoke.js') !!}
+	 {!! HTML::script('/clientScripts/views/header.js') !!}
+	 {!! HTML::script('/clientScripts/views/content.js') !!}
 
 	<script>
 		$(document).ready(function()
@@ -85,77 +87,7 @@
 
 		<div id="contents">
 
-			<div id="header">
-<!-- 
-				<span id="title"><img id="logo" src="images/logo_ohako.png" alt="OHAKO" /></span>
 
-				<div id="header_user_div">
-					<?php /*
-						//If user !logged in output login button
-							//Otherwise output username and userimage
-						if(!User::isLoggedIn()){
-							echo'<div id="headerLogInDiv">Login</div>';
-						}else{
-							echo '<div id="header_user_image">
-									<img src="images/userProfileImage.png" alt="Profile Picture" width ="25px" height="25px" /> 
-								</div>
-								<div id="header_user_name">' .	User::getUserName() .'</div>';
-						}*/
-					?>
-				</div>  -->
-
-			</div> 
-
-		<div id="content">
-				<!-- PullDown:  -->
-				<div id="pullDown">
-
-				</div>
-				<!-- END PullDown:  -->
-
-				@yield('content')
-
-				<div id="mainContent">
-
-				</div>
-
-				<!-- CheckIn:  -->
-				<div id="checkIn">
-					<div id="checkInInterior">
-						<div id="checkInLogo">
-							Logo here
-						</div>
-
-						<div id="checkInDetails">
-							Going on's here.
-						</div>
-						<br style="clear: both;" />
-						
-						<img src="images/checkin.png" id="buttonCheckIn" />
-					</div>
-				</div>
-				<!-- END CheckIn:  -->
-			</div>
-			
-			<div id="controlsBox">
-				<div id="controlsNav">
-					<img id="mailboxNav" class="option" src="images/mailbox.png" alt="Mailbox" />
-					<img id="songBookNav" class="option" src="images/songbook.png" alt="Songbook"/>
-					<img id="searchNav" class="option" src="images/search.png" alt="Search" />
-					<img id="settingsNav" class="option" src="images/settings.png" alt="Settings" />
-				</div>
-				<div id="adspace">
-					<img src="images/ad.jpg" width="326px" height="100px"/>
-				</div>
-			</div>
-	
-		</div><!--End contents-->
-
-	</div><!--End wrapper-->
-	
-<div id="footer">
-	&copy;
-</div>
 
 </body>
 </html>
