@@ -38,8 +38,12 @@ function famousInit(){
 	    transform: Transform.translate(0, 50),
 	});
 
+	var inFront = new Modifier({ 
+	    transform: Transform.inFront
+	});
+
 	mainContext.add(modifier).add(content.getView());
-	mainContext.add(header.getView());
+	mainContext.add(inFront).add(header.getView());
 
 	content.setContent();
 	
