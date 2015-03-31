@@ -1,3 +1,9 @@
+/*
+	Do NOT animated a div inside a Surface.
+	Animate surfaces.
+
+	http://book.famousmobileapps.com/full_app/footer.html
+*/
 
 var Engine = famous.core.Engine; //require('famous/src/core/Engine');
 var Surface = famous.core.Surface; //require('famous/src/core/Surface');
@@ -131,6 +137,7 @@ function famousDisplay(html){
 		transform: Transform.scale(0, 0, 0)
 	});
 
+	// Seperate mod to set the position of the surface
 	var positionMod = new Modifier({
 		transform: Transform.translate(clickLocation.layerX, clickLocation.layerY, 0)
 	});
@@ -141,38 +148,13 @@ function famousDisplay(html){
 		*/
 	growMod.setTransform(Transform.scale(1,1,1), {duration: 1000, curve: Easing.outBounce});
 
+	// Add a transition effect to the position mod
 	positionMod.setTransform(Transform.translate(0,0,0), {duration: 1000, curve: Easing.outBounce});
 
 	// Set the transition
 	//transitionable.set([300, 400], {duration: 5000});
 
 	mainContext.add(positionMod).add(growMod).add(displayContent);
-
-
-
-
-	// displayContent.lightbox = new Lightbox({
-	// 	inTransform: Transform.translate(0,500,0),
-	//     outTransform: Transform.translate(0,500,0),
-	//     inTransition: {duration:1000, curve:Easing.outElastic},
-	//     outTransition: {duration:200, curve:Easing.inOutQuad},
-	// });
-
-	// mainContext.add(new Modifier({origin: [0, 0]})).add(displayContent.lightbox);
-
-	// displayContent.lightbox.show(displayContent);
-
-	// var stateModifier = new StateModifier();
-
-	// var spring = {
-	// 	method: 'spring',
-	// 	period: 1000,
-	// 	dampingRatio: 0.3
-	// };
-
-	// mainContext.add(stateModifier).add(displayContent);
-
-	// stateModifier.setTransform(Transform.translate(0, 0, 0), {duration: 1500, curve: Easing.outBounce});
 }
 
 function enableButtons(){
