@@ -85,7 +85,6 @@ Content.prototype.setContent = function(data) {
 	this.view.add(this.content);
 
 		this.content.on('click', function(data){
-		console.log(data);
 		clickLocation = {layerX: data.layerX, layerY: data.layerY};
 		id = data.target.attributes.value.value;
 		if (id)

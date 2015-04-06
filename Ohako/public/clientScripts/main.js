@@ -16,7 +16,8 @@ currentUser = null;
 
 // Called after page loads to set up functionality.
 function init(){
-	buttonsInit();
+	famousInit();
+	//buttonsInit();
 	view = View.Home;
 	currentUser=1;
 

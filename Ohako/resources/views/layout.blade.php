@@ -12,7 +12,7 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
-	  <link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.4/famous.css" />
+	<link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.4/famous.css" />
     <script type="text/javascript" src="http://code.famo.us/famous/0.3.4/famous-global.min.js"></script>
 
 		{!! HTML::script('/clientScripts/rateIt/jquery.rateit.js') !!}
@@ -60,7 +60,6 @@
 	<script>
 		$(document).ready(function()
 		{	
-			famousInit();
 			$('#featuredContent').jScrollPane();
 
 			init();

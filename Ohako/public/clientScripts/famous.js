@@ -44,10 +44,11 @@ function famousInit(){
 
 	mainContext.add(modifier).add(content.getView());
 	mainContext.add(inFront).add(header.getView());
+	//header.buttonsInit();
 
 	content.setContent();
 	
-	enableButtons();
+	//enableButtons();
 }
 
 function famousDisplay(html){
