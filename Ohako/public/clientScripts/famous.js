@@ -46,15 +46,19 @@ function famousInit(){
 	mainContext.add(inFront).add(header.getView());
 	//header.buttonsInit();
 
-	content.setContent();
+	content.setExteriorMain();
 	
 	//enableButtons();
+}
+
+function closeFamousView(){
+	content.closeToMain();
 }
 
 function famousDisplay(html){
 	console.log(html);
 
-	content.openProfile(html);
+	content.openVenueProfile(html);
 	return; 
 
 	// Create the surface with the returned html

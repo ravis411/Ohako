@@ -349,6 +349,8 @@ function closePullDown(){
 */
 function closeCurrentView()
 {
+	if (view!=View.Home)
+		closeFamousView();
 	//$('#'+view).hide( "slide", 500);
 	if (home==Home.SearchAndDiscover)
 		$('#'+view+'Nav').css("background-color", "#ffb54b");

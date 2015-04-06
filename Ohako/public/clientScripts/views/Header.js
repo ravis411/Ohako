@@ -52,11 +52,8 @@ function Header() {
 
 Header.prototype.buttonsInit = function() {
 	this.leftHeader.on('click', function(data){
-		console.log(data.target);
-		clickLocation = {layerX: data.layerX, layerY: data.layerY};
-		id = data.target.attributes.value.value;
-		if (id)
-			displayView(View.Venue, id);
+		console.log(data.target.attributes.id);
+		displayView(View.home);
 	});
 
 	this.rightHeader.on('click', function(data){

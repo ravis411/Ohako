@@ -39,8 +39,8 @@ function Content() {
 	this.view.add(this.background);
 }
 
-Content.prototype.setContent = function(data) {
-	this.content = new Surface({
+Content.prototype.setExteriorMain = function(data) {
+	this.exteriorMain = new Surface({
 		content: '<!-- Main view...  View.Home -->\
 			<div id="home">\
 				<!-- Home.SearchAndDiscover -->\
@@ -82,9 +82,9 @@ Content.prototype.setContent = function(data) {
 		<!-- End main view...  View.Home -->'
 	});
 
-	this.view.add(this.content);
+	this.view.add(this.exteriorMain);
 
-		this.content.on('click', function(data){
+		this.exteriorMain.on('click', function(data){
 		clickLocation = {layerX: data.layerX, layerY: data.layerY};
 		id = data.target.attributes.value.value;
 		if (id)
@@ -92,9 +92,9 @@ Content.prototype.setContent = function(data) {
 	});
 }
 
-Content.prototype.openProfile = function(html) {
+Content.prototype.openVenueProfile = function(html) {
 	// Create the surface with the returned html
-	var displayContent = new Surface({
+	venueProfile = new Surface({
 		content: html
 	});
 
@@ -108,12 +108,12 @@ Content.prototype.openProfile = function(html) {
 
 			This will grow the page
 		*/
-	var growMod = new Modifier({
+	this.growMod = new Modifier({
 		transform: Transform.scale(0, 0, 0)
 	});
 
 	// Seperate mod to set the position of the surface
-	var positionMod = new Modifier({
+	this.positionMod = new Modifier({
 		transform: Transform.translate(clickLocation.layerX, clickLocation.layerY, 0)
 	});
 
@@ -121,12 +121,23 @@ Content.prototype.openProfile = function(html) {
 		/*
 			We want to scale the surface all the way up. 
 		*/
-	growMod.setTransform(Transform.scale(1,1,1), {duration: 1000, curve: Easing.outBounce});
+	this.growMod.setTransform(Transform.scale(1,1,1), {duration: 500, curve: 'easeIn'});
 
 	// Add a transition effect to the position mod
-	positionMod.setTransform(Transform.translate(0,0,0), {duration: 1000, curve: Easing.outBounce});
+	this.positionMod.setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeIn'});
 
-	this.view.add(positionMod).add(growMod).add(displayContent);
+	this.venueProfile = this.view.add(this.positionMod).add(this.growMod).add(venueProfile);
+}
+
+Content.prototype.closeToMain = function() {
+
+	this.growMod.setTransform(Transform.scale(0,0,0), {duration: 500, curve: 'easeOut'});
+
+	console.log(Easing);
+
+	this.positionMod.setTransform(Transform.translate(0, 0,0), {duration: 500, curve: 'easeOut'});
+
+	//this.venueProfile = this.view.add(minMod).add(this.positionMod).add(this.venueProfile);
 }
 
 Content.prototype.getView = function() {
