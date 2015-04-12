@@ -17,7 +17,7 @@ User.prototype.checkIn = function(venueID) {
 	this.checkedIn = venueID;
 
 	//Update database
-	$.post("/scripts/User/",
+	$.post("/clientScripts/user/",
 		{
 			intent: "checkIn",
 			location: venueID
@@ -37,7 +37,7 @@ User.prototype.checkOut = function() {
 	this.checkedIn = null;
 
 	//Update database
-	$.post("/scripts/User/",
+	$.post("/clientScripts/user/",
 		{
 			intent: "checkOut"
 		},

@@ -19,7 +19,7 @@ function init(){
 	famousInit();
 	//buttonsInit();
 	view = View.Home;
-	currentUser=1;
+	//currentUser=1;
 
 	/*
 		TODO
@@ -238,7 +238,7 @@ function initCheckIn(){
 	
 	//This doesn't belong here....
 	if(currentUser != null){
-		$.post("/scripts/User/",
+		$.post("/clientScripts/user/",
 			{
 				intent: "checkedIn"
 			},
