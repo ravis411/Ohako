@@ -54,8 +54,10 @@
 	 {!! HTML::script('/clientScripts/mail.js') !!}
 	 {!! HTML::script('/clientScripts/venueChat.js') !!}
 	 {!! HTML::script('/clientScripts/karaoke.js') !!}
-	 {!! HTML::script('/clientScripts/views/header.js') !!}
-	 {!! HTML::script('/clientScripts/views/content.js') !!}
+	 {!! HTML::script('/clientScripts/views/Header.js') !!}
+	 {!! HTML::script('/clientScripts/views/Content.js') !!}
+	 {!! HTML::script('/clientScripts/views/Footer.js') !!}
+	 {!! HTML::script('/clientScripts/views/Mailbox.js') !!}
 
 	<script>
 		$(document).ready(function()

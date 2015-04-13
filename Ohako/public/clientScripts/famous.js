@@ -2,6 +2,8 @@
 	Do NOT animated a div inside a Surface.
 	Animate surfaces.
 
+	Make this entire thing into a class!!!!
+
 	http://book.famousmobileapps.com/full_app/footer.html
 */
 
@@ -25,6 +27,12 @@ var clickLocation;
 var content;
 var header;
 
+var mailBox;
+
+var belowHeader = new Modifier({ 
+	    transform: Transform.translate(0, 50),
+	});
+
 function famousInit(){
 
 	var mainContentDiv = document.getElementById('contents');
@@ -33,17 +41,21 @@ function famousInit(){
 
 	header = new Header();
 	content = new Content();
+	footer = new Footer();
 
-	var modifier = new Modifier({ 
-	    transform: Transform.translate(0, 50),
-	});
+	mailBox = new Mailbox();
 
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront
 	});
 
-	mainContext.add(modifier).add(content.getView());
+	var belowContent = new Modifier({
+		transform: Transform.translate(-1, 450),
+	});
+
 	mainContext.add(inFront).add(header.getView());
+	mainContext.add(belowHeader).add(content.getView());
+	mainContext.add(belowContent).add(footer.getView());
 	//header.buttonsInit();
 
 	content.setExteriorMain();
@@ -52,12 +64,31 @@ function famousInit(){
 }
 
 function closeFamousView(){
-	content.closeToMain();
+	if (view==View.Mailbox)
+		mailBox.close();
+	else
+		content.closeToMain();
 }
 
-function famousDisplay(html){
-	console.log(html);
+function famousDisplayMailBox() {
+	var inFront = new Modifier({ 
+	    transform: Transform.inFront
+	});
 
+	var belowHeader1 = new Modifier({ 
+	    transform: Transform.translate(0, 50),
+	});
+
+	mainContext.add(belowHeader1).add(mailBox.getView());
+	mailBox.slideIn();
+}
+
+function famousCloseMailBox() {
+
+}
+
+function famousDisplayVenueProfile(html){
+	
 	content.openVenueProfile(html);
 	return; 
 

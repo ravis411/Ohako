@@ -9,8 +9,6 @@ function Content() {
 
 	var EventHandler = famous.core.EventHandler;
 
-	headerDiv = document.getElementById('header');
-
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
 	});
@@ -130,14 +128,9 @@ Content.prototype.openVenueProfile = function(html) {
 }
 
 Content.prototype.closeToMain = function() {
-
 	this.growMod.setTransform(Transform.scale(0,0,0), {duration: 500, curve: 'easeOut'});
 
-	console.log(Easing);
-
 	this.positionMod.setTransform(Transform.translate(0, 0,0), {duration: 500, curve: 'easeOut'});
-
-	//this.venueProfile = this.view.add(minMod).add(this.positionMod).add(this.venueProfile);
 }
 
 Content.prototype.getView = function() {

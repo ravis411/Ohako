@@ -124,8 +124,10 @@ function displayView(div, id)
 
 	if (view==View.Venue)
 		getVenueData(id);
+
 	else if (view==View.SongBook)
 		getProfileData(id);
+
 	else if (view==View.KaraokeSongBook){
 		getSongBook(id);
 		getSongs();
@@ -153,6 +155,9 @@ function displayView(div, id)
 	// Famous opens the view
 	//$('#'+view).show( "slide", 500);
 
+	if (view == View.Mailbox)
+		famousDisplayMailBox();
+
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#profileSongBook').jScrollPane();
@@ -160,7 +165,7 @@ function displayView(div, id)
 
 function getVenueData(venueID) {
 	$.get("/venueProfile/"+venueID, function(result){
-			famousDisplay(result);
+			famousDisplayVenueProfile(result);
 		});
 }
 

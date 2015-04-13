@@ -36,14 +36,14 @@
 
 #controlsBox
 {
-	width: 99%;
+	width: 100%;
 	height: 100px;
 	border: 1px solid black;
 }
 
 #controlsNav
 {
-	width: 8%;
+	width: 40px;
 	height: 99%;
 	float: left;
 
@@ -55,7 +55,7 @@
 {
 	float: left;
 	width: 79%;
-	height: 99%;
+	height: 100%;
 }
 
 .option
