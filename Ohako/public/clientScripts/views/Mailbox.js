@@ -9,7 +9,7 @@ function Mailbox() {
 	var EventHandler = famous.core.EventHandler;
 
 	this.transitionMod = new Modifier({
-		transform: Transform.translate(-450, 0, 0)
+		transform: Transform.translate(-360, 0, 0)
 	});
 
 	this.backgroundInterior = new Surface({
@@ -33,22 +33,22 @@ function Mailbox() {
 							<input type="text" name="message" placeholder="Enter a message..."><div id="mailMessageSubmitButton"></div>\
 						</div>\
 				</div>'
-	})
+	});
 
 	this.view = new View();
 
 	this.view.add(this.backgroundInterior);
 
 	this.view.add(this.mailList);
+	this.view.add(new Modifier({transform: Transform.translate(120, 0, 0)})).add(this.mailView);
 }
 
 Mailbox.prototype.slideIn = function() {
-	
-	mailBox.getTransitionMod().setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeIn'})
+	this.transitionMod.setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeIn'})
 }
 
 Mailbox.prototype.close = function() {
-
+	this.transitionMod.setTransform(Transform.translate(-360,0,0), {duration: 500, curve: 'easeOut'})
 }
 
 Mailbox.prototype.getTransitionMod = function() {

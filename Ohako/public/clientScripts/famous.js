@@ -66,7 +66,7 @@ function famousInit(){
 function closeFamousView(){
 	if (view==View.Mailbox)
 		mailBox.close();
-	else
+	else if (view==View.Venue)
 		content.closeToMain();
 }
 
@@ -79,7 +79,7 @@ function famousDisplayMailBox() {
 	    transform: Transform.translate(0, 50),
 	});
 
-	mainContext.add(belowHeader1).add(mailBox.getView());
+	mainContext.add(belowHeader1).add(mailBox.getTransitionMod()).add(mailBox.getView());
 	mailBox.slideIn();
 }
 
