@@ -4,6 +4,8 @@
 	use App\Models\Location;
 	use App\Models\VenueDetail;
 	use App\Models\DailyEvent;
+	use App\Models\User;
+	use App\Models\UserPictures;
 
 class MainController extends Controller {
 
@@ -37,6 +39,24 @@ class MainController extends Controller {
 									  'karaoke' => $karaoke,
 									  'details' => $details->toArray(),
 									  'location' => $location ]);
+	}
+
+	/*
+		TODO
+		Check if valid id.
+		Cannot get profile of any randomly sent id.
+	*/
+	public function userProfile($id)
+	{
+	 	$data = User::where('ID', $id)->get();
+
+	 	$pictures = UserPictures::where('user_id', $id)->get();
+
+	 	$data[0]['profilePicture']=$pictures[0]['location'];
+
+	 	return view('userProfile', [
+	 				'data' =>$data 
+	 			]);
 	}
 
 }

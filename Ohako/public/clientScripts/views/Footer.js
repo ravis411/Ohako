@@ -61,17 +61,17 @@ Footer.prototype.buttonsInit = function() {
 			case 'mailboxNav':
 				displayView(View.Mailbox);
 				break;
+			case 'songBookNav':
+				displayView(View.SongBook);
+				break;
+			case 'searchNav':
+				displayView(View.Search);
+				break;
+			case 'settingsNav':
+				displayView(View.Settings);
+				break;
 		}
-		//displayView(View.home);
 	});
-
-	// this.rightHeader.on('click', function(data){
-	// 	console.log(data.target);
-	// 	clickLocation = {layerX: data.layerX, layerY: data.layerY};
-	// 	id = data.target.attributes.value.value;
-	// 	if (id)
-	// 		displayView(View.Venue, id);
-	// });
 }
 
 Footer.prototype.getView = function() {

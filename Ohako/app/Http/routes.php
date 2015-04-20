@@ -17,6 +17,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('venueProfile/{id}', 'MainController@venueProfile');
 
+Route::get('userProfile/{id}', 'MainController@userProfile');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

@@ -197,10 +197,9 @@ function getSongBook(vID) {
 }
 
 function getProfileData(userID) {
-	$.post("/scripts/getData/userData.php", {id: userID}, function(result){
-			profileData = jQuery.parseJSON(result);
-			$('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
-			$('#profileUserName').html(profileData[0].userName);
+	userID=5;
+	$.get("/userProfile/"+userID, function(result){
+			famousDisplayVenueProfile(result);
 		});
 }
 

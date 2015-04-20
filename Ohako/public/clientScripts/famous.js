@@ -87,6 +87,10 @@ function famousCloseMailBox() {
 
 }
 
+function famousDisplayUserProfile(html) {
+	content.slideIn(html);
+}
+
 function famousDisplayVenueProfile(html){
 	
 	content.openVenueProfile(html);
