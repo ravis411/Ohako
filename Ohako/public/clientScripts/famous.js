@@ -44,6 +44,7 @@ function famousInit(){
 	footer = new Footer();
 
 	mailBox = new Mailbox();
+	userProfile = new UserProfile();
 
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront
@@ -66,6 +67,8 @@ function famousInit(){
 function closeFamousView(){
 	if (view==View.Mailbox)
 		mailBox.close();
+	else if (view==View.SongBook)
+		userProfile.close();
 	else if (view==View.Venue)
 		content.closeToMain();
 }
@@ -88,7 +91,18 @@ function famousCloseMailBox() {
 }
 
 function famousDisplayUserProfile(html) {
-	content.slideIn(html);
+	var inFront = new Modifier({ 
+	    transform: Transform.inFront
+	});
+
+	var belowHeader1 = new Modifier({ 
+	    transform: Transform.translate(0, 50),
+	});
+
+	userProfile.setHTML(html);
+
+	mainContext.add(belowHeader1).add(userProfile.getTransitionMod()).add(userProfile.getView());
+	userProfile.slideIn();
 }
 
 function famousDisplayVenueProfile(html){

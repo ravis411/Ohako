@@ -1,13 +1,15 @@
 
+{!! HTML::style('/css/viewSongbook.css') !!}
+
 <!-- SongBook: View.SongBook -->
 				<div id="songBook">
 					<div id="songBookInterior">
 						<div id="profilePicture">
-							Profile Picture
+							{!! HTML::image($data[0]['profilePicture'], $data[0]['userName'], array( 'width' => 120, 'height' => 105 )) !!}
 						</div>
 
 						<div id="profileUserName">
-
+						{{ $data[0]['userName'] }}
 						</div>
 
 						<div id="profileStarRating">

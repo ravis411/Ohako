@@ -112,8 +112,6 @@ function displayView(div, id)
 	//Prevents closing and reopening home when we are already there
 	if(div == view && view == View.Home)
 		return;
-
-	$('#toggleSongBook').hide();
 	
 	closeCurrentView();
 
@@ -199,7 +197,7 @@ function getSongBook(vID) {
 function getProfileData(userID) {
 	userID=5;
 	$.get("/userProfile/"+userID, function(result){
-			famousDisplayVenueProfile(result);
+			famousDisplayUserProfile(result);
 		});
 }
 

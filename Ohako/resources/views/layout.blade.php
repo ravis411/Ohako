@@ -58,6 +58,7 @@
 	 {!! HTML::script('/clientScripts/views/Content.js') !!}
 	 {!! HTML::script('/clientScripts/views/Footer.js') !!}
 	 {!! HTML::script('/clientScripts/views/Mailbox.js') !!}
+	 {!! HTML::script('/clientScripts/views/UserProfile.js') !!}
 
 	<script>
 		$(document).ready(function()
