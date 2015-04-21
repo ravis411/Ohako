@@ -156,6 +156,12 @@ function displayView(div, id)
 	if (view == View.Mailbox)
 		famousDisplayMailBox();
 
+	if (view == View.Search)
+		famousDisplaySearch();
+
+	if (view == View.Settings)
+		famousDisplaySettings();
+
 	$('#'+view+'Nav').css("background-color", "red");
 
 	$('#profileSongBook').jScrollPane();
@@ -197,8 +203,9 @@ function getSongBook(vID) {
 function getProfileData(userID) {
 	userID=5;
 	$.get("/userProfile/"+userID, function(result){
-			famousDisplayUserProfile(result);
+			famousSetUserProfile(result);
 		});
+	famousDisplayUserProfile();
 }
 
 /*

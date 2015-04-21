@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 	<title>OHAKO</title>
 	<link rel="shortcut icon" href="/images/logo_ohako_night.png">
@@ -59,6 +60,8 @@
 	 {!! HTML::script('/clientScripts/views/Footer.js') !!}
 	 {!! HTML::script('/clientScripts/views/Mailbox.js') !!}
 	 {!! HTML::script('/clientScripts/views/UserProfile.js') !!}
+	 {!! HTML::script('/clientScripts/views/Search.js') !!}
+	 {!! HTML::script('/clientScripts/views/Settings.js') !!}
 
 	<script>
 		$(document).ready(function()

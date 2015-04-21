@@ -45,6 +45,8 @@ function famousInit(){
 
 	mailBox = new Mailbox();
 	userProfile = new UserProfile();
+	search = new Search();
+	settings = new Settings();
 
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront
@@ -69,6 +71,10 @@ function closeFamousView(){
 		mailBox.close();
 	else if (view==View.SongBook)
 		userProfile.close();
+	else if (view==View.Search)
+		search.close();
+	else if (view==View.Settings)
+		settings.close();
 	else if (view==View.Venue)
 		content.closeToMain();
 }
@@ -90,6 +96,32 @@ function famousCloseMailBox() {
 
 }
 
+function famousDisplaySettings() {
+	var inFront = new Modifier({ 
+	    transform: Transform.inFront
+	});
+
+	var belowHeader1 = new Modifier({ 
+	    transform: Transform.translate(0, 50),
+	});
+
+	mainContext.add(belowHeader1).add(settings.getTransitionMod()).add(settings.getView());
+	settings.slideIn();
+}
+
+function famousDisplaySearch() {
+	var inFront = new Modifier({ 
+	    transform: Transform.inFront
+	});
+
+	var belowHeader1 = new Modifier({ 
+	    transform: Transform.translate(0, 50),
+	});
+
+	mainContext.add(belowHeader1).add(search.getTransitionMod()).add(search.getView());
+	search.slideIn();
+}
+
 function famousDisplayUserProfile(html) {
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront
@@ -99,10 +131,13 @@ function famousDisplayUserProfile(html) {
 	    transform: Transform.translate(0, 50),
 	});
 
-	userProfile.setHTML(html);
-
 	mainContext.add(belowHeader1).add(userProfile.getTransitionMod()).add(userProfile.getView());
 	userProfile.slideIn();
+}
+
+function famousSetUserProfile(data) {
+	console.log(data);
+	userProfile.setHTML(data);
 }
 
 function famousDisplayVenueProfile(html){
