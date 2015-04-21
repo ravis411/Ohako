@@ -13,13 +13,17 @@ checkedIn = false;
 
 //The current user
 currentUser = null;
+user = null;
+inputToken = null;
 
 // Called after page loads to set up functionality.
 function init(){
 	famousInit();
 	//buttonsInit();
 	view = View.Home;
-	currentUser=1;
+
+	//currentUser=1;
+	user = new User();
 
 	/*
 		TODO
@@ -341,11 +345,6 @@ function displayPullDown(){
 		$('#splashImage').attr("src", "images/splashImageExit.png");
 	else
 		$('#splashImage').attr("src", "images/splashImage.png");
-}
-
-function openPullDown(){
-	$('#pullDown').animate({top: "+=199px"}, 500, function(){});
-	$('#checkIn').slideDown(500);
 }
 
 function closePullDown(){

@@ -79,6 +79,15 @@ function closeFamousView(){
 		content.closeToMain();
 }
 
+function famousPullDown() {
+	header.pullDown();
+}
+
+function famousRightHeaderClick() {
+	header.displayLogIn();
+	famousPullDown();
+}
+
 function famousDisplayMailBox() {
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront
@@ -136,7 +145,6 @@ function famousDisplayUserProfile(html) {
 }
 
 function famousSetUserProfile(data) {
-	console.log(data);
 	userProfile.setHTML(data);
 }
 

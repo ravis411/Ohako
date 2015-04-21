@@ -62,11 +62,14 @@
 	 {!! HTML::script('/clientScripts/views/UserProfile.js') !!}
 	 {!! HTML::script('/clientScripts/views/Search.js') !!}
 	 {!! HTML::script('/clientScripts/views/Settings.js') !!}
+	 {!! HTML::script('/clientScripts/views/Login.js') !!}
 
 	<script>
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();
+
+			//input = <?php echo csrf_token() ?>
 
 			init();
 

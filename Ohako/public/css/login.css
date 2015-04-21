@@ -25,7 +25,7 @@
 	text-align:center;
 }
 
-#upperDiv #loginDiv{
+#loginDiv{
 	display:default;
 	width:200px;
 	margin:auto;
@@ -33,17 +33,17 @@
 	text-align:center;
 }
 
-#upperDiv #loginDiv #loginForm input{
+#loginDiv #loginForm input{
 	width:190px;
 	padding:4px;
 	margin:0;
 	margin-bottom:5px;
 }
-#upperDiv #loginDiv #loginForm #loginFormSubmitButton{
+#loginDiv #loginForm #loginFormSubmitButton{
 	width:90px;
 }
 
-#upperDiv #loginDiv #loginForm #loginFormSwitchToRegistrationButton{
+#loginDiv #loginForm #loginFormSwitchToRegistrationButton{
 	padding:4px;
 	float:right;
 	cursor:pointer;
@@ -53,12 +53,12 @@
 	width:70px;
 }
 
-#upperDiv #loginDiv #loginForm #loginFormSwitchToRegistrationButton:hover{
+#loginDiv #loginForm #loginFormSwitchToRegistrationButton:hover{
 	cursor:pointer;
 	text-decoration:underline;
 }
 
-#upperDiv #registrationDiv{
+#registrationDiv{
 	display:none;
 	width:250px;
 	padding:0px;
@@ -66,7 +66,7 @@
 	text-align:center;
 }
 
-#upperDiv #registrationDiv #registrationForm input{
+#registrationDiv #registrationForm input{
 	width:190px;
 	margin-left:0px;
 	margin-right:0px;
@@ -74,17 +74,17 @@
 	padding:4px;
 }
 
-#upperDiv #registrationDiv #registrationForm .registrationName{
+#registrationDiv #registrationForm .registrationName{
 	width:90px;
 	padding:4px;
 	margin-bottom:5px;
 }
 
-#upperDiv #registrationDiv #registrationForm #registrationSubmitButton{
+#registrationDiv #registrationForm #registrationSubmitButton{
 	width: 90px;
 }
 
-#upperDiv #registrationDiv #registrationForm #registrationSwitchToLoginButton{
+#registrationDiv #registrationForm #registrationSwitchToLoginButton{
 	padding:4px;
 	float:right;
 	cursor:pointer;
@@ -93,7 +93,7 @@
 	margin:10px;
 	width:70px;
 }
-#upperDiv #registrationDiv #registrationForm #registrationSwitchToLoginButton:hover{
+#registrationDiv #registrationForm #registrationSwitchToLoginButton:hover{
 	cursor:pointer;
 	text-decoration:underline;
 }

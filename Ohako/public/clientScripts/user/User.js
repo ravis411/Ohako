@@ -1,15 +1,18 @@
 //User Class
 //For storing and manipulating user data...
 
-var User = function(info){
-	this.ID = info.ID;
-	this.firstName = info.firstName;
-	this.lastName = info.lastName;
-	this.userName = info.userName;
-	this.email = info.email;
-	this.checkedIn = info.checkedIn;
-};
+// var User = function(info){
+// 	// this.ID = info.ID;
+// 	// this.firstName = info.firstName;
+// 	// this.lastName = info.lastName;
+// 	// this.userName = info.userName;
+// 	// this.email = info.email;
+// 	// this.checkedIn = info.checkedIn;
+// };
 
+function User() {
+
+}
 
 
 //Checks a User into the venue
