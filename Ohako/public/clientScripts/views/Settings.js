@@ -17,7 +17,6 @@ function Settings() {
 				<div id="settings">\
 					<div id="settingsInterior">\
 						<form id="settingsForm" action="http://www.usc.edu/cgi-bin/mail_form/shiffer@usc.edu" method="post" name="ContactForm" >\
-\							<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">\
 						<span class="settingsLabel">Display Name </span>\
 							<input id="settingsName" class="formField" type="text" name="displayName" required placeholder="current user name" style="text-align: right;"/>\
 						<br style="clear:both;"/> <br/>\
@@ -37,6 +36,7 @@ function Settings() {
 						</form>\
 \
 						<form action="/scripts/putData/uploadPhoto.php" method="post" enctype="multipart/form-data">\
+						<input type="hidden" name="_token" value="' + inputToken + '">\
 						    Select image to upload:\
 						    <input type="file" name="fileToUpload" id="fileToUpload">\
 						    <input type="submit" value="Upload Image" name="submit">\

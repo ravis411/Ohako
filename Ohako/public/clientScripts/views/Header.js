@@ -19,16 +19,17 @@ function Header() {
 	});
 
 	this.leftMod = new Modifier({
-
+		transform: Transform.translate(0, 0, 2)
 	});
 
 	this.rightMod = new Modifier({
-
+		transform: Transform.translate(0, 0, 2)
 	});
 
 	this.contentMod = new Modifier({
-
-	})
+		opacity: 0,
+		transform: Transform.translate(0, 0, 1)
+	});
 
 	// Surface for the Title
 		// TODO
@@ -48,11 +49,11 @@ function Header() {
 		}
 	});
 
-	console.log(inputToken);
-
 	this.content = new Surface({
-		content: '<div id="loginDiv">\
+		content: '<div id="upperDiv">\
+				<div id="loginDiv">\
 					<form id="loginForm" name="loginForm" method="post" action="">\
+						<input type="hidden" name="_token" value="' + inputToken + '">\
 						<h2>Log in</h2>\
 						<div id="loginFail" class="fail"></div>\
 						<input id="loginFormUserName" name="username" type="text" placeholder="User Name or Email" autofocus required /><br>\
@@ -72,7 +73,7 @@ function Header() {
 						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />\
 						<div id="registrationSwitchToLoginButton">Login?</div>\
 					</form>\
-				</div>'
+				</div></div>'
 	});
 
 	this.alignRight = new Modifier({
@@ -83,6 +84,7 @@ function Header() {
 	this.view = new View();
 
 	this.view.add(this.backgroundMod).add(this.background);
+	this.view.add(this.contentMod).add(this.content);
 
 	this.view.add(this.leftMod).add(this.leftHeader);
 	this.view.add(this.rightMod).add(this.alignRight).add(this.rightHeader);
@@ -105,12 +107,16 @@ Header.prototype.buttonsInit = function() {
 }
 
 Header.prototype.displayLogIn = function() {
-	this.view.add(this.contentMod).add(this.content);
-	loginButtonsInit();
+	this.contentMod.setOpacity(1);
+//	this.view.add(this.contentMod).add(this.content);
 }
 
 Header.prototype.pullDown = function() {
 	this.backgroundMod.setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeOut'});
+}
+
+Header.prototype.setContent = function(htmlContent) {
+	this.content.setContent(htmlContent);
 }
 
 Header.prototype.getView = function() {

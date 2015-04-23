@@ -10,17 +10,16 @@ function loginButtonsInit(){
 	console.log("y");
 	
 	$("#header #headerLogInDiv").on("click", menuClickHandler);
-	$("#loginForm #loginFormSubmitButton").on("click", logInClickHandler);
-	$("#loginForm").on("submit", logInSubmitHandler);
-	$("#registrationDiv #registrationSubmitButton").on("click", registrationClickHandler);
-	$("#loginFormSwitchToRegistrationButton").on("click", switchLogRegClickHandler);
-	$("#registrationDiv #registrationSwitchToLoginButton").on("click", switchLogRegClickHandler);
+	$("#upperDiv #loginForm #loginFormSubmitButton").on("click", logInClickHandler);
+	$("#upperDiv #loginForm").on("submit", logInSubmitHandler);
+	$("#upperDiv #registrationDiv #registrationSubmitButton").on("click", registrationClickHandler);
+	$("#upperDiv #loginDiv #loginFormSwitchToRegistrationButton").on("click", switchLogRegClickHandler);
+	$("#upperDiv #registrationDiv #registrationSwitchToLoginButton").on("click", switchLogRegClickHandler);
 		
 	//Hack for testing
 	loginError = false;
 	if(loginError === true){
 		upperDivState = UPPERDIVSTATES.open;
-		upperDiv.show();
 	}
 	
 	//inputKeyPressInit();

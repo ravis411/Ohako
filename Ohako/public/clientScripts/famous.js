@@ -84,8 +84,13 @@ function famousPullDown() {
 }
 
 function famousRightHeaderClick() {
+	//header.setContent(data);
 	header.displayLogIn();
 	famousPullDown();
+
+	Engine.defer(function() {
+		loginButtonsInit()
+	});
 }
 
 function famousDisplayMailBox() {
