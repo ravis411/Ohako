@@ -19,6 +19,8 @@ inputToken = null;
 // Called after page loads to set up functionality.
 function init(){
 	inputToken = $('meta[name="csrf-token"]').attr('content');
+
+
 	
 	famousInit();
 	//buttonsInit();

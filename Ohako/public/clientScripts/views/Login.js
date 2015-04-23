@@ -9,9 +9,9 @@ var loginState = LOGINSTATES.login;
 function loginButtonsInit(){
 	console.log("y");
 	
-	$("#header #headerLogInDiv").on("click", menuClickHandler);
-	$("#upperDiv #loginForm #loginFormSubmitButton").on("click", logInClickHandler);
-	$("#upperDiv #loginForm").on("submit", logInSubmitHandler);
+	//$("#header #headerLogInDiv").on("click", menuClickHandler);
+	//$("#upperDiv #loginForm #loginFormSubmitButton").on("click", logInClickHandler);
+	//$("#upperDiv #loginForm").on("submit", logInSubmitHandler);
 	$("#upperDiv #registrationDiv #registrationSubmitButton").on("click", registrationClickHandler);
 	$("#upperDiv #loginDiv #loginFormSwitchToRegistrationButton").on("click", switchLogRegClickHandler);
 	$("#upperDiv #registrationDiv #registrationSwitchToLoginButton").on("click", switchLogRegClickHandler);
@@ -26,7 +26,6 @@ function loginButtonsInit(){
 }
 
 function switchLogRegClickHandler(e){
-	console.log('hey')
 	if(loginState == LOGINSTATES.login){
 		loginState = LOGINSTATES.register;
 		$("#loginDiv").hide();
@@ -39,7 +38,6 @@ function switchLogRegClickHandler(e){
 }
 
 function menuClickHandler(e){
-	console.log("Hry");
 	e.preventDefault();
 	e.stopPropagation();
 	if(upperDivState == UPPERDIVSTATES.closed){

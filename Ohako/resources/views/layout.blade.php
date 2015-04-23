@@ -63,7 +63,7 @@
 	 {!! HTML::script('/clientScripts/views/Search.js') !!}
 	 {!! HTML::script('/clientScripts/views/Settings.js') !!}
 	 {!! HTML::script('/clientScripts/views/Login.js') !!}
-
+	 
 	<script>
 		$(document).ready(function()
 		{	

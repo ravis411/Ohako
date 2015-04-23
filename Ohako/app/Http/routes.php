@@ -13,6 +13,8 @@
 
 Route::get('/', 'MainController@index');
 
+Route::post('/', 'SessionController@login');
+
 Route::get('home', 'HomeController@index');
 
 Route::get('venueProfile/{id}', 'MainController@venueProfile');

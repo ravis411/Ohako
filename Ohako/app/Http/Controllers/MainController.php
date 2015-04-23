@@ -11,7 +11,15 @@ class MainController extends Controller {
 
 	public function index()
 	{
-		return view('home');
+		return view('layout');
+	}
+
+	public function getHeader()
+	{
+		if (\Auth::check())	
+			return view('layout');
+		else
+			return view('header/login');
 	}
 
 	public function venueProfile($id)

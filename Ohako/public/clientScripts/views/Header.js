@@ -52,11 +52,11 @@ function Header() {
 	this.content = new Surface({
 		content: '<div id="upperDiv">\
 				<div id="loginDiv">\
-					<form id="loginForm" name="loginForm" method="post" action="">\
+					<form id="loginForm" name="loginForm" method="post">\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
 						<h2>Log in</h2>\
 						<div id="loginFail" class="fail"></div>\
-						<input id="loginFormUserName" name="username" type="text" placeholder="User Name or Email" autofocus required /><br>\
+						<input id="loginFormUserName" name="email" type="text" placeholder="Email" autofocus required /><br>\
 						<input id="loginFormPassword" name="password" type="password" placeholder="Password" required /><br>\
 						<input id="loginFormSubmitButton" type="submit" name="submit" class="button" value="Login" /><div id="loginFormSwitchToRegistrationButton">Register?</div>\
 					</form>\
@@ -107,7 +107,7 @@ Header.prototype.buttonsInit = function() {
 }
 
 Header.prototype.displayLogIn = function() {
-	this.contentMod.setOpacity(1);
+	this.contentMod.setOpacity(1, {duration: 500});
 //	this.view.add(this.contentMod).add(this.content);
 }
 
