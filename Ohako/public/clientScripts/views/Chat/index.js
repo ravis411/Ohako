@@ -90,7 +90,9 @@ var chat = io.of('/chat/')
 
 
 function leaveRoom(socket, room){
-	rooms[room].splice( rooms[room].indexOf(socket.userData.userID), 1);
+	try{
+		rooms[room].splice( rooms[room].indexOf(socket.userData.userID), 1);
+	}catch(e){console.log(e)}
 	console.log(socket.id, " leaving room ", room)
 	chat.to(room).emit('left room', {username: socket.userData.userID, room: room})
 	socket.leave(room)
