@@ -42,14 +42,9 @@ function Content() {
 				<!-- END KaraokeSongBook: View.KaraokeSongBook -->'});
 
 	this.chatRoom = new Surface({
-		content: '<div id="head">\
-		<form id="roomInput" action="">\
-      <input id="r" autocomplete="off" /><button>Change Room</button>\
-    </form>\
-	</div>\
-  <div id="Chat_Container">\
-   <div id="Chat"></div>\
-  </div>'});
+		content: '<div id="Chat_Container">\
+			<div id="Chat"></div>\
+		</div>'});
 
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
@@ -99,13 +94,8 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
-					<div id="head">\
-		<form id="roomInput" action="">\
-      <input id="r" autocomplete="off" /><button>Change Room</button>\
-    </form>\
-	</div>\
   <div id="Chat_Container">\
-   <div id="Chat"></div>\
+   	<div id="Chat"></div>\
   </div>\
 	            </div>\
 	        </div>   \
