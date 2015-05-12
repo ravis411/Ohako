@@ -28,7 +28,7 @@ class MainController extends Controller {
 		else if ($password != $user->password)
 			return "fail";
 		else
-			return "true";
+			return $user;
 	}
 
 	public function getHeader()

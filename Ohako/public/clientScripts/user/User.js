@@ -1,17 +1,22 @@
 //User Class
 //For storing and manipulating user data...
 
-// var User = function(info){
-// 	// this.ID = info.ID;
-// 	// this.firstName = info.firstName;
-// 	// this.lastName = info.lastName;
-// 	// this.userName = info.userName;
-// 	// this.email = info.email;
-// 	// this.checkedIn = info.checkedIn;
-// };
-
 function User() {
+	this.loggedIn = false;
+}
 
+User.prototype.setUser = function(data) {
+	this.userName = data.userName;
+	this.firstName = data.firstName;
+	this.lastName = data.lastName;
+	this.id = data.ID;
+	this.email = data.email;
+
+	this.loggedIn = true;
+}
+
+User.prototype.loggedIn = function() {
+	return this.loggedIn;
 }
 
 

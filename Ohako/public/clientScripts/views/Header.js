@@ -113,12 +113,14 @@ Header.prototype.isDown = function() {
 }
 
 Header.prototype.loggedIn = function(response) {
-	if (response=="good"){
-		console.log("logged In!");
-		this.pullUp();
+	if (response!='fail'){
+		header.pullUp();
+		header.rightHeader.setContent('<div id="header_user_div">\
+					<div id="header_user_name"> '+response.userName+' </div>\
+					</div>');
+		user.setUser(response);
+		console.log(response);
 	}
-	else
-		console.log("Error logging in");
 }
 
 Header.prototype.buttonsLoginInit = function() {
