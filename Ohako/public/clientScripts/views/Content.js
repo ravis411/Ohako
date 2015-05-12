@@ -99,24 +99,14 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
-					<div id="homeChatBoxDiv">\
-						<div id="chatUsers">\
-							<img id="usersLogo" src="images/logo_users.png" alt="Current Users" width="80px" height="26" />\
-							<div id="chatUsersList">\
-							</div>\
-						\
-						</div>\
-	\
-						<div id ="chatBox">\
-							<div id ="chatBoxScroll">\
-								<div class="chatMessage recievedChat">A Recieved Message</div>\
-								<div class="chatMessage sentChat">Sent by User</div>\
-							</div>\
-						</div>\
-						<div id="chatBoxInputDiv">\
-							<input type="text" placeholder="Chat">\
-						</div>\
-					</div>\
+					<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
+  <div id="Chat_Container">\
+   <div id="Chat"></div>\
+  </div>\
 	            </div>\
 	        </div>   \
 		<!-- End main view...  View.Home -->'
@@ -136,8 +126,6 @@ Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
 		transform: Transform.translate(0, 100, 0)
 	});
-
-	this.view.add(this.chatRoom);
 
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
