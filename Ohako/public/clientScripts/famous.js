@@ -92,6 +92,10 @@ function famousPullDown() {
 		header.pullDown();
 }
 
+function famousEngine() {
+	return Engine;
+}
+
 function famousRightHeaderClick() {
 	//header.setContent(data);
 	if (!user.isLoggedIn())

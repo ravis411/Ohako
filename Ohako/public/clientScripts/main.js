@@ -183,8 +183,9 @@ function getVenueData(venueID) {
 }
 
 function getSongBook(vID) {
-	$.post("/scripts/getData/songBook.php", {id: ""}, function(result){
-			songs = jQuery.parseJSON(result);
+	$.get("/getSongs/"+vID, function(result){
+			songs = result; //jQuery.parseJSON(result);
+			console.log(result);
 			songBook = "";
 			for (artist in songs){
 				if(songs[artist]['songs'].length<1)
@@ -232,8 +233,18 @@ function checkIn(){
 		
 		checkedIn = true; 
 
-		if(user.isLoggedIn())
+		if(user.isLoggedIn()){
 			user.checkIn(venueID);
+			famousEngine().defer(function() {
+				famousEngine().nextTick(function() {
+					// ADD ALL HTML DEPENDENCIES HERE
+						// Load everything in resources/views/layout.blade.php
+						// Call their functions here.
+						// Or load things in here....
+						getSongBook(venueID);
+				});
+			});
+		}
 		else
 			alert("You should probably log in before checking in!");
 	}
