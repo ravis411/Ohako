@@ -118,6 +118,17 @@ function famousRightHeaderClick() {
 	});
 }
 
+function famousInitHTML() {
+	Engine.defer(function() {
+		Engine.nextTick(function() {
+			// ADD ALL HTML DEPENDENCIES HERE
+				// Load everything in resources/views/layout.blade.php
+				// Call their functions here.
+				// Or load things in here....
+		});
+	});
+}
+
 function famousDisplayMailBox() {
 	var inFront = new Modifier({ 
 	    transform: Transform.inFront

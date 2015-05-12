@@ -23,6 +23,8 @@ function init(){
 	user = new User();
 
 	famousInit();
+	famousInitHTML();
+	
 	//buttonsInit();
 	view = View.Home;
 
