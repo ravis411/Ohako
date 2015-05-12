@@ -98,9 +98,10 @@ Chat.prototype.appendMessage = function(message){
 	chatManager.scrollToBottom();
 }
 
-
+// These are called to handle roomJoin or roomLeave events...
+//
 Chat.prototype.addRoomJoinedMessage = function(data){
-	chatManager.appendMessage("<div class='joinedRoom roomChangeMessage'>" + data.username + " joined room " + data.room + "</div>");
+	chatManager.appendMessage("<div class='joinedRoom roomChangeMessage'>" + data.username + " joined the room</div>");
 }
 Chat.prototype.addRoomLeftMessage = function(data){
 	chatManager.appendMessage("<div class='leftRoom roomChangeMessage'>" + data.username + " left</div>");
