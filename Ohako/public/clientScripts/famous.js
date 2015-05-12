@@ -66,8 +66,8 @@ function famousInit(){
 	});
 
 	mainContext.add(inFront).add(header.getView());
-	mainContext.add(belowHeader).add(content.getView());
 	mainContext.add(inFront2).add(belowContent).add(footer.getView());
+	mainContext.add(belowHeader).add(content.getView());
 	//header.buttonsInit();
 
 	content.setExteriorMain();

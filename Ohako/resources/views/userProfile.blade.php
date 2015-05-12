@@ -13,13 +13,18 @@
 						</div>
 
 						<div id="profileStarRating">
-							User's details here. 
+						I'm new at this still... <br/>
+{!! HTML::image("/images/starRating.jpg", "New Here", array( 'width' => 200, 'height' => 40 )) !!}
+
 						</div>
 
 						<br style="clear: both;"/>
 
 						<div id="profileSongBook">
-							Multi-Tab content. 
+						<div id="topSongs">
+							<div class="profileLabel"> My Top Songs </div>
+								None yet to show...  I need to get singing! 
+						</div>
 						</div>
 					</div>
 				</div>

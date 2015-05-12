@@ -95,7 +95,7 @@ Content.prototype.setExteriorMain = function(data) {
    <div id="Chat"></div>\
   </div>\
 	            </div>\
-	        </div>   \
+	        </div>   </div>\
 		<!-- End main view...  View.Home -->'
 	});
 
@@ -121,6 +121,7 @@ Content.prototype.openChat = function() {
 
 Content.prototype.closeKaraoke = function() {
 	this.karaokeBookMod.setOpacity(0);
+	this.karaokeBookMod.setTransform(Transform.translate(-360, 0, 0));
 }
 
 Content.prototype.openVenueProfile = function(html) {
