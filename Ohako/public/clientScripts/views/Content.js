@@ -22,7 +22,7 @@ function Content() {
 							<div id="waitingTitle"> Right Now: </div>\
 							<div id="currentDetails">\
 							<div id="currentSinger">\
-								</div>\
+								</div><br/>\
 								<div id="currentSong">\
 								</div>\
 								<div id="currentArtist">\

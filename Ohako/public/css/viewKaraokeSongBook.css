@@ -1,11 +1,11 @@
 #karaokeSongBook
 {
 	height: 175px;
-	width: 360px;
+	width: 362px;
 	float: left;
 
 	border: 2px solid white;
-	padding-top: 5px;
+	padding-top: 2px;
 
 	background-color: #ba26ff;
 	overflow: hidden;
@@ -70,6 +70,7 @@
 {
 	font-size: 8pt;
 	float: left;
+	font-weight: 600;
 }
 
 #queue
@@ -85,7 +86,6 @@
 .requestSong
 {
 	float: right;
-	font-weight: 600;
 }
 
 .requestArtist
@@ -95,12 +95,18 @@
 	font-style: italic;
 }
 
+.requestName
+{
+	font-weight: 600;
+}
+
 #requestScreen {
 	width: 130px;
-	height: 163px;
+	height: 167px;
 	float: right;
 	margin-right: 5px;
-	font-size: 10pt;
+	font-size: 9pt;
+	padding: 1px;
 
 	color: #ffffff;
 
@@ -129,13 +135,13 @@
 #karaokeSongBookList{
 	float: left;
 	width: 210px;
-	height: 165px;
+	height: 170px;
 
 	margin-left: 4px;
 
 	font-size: 10pt;
-	overflow-y: auto;
-	overflow-x: none;
+	overflow-y: hidden;
+	overflow-x: auto;
 }
 
 #karaokeSongBookList ul {

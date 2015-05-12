@@ -38,7 +38,7 @@ class MainController extends Controller {
 
 	public function songBook($id)
 	{
-		$songs = Artist::with('songs')->get();
+		$songs = Artist::orderBy('artist_name', 'ASC')->with('songs')->get();
 
  		return $songs;
 	}
