@@ -14,8 +14,7 @@
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
 	text-align:  center;
-	overflow-x: none;
-	overflow-y: none;
+	overflow: hidden;
 }
 
 #title
@@ -72,7 +71,7 @@
 	font-weight: bold;
 	color: #ffffff;
 	text-shadow: 0 0 5px #ffb400;
-	overflow: none;
+	overflow: hidden;
 	text-align: center;
 }
 

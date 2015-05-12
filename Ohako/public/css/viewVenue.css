@@ -34,11 +34,12 @@
 
 #venueDetails
 {
-	width: 191px;
-	height: 91px;
-	margin-top: 5px;
+	width: 200px;
+	height: 100px;
+	margin-top: 3px;
 	margin-right: 5px;
 	padding: 5px;
+	padding-left: 2px;
 
 	float: right;
 
@@ -74,30 +75,41 @@
 	margin-right: 5px;
 }
 
+#locationListing
+{
+	margin-top: -4px;
+}
+
 #locationIcon
 {
 	float: left;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 
 #location
 {
 	float: left;
-	font-size: 10pt;
-	margin-top: 5px;
+	font-size: 9pt;
+	margin-top: 0px;
 	margin-left: 2px;
+}
+
+#karaokeIcon
+{
+	margin-top: -7px;
 }
 
 #karaokeNights
 {
 	float: left;
-	font-size: 10pt;
+	font-size: 9pt;
 	margin-left: 2px;
+	margin-top: -7px;
 }
 
 #karaokeListing
 {
-	margin-top: -10px;
+	margin-top: -5px;
 }
 
 #venueTitle

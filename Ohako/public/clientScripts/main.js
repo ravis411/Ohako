@@ -43,7 +43,7 @@ function init(){
 			Move initVenueChat to when it is opened.
 	*/
 	//initVenueChat();
-	//getAds("CA");
+	getAds("CA");
 
 	//hackCurrentView("venue");
 	
@@ -56,8 +56,10 @@ function init(){
 }
 
 function getAds(location) {
-	$.post("/scripts/getData/getAds.php", {location: location}, function(result){
-			venueData = jQuery.parseJSON(result);
+	slideImages();
+	$.get("/getAds", {location: location}, function(result){
+			console.log(result);
+			//venueData = jQuery.parseJSON(result);
 		});
 }
 
@@ -98,7 +100,7 @@ function slideImages(){
 			$('#featuredImage').attr("src", "images/ads/1.png");
 			$('#featuredImage').attr("value", "1");
 		}
-	}, 10000);
+	}, 7000);
 
 	setInterval(function(){
 		if ($('#customImage').attr("src") == "images/ads/3.png"){
@@ -108,7 +110,7 @@ function slideImages(){
 		else
 			$('#customImage').attr("src", "images/ads/3.png");
 			$('#customImage').attr("value", "3");
-	}, 7000);
+	}, 5000);
 }
 
 /*
@@ -312,8 +314,9 @@ function closeInteriorViews(){
 }
 
 function nightUI(){
-	$('#header').css("background", '#3e3e3e');
-	$('#header').css("border-bottom", '2px solid #a4a4a4');
+	console.log("g");
+	$('#header').css("background-image", 'url("/images/app/appHeaderInterior.png")');
+//	$('#header').css("border-bottom", '2px solid #a4a4a4');
 
 	$('#content').css("background-color", '#b0b0b0');
 
@@ -325,8 +328,8 @@ function nightUI(){
 }
 
 function dayUI(){
-	$('#header').css("background", '#ffdcaa');
-	$('#header').css("border-bottom", '2px solid #ffc066');
+	$('#header').css("background-image", 'url("/images/app/headerBackground.png")');
+	//$('#header').css("border-bottom", '2px solid #ffc066');
 
 	$('#content').css("background-color", '#ffe8c7');
 

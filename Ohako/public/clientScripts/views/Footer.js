@@ -48,6 +48,10 @@ function Footer() {
 	    transform: Transform.behind
 	});
 
+	var raise = new Modifier({
+		transform: Transform.translate(0, -5),
+	})
+
 	this.view.add(this.menu);
 	this.view.add(this.besideMenu).add(behind).add(this.adSpace);
 

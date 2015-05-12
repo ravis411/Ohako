@@ -151,6 +151,7 @@
   width: 205px;
   text-align: left;
   cursor: pointer;
+  border: 2px outset black;
 }
 
 #karaokeSongBookList a {

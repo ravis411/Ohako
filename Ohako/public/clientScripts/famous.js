@@ -61,10 +61,13 @@ function famousInit(){
 	var belowContent = new Modifier({
 		transform: Transform.translate(-1, 450),
 	});
+	var inFront2 = new Modifier({ 
+	    transform: Transform.inFront
+	});
 
 	mainContext.add(inFront).add(header.getView());
 	mainContext.add(belowHeader).add(content.getView());
-	mainContext.add(belowContent).add(footer.getView());
+	mainContext.add(inFront2).add(belowContent).add(footer.getView());
 	//header.buttonsInit();
 
 	content.setExteriorMain();

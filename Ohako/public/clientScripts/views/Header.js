@@ -57,7 +57,6 @@ function Header() {
 						<div id="registrationFail" class="fail"></div>\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
 						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>\
-						<input id="registrationUserName" name="userName" type="text" placeholder="User Name" required /><br>\
 						<input id="registrationEmail" name="email" type="email" placeholder="Email" required /><br>\
 						<input id="registrationPassword" name="password" type="password" placeholder="Password" required /><br>\
 						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />\
@@ -158,7 +157,6 @@ Header.prototype.loggedIn = function(response) {
 					</div>');
 		user.setUser(response);
 		console.log(response);
-		globalChat.setUser(response.userName);
 	}
 }
 
