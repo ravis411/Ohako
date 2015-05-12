@@ -10,27 +10,29 @@
 }
 
 .Chat_wrapper{
-	height:100%;
+	height:205px;
 	position:relative;
 }
 
 .Chat_messages_container{
 	height:100%;
 	overflow:auto;
+	padding-bottom:50px;
 }
 
 .chat_input_form{
 	width:100%;
 	position:absolute;
 	bottom:0;
-	margin-top:5px; line-height:35px;
+	margin-top:5px; line-height:40px;
 	text-align:center;
 }
 
-/*.chat_input_form input{
-	height:25px;
+.chat_input_form input{
+	height:30px;
 	width:90%;
-}*/
+	padding:5px;
+}
 
 .chatMessage {
 	clear:both;
@@ -50,12 +52,10 @@
 
 .recievedChat{
 	float:left;
+	text-align: left;
 }
 
 .sentChat{
 	float:right;
+	text-align: right;
 }
-
-.chat_input_form { background: #000; }
-.chat_input_form input { border: 0; padding: 10px;}
-.chat_input_form button { background: rgb(130, 224, 255); border: none; padding: 10px; }

@@ -63,7 +63,7 @@ Chat.prototype.addChatMessage = function(data){
 	var message = ""
 		
 		//If a different sender than the last sender and not the current user
-		if(chat.tempLastSender != data.username && chat.tempLastSender != chat.userID )
+		if(chat.tempLastSender != data.username && data.username != chat.userID )
 		{
 			message = message + '<div class="chatMessageDetails">' + data.username + ':</div>';
 		}
@@ -73,7 +73,7 @@ Chat.prototype.addChatMessage = function(data){
 				message += 'sentChat';
 			else
 				message += 'recievedChat';
-		message += "title='By:"+ data.username + "'>";
+		message += '" title="By: '+ data.username + '">';
 		message += data.msg + '</div>';
 		chat.tempLastSender = data.username;
 	
@@ -85,10 +85,11 @@ Chat.prototype.addChatMessage = function(data){
 
 Chat.prototype.appendMessage = function(message){
 	chat.$messages.append(message);
+	chat.scrollToBottom();
 }
 
 Chat.prototype.addRoomJoinedMessage = function(data){
-	chat.appendMessage(data.username + " joined room " + data.room);
+	chat.appendMessage("<div class='joinedRoom'>" + data.username + " joined room " + data.room + "</div>");
 }
 Chat.prototype.addRoomLeftMessage = function(data){
 	chat.appendMessage(data.username + " left room " + data.room);
@@ -119,7 +120,7 @@ Chat.prototype.initHTML = function(){
 	this.$div.html('');
 	this.$div.addClass("Chat");
 	this.$div.append('<link rel="stylesheet" type="text/css" href="/scripts/Chat/Chat.css">');
-	this.$input = $('<form class="chat_input_form" action=""><input class="messageInput" autocomplete="off" /><button>Send</button></form>');
+	this.$input = $('<form class="chat_input_form" action=""><input class="messageInput" autocomplete="off" placeholder="Chat"/></form>');//<button>Send</button>
 	this.$messages = $('<div class="Chat_messages_container"></div>');
 	var $wrapper = $("<div class='Chat_wrapper'></div>");
 
@@ -128,9 +129,9 @@ Chat.prototype.initHTML = function(){
 	this.$div.append(this.$input);
 
 	$(window).on('resize', function(){
-		setHeightOfMessagesContainer();
+		//chat.setHeightOfMessagesContainer();
 	});
-
+	//chat.setHeightOfMessagesContainer();
 	this.$div.on('submit', 'form', function(){
 		var msg = chat.$input.children('.messageInput').val();
 		chat.socket.emit('chat message', {room: chat.room, msg: msg});
@@ -140,6 +141,14 @@ Chat.prototype.initHTML = function(){
   });
 }
 
+
+Chat.prototype.setHeightOfMessagesContainer = function(scroll){
+	var prevHeight = $(".Chat").height();
+	$(".Chat_wrapper").height( $(".Chat").height() - $(".Chat_input_form").outerHeight(true) );
+	setTimeout(function(){if(prevHeight != $(".Chat").height())setHeightOfMessagesContainer();}, 100);
+	if(scroll != false)
+		chat.scrollToBottom();
+}
 
 Chat.prototype.scrollToBottom = function(){
 	chat.$messages.scrollTop((chat.$messages)[0].scrollHeight);
