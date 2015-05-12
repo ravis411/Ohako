@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chat Test</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+#head { background: #000; padding: 3px; position: relative; top: 0; width: 100%; height:50px; }
+      .chat_input_form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+ 
+
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+
+      #Chat{
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+	<div id="head">
+		<form id="roomInput" action="">
+      <input id="r" autocomplete="off" /><button>Change Room</button>
+    </form>
+	</div>
+   <div id="Chat"></div>
+    
+	
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="http://wrytek.us:8080/Chat.js"></script>
+<script>
+
+  	var chat = null;
+    var userID = "ravis411";
+    var venueID = "420";
+    var divID = "Chat";
+    initChat();
+
+    $('#roomInput').submit(function(){
+      room = $('#r').val();
+      console.log("Changeing to room: ", room);
+      joinRoom(room);
+    return false;
+    });
+
+
+function initChat(){
+  chat = new Chat(userID, divID, venueID);
+}
+
+
+
+function leaveRoom(room){
+	socket.emit('leaveRoom', room);
+  console.log("Left Room: ", room);
+}
+
+function joinRoom(room){
+	chat.joinRoom(room);
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
