@@ -2,6 +2,8 @@
 function karaokeInit(){
 	$('.songSelection').on('click', function(){requestSong($(this).attr('value'), $(this).html())});
 	$('#toggleSongBook').on('click', function(){toggleBook()});
+
+	getSongs();
 }
 
 function toggleBook()
@@ -18,6 +20,7 @@ function requestSong(song, artist){
 
 	$.post("/addRequest", {_token: inputToken, userID: user.id, artist: artist, song: song}, function(result){
 			console.log(result);
+			requests = result;
 			string = "";
 			counter=0;
 			for (request=0; request<10 && request<requests.length; request++) {
@@ -30,13 +33,15 @@ function requestSong(song, artist){
 				else{
 				string+= "<div class=\"requestName\" value=\""+requests[request]['ID']+"\">"+requests[request]['userName']+"</div>";
 				string+="<div class=\"requestSong\" value=\""+requests[request]['ID']+"\">"+requests[request]['artist']+"</div><br/>";
-				string+="<div class=\"requestArtist\" value=\""+requests[request]['ID']+"\">"+requests[request]['song']+"</div><br/>";
+				string+="<div class=\"requestArtist\" value=\""+requests[request]['ID']+"\">"+requests[request]['song']+"</div>";
 			}
 			}
 
+			toastr.success("Request added!");
+
 			$('#queue').html(string);
-			toggleBook();
-			$('#queue').jScrollPane();
+			//toggleBook();
+		//	$('#queue').jScrollPane();
 
 			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			// $('#profileUserName').html(profileData[0].userName);
@@ -45,8 +50,8 @@ function requestSong(song, artist){
 
 function getSongs(song, artist){
 
-	$.post("/scripts/getData/getRequests.php", {artist: artist, song: song}, function(result){
-			requests = jQuery.parseJSON(result);
+	$.get("/getRequests", function(result){
+			requests = result;
 	
 			string = "";
 			counter=0;
@@ -62,7 +67,7 @@ function getSongs(song, artist){
 				else{
 				string+= "<div class=\"requestName\" value=\""+requests[request]['ID']+"\">"+requests[request]['userName']+"</div>";
 				string+="<div class=\"requestSong\" value=\""+requests[request]['ID']+"\">"+requests[request]['artist']+"</div><br/>";
-				string+="<div class=\"requestArtist\" value=\""+requests[request]['ID']+"\">"+requests[request]['song']+"</div><br/>";
+				string+="<div class=\"requestArtist\" value=\""+requests[request]['ID']+"\">"+requests[request]['song']+"</div>";
 			}
 			}
 		}

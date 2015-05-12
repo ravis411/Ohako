@@ -12,32 +12,34 @@ function Content() {
 	this.karaokeBook = new Surface({
 		content: '<!-- KaraokeSongBook: View.KaraokeSongBook -->\
 				<div id="karaokeSongBook">\
-					<div id="karaokeSongBookNavMenu">\
-						<img src="images/sortBy.png" alt="Sort By" />\
-							<div id="sortByMenu">\
-								<div id ="sortByArtist" class="karaokeSongBookNavMenu">\
-									Artist\
-								</div>\
-								<div id ="sortByTitle" class="karaokeSongBookNavMenu">\
-									Title\
-								</div>\
-							</div>\
-						<img src="images/viewMy.png" alt="View My" />\
-						<div id="viewMyMenu">\
-								<div id="viewMySuggestions" class="karaokeSongBookNavMenu">\
-									Suggestions\
-								</div>\
-								<div id="viewMyFavorites" class="karaokeSongBookNavMenu">\
-									Faves\
-								</div>\
-						</div>\
-					</div>\
-					\
-					<div id="karaokeSongBookList">\
+				<div id="karaokeSongBookList">\
 						<ul id="songBookAdd">\
 \
 				        </ul>\
 					</div>\
+					<div id="requestScreen">\
+\
+							<div id="waitingTitle"> Right Now: </div>\
+							<div id="currentDetails">\
+							<div id="currentSinger">\
+								</div>\
+								<div id="currentSong">\
+								</div>\
+								<div id="currentArtist">\
+								</div>\
+							</div>\
+\
+\
+						<div id="queueTitle">\
+							Coming Up...\
+						</div> <br style="clear:both;"/>\
+\
+						<div id="queue">\
+\
+						</div>\
+\
+					</div>\
+					\
 				</div>\
 				<!-- END KaraokeSongBook: View.KaraokeSongBook -->'});
 
@@ -99,6 +101,11 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
+					<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
   <div id="Chat_Container">\
    <div id="Chat"></div>\
   </div>\
@@ -121,7 +128,7 @@ Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
 		transform: Transform.translate(0, 225, 0)
 	});
-	globalChat.switchRooms("venueID");
+
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
 

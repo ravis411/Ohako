@@ -1,7 +1,7 @@
 #karaokeSongBook
 {
-	height: 165px;
-	width: 355px;
+	height: 175px;
+	width: 360px;
 	float: left;
 
 	border: 2px solid white;
@@ -21,13 +21,6 @@
 	top: 10px;
 	left: 10px;
 	cursor: pointer;
-}
-
-#requestScreen
-{
-	width: 350px;
-	height: 250px;
-	background-color: white;
 }
 
 #waitingDiv
@@ -63,7 +56,7 @@
 #currentSong
 {
 	float: right;
-	font-size: 10pt;
+	font-size: 9pt;
 	text-align: center;
 }
 
@@ -76,19 +69,17 @@
 #currentSinger
 {
 	font-size: 8pt;
+	float: left;
 }
 
 #queue
 {
 	padding: 2px;
-	width: 215px;
-	height: 220px;
+	width: 100%;
+	height: 100%;
 	overflow-x: auto;
 	float: right;
-	font-size: 10pt;
-	margin-top: -175px;
-
-	border: 1px inset black;
+	font-size: 9pt;
 }
 
 .requestSong
@@ -100,20 +91,22 @@
 .requestArtist
 {
 	float: right;
-	font-size: 8pt;
+	font-size: 7pt;
 	font-style: italic;
 }
 
-#karaokeSongBookNavMenu{
-	width: 135px;
-	height: 165px;
-	float: left;
-	padding-left: 5px;
+#requestScreen {
+	width: 130px;
+	height: 163px;
+	float: right;
+	margin-right: 5px;
 	font-size: 10pt;
 
 	color: #ffffff;
 
 	background-color: #707070;
+		border: 1px inset black;
+
 }
 
 #sortByMenu{
@@ -138,7 +131,7 @@
 	width: 210px;
 	height: 165px;
 
-	padding-left: 4px;
+	margin-left: 4px;
 
 	font-size: 10pt;
 	overflow-y: auto;
@@ -149,7 +142,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 200px;
+  width: 205px;
   text-align: left;
   cursor: pointer;
 }

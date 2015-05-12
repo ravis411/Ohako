@@ -27,6 +27,8 @@ Route::get('userProfile/{id}', 'MainController@userProfile');
 
 Route::get('getSongs/{id}', 'MainController@songBook');
 
+Route::get('getRequests', 'MainController@getRequests');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

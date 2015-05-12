@@ -28,7 +28,10 @@ class MainController extends Controller {
 
 		$songRequest->save();
 
-		$return = $songRequest::orderBy('updated_at', 'ASC')->take(5)->get();
+		$return = $songRequest::orderBy('updated_at', 'ASC')
+						->join('users', 'users.id', '=', 'requests.user_id')
+						->select('requests.artist', 'requests.song', 'users.userName', 'users.ID', 'requests.updated_at')
+						->take(3)->get();
 
 		return $return;
 	}
@@ -38,6 +41,16 @@ class MainController extends Controller {
 		$songs = Artist::with('songs')->get();
 
  		return $songs;
+	}
+
+	public function getRequests()
+	{
+		$return = SongRequest::orderBy('updated_at', 'ASC')
+						->join('users', 'users.id', '=', 'requests.user_id')
+						->select('requests.artist', 'requests.song', 'users.userName', 'users.ID', 'requests.updated_at')
+						->take(3)->get();
+
+		return $return;
 	}
 
 	public function login(Request $request)

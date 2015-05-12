@@ -15,6 +15,8 @@
 
 	<link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.4/famous.css" />
     <script type="text/javascript" src="http://code.famo.us/famous/0.3.4/famous-global.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 		{!! HTML::script('/clientScripts/rateIt/jquery.rateit.js') !!}
 		{!! HTML::style('/clientScripts/rateIt/rateit.css') !!}
@@ -23,6 +25,7 @@
 		{!! HTML::script('/clientScripts/scrollbar/jquery.mousewheel.js') !!}
 		{!! HTML::style('/clientScripts/scrollbar/style/jquery.jscrollpane.css') !!}
 		{!! HTML::script('http://malsup.github.io/min/jquery.form.min.js') !!}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 		{!! HTML::script('/clientScripts/famous.js') !!}
 
