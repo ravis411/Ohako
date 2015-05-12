@@ -121,7 +121,7 @@ function famousRightHeaderClick() {
 		});
 	});
 }
-
+var globalChat = null;
 function famousInitHTML() {
 	Engine.defer(function() {
 		Engine.nextTick(function() {
@@ -129,8 +129,7 @@ function famousInitHTML() {
 				// Load everything in resources/views/layout.blade.php
 				// Call their functions here.
 				// Or load things in here....
-				var chat = new Chat("userID", "Chat", "venue");
-				chat.switchRooms("venueID");
+				globalChat = new Chat("userID", "Chat", "venue");
 		});
 	});
 }

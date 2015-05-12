@@ -121,7 +121,7 @@ Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
 		transform: Transform.translate(0, 225, 0)
 	});
-
+	globalChat.switchRooms("venueID");
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
 

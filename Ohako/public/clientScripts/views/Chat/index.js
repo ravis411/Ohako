@@ -12,7 +12,7 @@ app.get('/Chat.js', function(req, res){
 
 var sockets = [];
 var users = [];
-
+var rooms = [];
 
 
 var chat = io.of('/chat/')
@@ -54,6 +54,11 @@ var chat = io.of('/chat/')
 		socket.join(room)
 		chat.to(room).emit('joined room', {username: socket.userData.userID, room: room});
 		socket.userData.joinRoom(room);
+		if(rooms[room] === null || rooms[room] === undefined){
+			rooms[room] = [];
+			rooms[room].push(socket.userData.userID);
+		}
+		console.log("RRRRooms: ", rooms);
 	});
 
 	socket.on('leaveRoom', function(msg){
@@ -61,7 +66,12 @@ var chat = io.of('/chat/')
 	});
 
 
+	socket.on('request room members', function(room){
+		socket.to(room).broadcast.emit('request room', room);
+	});
+	socket.on('response room', function(room){
 
+	});
 
 	socket.on('disconnect', function(reason){
 		console.log(socket.userData.userID, ' disconnected: ', reason);
@@ -122,5 +132,5 @@ User.prototype.setUserID = function(id){
 
 http.listen(8080, function(){
   console.log('listening on *:8080');
-	console.log("Path: ", io.path(), " ::chat: ");
+	console.log("Path: ", io.path());
 });

@@ -158,6 +158,7 @@ Header.prototype.loggedIn = function(response) {
 					</div>');
 		user.setUser(response);
 		console.log(response);
+		globalChat.setUser(response.userName);
 	}
 }
 
