@@ -101,11 +101,6 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
-					<div id="head">\
-		<form id="roomInput" action="">\
-      <input id="r" autocomplete="off" /><button>Change Room</button>\
-    </form>\
-	</div>\
   <div id="Chat_Container">\
    <div id="Chat"></div>\
   </div>\
@@ -128,6 +123,10 @@ Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
 		transform: Transform.translate(0, 225, 0)
 	});
+
+	//This adds the user to the chat room
+	//Where "venueID" is the venue name or id
+	globalChat.switchRooms("venueID");
 
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
