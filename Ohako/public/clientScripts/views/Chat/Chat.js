@@ -132,9 +132,9 @@ Chat.prototype.initHTML = function(){
 	this.$div.html('');
 	this.$div.addClass("Chat");
 	this.$div.append('<link rel="stylesheet" type="text/css" href="/clientScripts/views/Chat/Chat.css">');
-	this.$input = $('<form class="chat_input_form" action=""><input class="messageInput" autocomplete="off" placeholder="Chat"/></form>');//<button>Send</button>
-	this.$messages = $('<div class="Chat_messages_container"></div>');
-	var $wrapper = $("<div class='Chat_wrapper'></div>");
+	this.$input = $('<form class="chat_input_form" id="chat_input_form" action=""><input class="messageInput" autocomplete="off" placeholder="Chat"/></form>');//<button>Send</button>
+	this.$messages = $('<div id="chatMessagesContainer" class="Chat_messages_container"></div>');
+	var $wrapper = $("<div id='chat_wrapper' class='Chat_wrapper'></div>");
 
 	$wrapper.append(this.$messages);
 	this.$div.append($wrapper);
