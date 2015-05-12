@@ -157,6 +157,9 @@ Header.prototype.loggedIn = function(response) {
 					</div>');
 		user.setUser(response);
 		console.log(response);
+
+		//Set the userId for chat
+		globalChat.setUser(response.userName);
 	}
 }
 
