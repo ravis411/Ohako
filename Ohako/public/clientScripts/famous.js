@@ -112,7 +112,7 @@ function famousRightHeaderClick() {
 			}
 			else{
 				header.checkInButtonsInit();
-				chat.buttontsInit();
+				//chat.buttontsInit();
 			}
 		});
 	});

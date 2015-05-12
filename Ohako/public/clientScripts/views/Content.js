@@ -9,14 +9,47 @@ function Content() {
 
 	var EventHandler = famous.core.EventHandler;
 
-	this.chatRoom = '<div id="head">\
+	this.karaokeBook = new Surface({
+		content: '<!-- KaraokeSongBook: View.KaraokeSongBook -->\
+				<div id="karaokeSongBook">\
+					<div id="karaokeSongBookNavMenu">\
+						<img src="images/sortBy.png" alt="Sort By" />\
+							<div id="sortByMenu">\
+								<div id ="sortByArtist" class="karaokeSongBookNavMenu">\
+									Artist\
+								</div>\
+								<div id ="sortByTitle" class="karaokeSongBookNavMenu">\
+									Title\
+								</div>\
+							</div>\
+						<img src="images/viewMy.png" alt="View My" />\
+						<div id="viewMyMenu">\
+								<div id="viewMySuggestions" class="karaokeSongBookNavMenu">\
+									Suggestions\
+								</div>\
+								<div id="viewMyFavorites" class="karaokeSongBookNavMenu">\
+									Faves\
+								</div>\
+						</div>\
+					</div>\
+					\
+					<div id="karaokeSongBookList">\
+						<ul id="songBookAdd">\
+\
+				        </ul>\
+					</div>\
+				</div>\
+				<!-- END KaraokeSongBook: View.KaraokeSongBook -->'});
+
+	this.chatRoom = new Surface({
+		content: '<div id="head">\
 		<form id="roomInput" action="">\
       <input id="r" autocomplete="off" /><button>Change Room</button>\
     </form>\
 	</div>\
   <div id="Chat_Container">\
    <div id="Chat"></div>\
-  </div>';
+  </div>'});
 
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
@@ -100,7 +133,11 @@ Content.prototype.setExteriorMain = function(data) {
 }
 
 Content.prototype.openChat = function() {
-	this.exteriorMain.setContent(this.chatRoom);
+	this.karaokeBookMod = new Modifier({
+		transform: Transform.translate(0, 100, 0)
+	});
+
+	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
 
 Content.prototype.openVenueProfile = function(html) {

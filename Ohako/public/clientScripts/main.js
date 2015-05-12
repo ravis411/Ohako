@@ -272,11 +272,11 @@ function initCheckIn(){
 function changeHome(){
 	if (home == Home.SearchAndDiscover && checkedIn){
 			home = Home.Venue;
-			// $('#searchAndDiscover').fadeOut();
-			// $('#homeVenue').fadeIn();
+			$('#searchAndDiscover').fadeOut();
+			$('#homeVenue').fadeIn();
 			 $('#interiorControlsBox').fadeIn();
-			 content.openChat();
-			//nightUI();
+			content.openChat();
+			nightUI();
 			
 			reloadChats();
 		}
