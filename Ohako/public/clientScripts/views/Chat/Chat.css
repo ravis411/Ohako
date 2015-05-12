@@ -1,4 +1,4 @@
-/*Blog.css*/
+/*Chat.css*/
 
 .Chat{
 	height:100%;
@@ -58,4 +58,18 @@
 .sentChat{
 	float:right;
 	text-align: right;
+}
+
+.roomChangeMessage{
+	clear:both;
+	max-width:90%;
+	margin:5px;
+	padding:4px;
+	word-wrap: break-word;
+}
+.leftRoom{
+	color:red;
+}
+.joinedRoom{
+	color:green;
 }

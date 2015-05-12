@@ -90,17 +90,17 @@ Chat.prototype.addChatMessage = function(data){
 }
 
 
-
 Chat.prototype.appendMessage = function(message){
 	chatManager.$messages.append(message);
 	chatManager.scrollToBottom();
 }
 
+
 Chat.prototype.addRoomJoinedMessage = function(data){
-	chatManager.appendMessage("<div class='joinedRoom'>" + data.username + " joined room " + data.room + "</div>");
+	chatManager.appendMessage("<div class='joinedRoom roomChangeMessage'>" + data.username + " joined room " + data.room + "</div>");
 }
 Chat.prototype.addRoomLeftMessage = function(data){
-	chat.appendMessage(data.username + " left room " + data.room);
+	chatManager.appendMessage("<div class='leftRoom roomChangeMessage'>" + data.username + " left</div>");
 }
 
 Chat.prototype.joinRoom = function(room){
