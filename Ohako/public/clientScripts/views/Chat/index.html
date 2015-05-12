@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chat Test</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #head { background: #000; padding: 3px; position: relative; top: 0; width: 100%; height:50px; }
+      #head form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      #head form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+ 
+
+      
+      
+
+      #Chat_Container{
+        margin: auto;
+        width: 257px;
+        height: 255px;
+        background: red;
+        border:5px solid blue;
+      }
+
+    </style>
+  </head>
+  <body>
+	<div id="head">
+		<form id="roomInput" action="">
+      <input id="r" autocomplete="off" /><button>Change Room</button>
+    </form>
+	</div>
+  <div id="Chat_Container">
+   <div id="Chat"></div>
+  </div>
+	
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="http://wrytek.us:8080/Chat.js"></script>
+<script>
+
+  	var chat = null;
+    var userID = "ravis411";
+    var venueID = "420";
+    var divID = "Chat";
+    initChat();
+
+
+
+function initChat(){
+  chat = new Chat(userID, divID, venueID);
+}
+
+
+    //This simulates checking into a venue.
+    $('#roomInput').submit(function(){
+      room = $('#r').val();
+      console.log("Changeing to room: ", room);
+
+      //Checks a user out of the current room and into a room.
+      chat.switchRooms(room);
+      //Same as chat.leaveRoom(); chat.joinRoom(room);
+
+    return false;
+    });
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -129,6 +129,8 @@ function famousInitHTML() {
 				// Load everything in resources/views/layout.blade.php
 				// Call their functions here.
 				// Or load things in here....
+				var chat = new Chat("userID", "Chat", "venue");
+				chat.switchRooms("venueID");
 		});
 	});
 }

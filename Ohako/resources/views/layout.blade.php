@@ -53,7 +53,6 @@
 	{!! HTML::style('/css/login.css') !!}
 
 	 {!! HTML::script('/clientScripts/mail.js') !!}
-	 {!! HTML::script('/clientScripts/venueChat.js') !!}
 	 {!! HTML::script('/clientScripts/karaoke.js') !!}
 	 {!! HTML::script('/clientScripts/views/Header.js') !!}
 	 {!! HTML::script('/clientScripts/views/Content.js') !!}
@@ -63,6 +62,9 @@
 	 {!! HTML::script('/clientScripts/views/Search.js') !!}
 	 {!! HTML::script('/clientScripts/views/Settings.js') !!}
 	 {!! HTML::script('/clientScripts/views/Login.js') !!}
+	 {!! HTML::script('/clientScripts/views/Chat/Chat.js') !!}
+	 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
 	 
 	<script>
 		$(document).ready(function()
