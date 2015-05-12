@@ -22,6 +22,7 @@
 		{!! HTML::script('/clientScripts/scrollbar/jquery.jscrollpane.min.js') !!}
 		{!! HTML::script('/clientScripts/scrollbar/jquery.mousewheel.js') !!}
 		{!! HTML::style('/clientScripts/scrollbar/style/jquery.jscrollpane.css') !!}
+		{!! HTML::script('http://malsup.github.io/min/jquery.form.min.js') !!}
 
 		{!! HTML::script('/clientScripts/famous.js') !!}
 
@@ -49,8 +50,7 @@
 	}*/
 	 ?>
 
-	 {!! HTML::script('/clientScripts/login.js') !!}
-	 {!! HTML::style('/css/login.css') !!}
+	{!! HTML::style('/css/login.css') !!}
 
 	 {!! HTML::script('/clientScripts/mail.js') !!}
 	 {!! HTML::script('/clientScripts/venueChat.js') !!}
@@ -68,6 +68,7 @@
 		$(document).ready(function()
 		{	
 			$('#featuredContent').jScrollPane();
+
 
 			//input = <?php echo csrf_token() ?>
 

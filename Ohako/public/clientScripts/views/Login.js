@@ -6,13 +6,11 @@ var upperDiv = null;
 var LOGINSTATES = {login:"login", register:"register"};
 var loginState = LOGINSTATES.login;
 
-function loginButtonsInit(){
-	console.log("y");
-	
+function loginButtonsInit(){	
 	//$("#header #headerLogInDiv").on("click", menuClickHandler);
 	//$("#upperDiv #loginForm #loginFormSubmitButton").on("click", logInClickHandler);
 	//$("#upperDiv #loginForm").on("submit", logInSubmitHandler);
-	$("#upperDiv #registrationDiv #registrationSubmitButton").on("click", registrationClickHandler);
+	//$("#upperDiv #registrationDiv #registrationSubmitButton").on("click", registrationClickHandler);
 	$("#upperDiv #loginDiv #loginFormSwitchToRegistrationButton").on("click", switchLogRegClickHandler);
 	$("#upperDiv #registrationDiv #registrationSwitchToLoginButton").on("click", switchLogRegClickHandler);
 		
@@ -161,6 +159,7 @@ function register(){
 }
 
 function logIn(){
+	console.log("GGGGG");
 	var userName = $("#loginForm #loginFormUserName").val();
 	var pass = $("#loginForm #loginFormPassword").val();
 

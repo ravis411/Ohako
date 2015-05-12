@@ -52,9 +52,8 @@ function Header() {
 	this.content = new Surface({
 		content: '<div id="upperDiv">\
 				<div id="loginDiv">\
-					<form id="loginForm" name="loginForm" method="post">\
+					<form action="login" id="loginForm" name="loginForm" method="post">\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
-						<h2>Log in</h2>\
 						<div id="loginFail" class="fail"></div>\
 						<input id="loginFormUserName" name="email" type="text" placeholder="Email" autofocus required /><br>\
 						<input id="loginFormPassword" name="password" type="password" placeholder="Password" required /><br>\
@@ -62,14 +61,13 @@ function Header() {
 					</form>\
 				</div>\
 				<div id="registrationDiv">\
-					 <form id="registrationForm" name="registrationForm" method="post" action="">\
-						<h2>Register!</h2>\
+					 <form role="form" id="registrationForm" method="post" action="/auth/register">\
 						<div id="registrationFail" class="fail"></div>\
+						<input type="hidden" name="_token" value="' + inputToken + '">\
 						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>\
-						<input id="registrationUserName" name="username" type="text" placeholder="User Name" required /><br>\
+						<input id="registrationUserName" name="userName" type="text" placeholder="User Name" required /><br>\
 						<input id="registrationEmail" name="email" type="email" placeholder="Email" required /><br>\
 						<input id="registrationPassword" name="password" type="password" placeholder="Password" required /><br>\
-						<input id="registrationPassword2" name="password2" type="password" placeholder="Verify Password" required /><br>\
 						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />\
 						<div id="registrationSwitchToLoginButton">Login?</div>\
 					</form>\
@@ -84,7 +82,7 @@ function Header() {
 	this.view = new View();
 
 	this.view.add(this.backgroundMod).add(this.background);
-	this.view.add(this.contentMod).add(this.content);
+	//this.view.add(this.contentMod).add(this.content);
 
 	this.view.add(this.leftMod).add(this.leftHeader);
 	this.view.add(this.rightMod).add(this.alignRight).add(this.rightHeader);
@@ -103,12 +101,83 @@ Header.prototype.buttonsInit = function() {
 
 	this.background.on('click', function(data){
 		famousPullDown();
-	})
+	});
+}
+
+Header.prototype.loggedIn = function(response) {
+	if (response=="good")
+		console.log("logged In!");
+	else
+		console.log("Error logging in");
+}
+
+Header.prototype.buttonsLoginInit = function() {
+	$('#loginForm').submit(function(event) { 
+				event.preventDefault();
+
+				var options = { 
+			        //target:        '#output2',   // target element(s) to be updated with server response 
+			        //beforeSubmit:  settings.showRequest,  // pre-submit callback 
+			        success:       header.loggedIn,  // post-submit callback 
+			 		//contentType: false,
+			 		//processData: false,
+			 		//iframe: true,
+			 		//data: 'uploadButton',
+			        // other available options: 
+			    //    url:       "uploadPhoto",         // override for form's 'action' attribute 
+			    //    type:      'POST',        // 'get' or 'post', override for form's 'method' attribute 
+			       // dataType:  'multipart/form-data'        // 'xml', 'script', or 'json' (expected server response type) 
+			        clearForm: true,        // clear all form fields after successful submit 
+			        resetForm: true,        // reset the form after successful submit 
+			 
+			        // $.ajax options can be used here too, for example: 
+			        timeout:   3000 
+			    }; 
+
+		        // inside event callbacks 'this' is the DOM element so we first 
+		        // wrap it in a jQuery object and then invoke ajaxSubmit 
+		       	 $(this).ajaxSubmit(options); 
+
+		        // !!! Important !!! 
+		        // always return false to prevent standard browser submit and page navigation 
+		        return false; 
+    		}); 
+
+	$('#registrationForm').submit(function(event) { 
+					event.preventDefault();
+
+					var options = { 
+				        //target:        '#output2',   // target element(s) to be updated with server response 
+				        //beforeSubmit:  settings.showRequest,  // pre-submit callback 
+				        success:       header.loggedIn,  // post-submit callback 
+				 		//contentType: false,
+				 		//processData: false,
+				 		//iframe: true,
+				 		//data: 'uploadButton',
+				        // other available options: 
+				    //    url:       "uploadPhoto",         // override for form's 'action' attribute 
+				    //    type:      'POST',        // 'get' or 'post', override for form's 'method' attribute 
+				       // dataType:  'multipart/form-data'        // 'xml', 'script', or 'json' (expected server response type) 
+				        clearForm: true,        // clear all form fields after successful submit 
+				        resetForm: true,        // reset the form after successful submit 
+				 
+				        // $.ajax options can be used here too, for example: 
+				        timeout:   3000 
+				    }; 
+
+			        // inside event callbacks 'this' is the DOM element so we first 
+			        // wrap it in a jQuery object and then invoke ajaxSubmit 
+			       	 $(this).ajaxSubmit(options); 
+
+			        // !!! Important !!! 
+			        // always return false to prevent standard browser submit and page navigation 
+			        return false; 
+	    		}); 
 }
 
 Header.prototype.displayLogIn = function() {
+	this.view.add(this.contentMod).add(this.content);
 	this.contentMod.setOpacity(1, {duration: 500});
-//	this.view.add(this.contentMod).add(this.content);
 }
 
 Header.prototype.pullDown = function() {

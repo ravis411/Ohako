@@ -89,7 +89,10 @@ function famousRightHeaderClick() {
 	famousPullDown();
 
 	Engine.defer(function() {
-		loginButtonsInit()
+		Engine.nextTick(function() {
+			header.buttonsLoginInit();
+			loginButtonsInit();
+		});
 	});
 }
 

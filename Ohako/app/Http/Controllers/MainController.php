@@ -7,11 +7,28 @@
 	use App\Models\User;
 	use App\Models\UserPictures;
 
+	use Illuminate\Http\Request;
+
 class MainController extends Controller {
 
 	public function index()
 	{
 		return view('layout');
+	}
+
+	public function login(Request $request)
+	{
+		$email = $request->input('email');
+		$password = $request->input('password');
+
+		$user = User::where('email', '=', $email)->first();
+
+		if ($user==NULL)
+			return "fail";
+		else if ($password != $user->password)
+			return "fail";
+		else
+			return "true";
 	}
 
 	public function getHeader()

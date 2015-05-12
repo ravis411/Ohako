@@ -17,6 +17,8 @@ Route::post('/', 'SessionController@login');
 
 Route::get('home', 'HomeController@index');
 
+Route::post('login', 'MainController@login');
+
 Route::get('venueProfile/{id}', 'MainController@venueProfile');
 
 Route::get('userProfile/{id}', 'MainController@userProfile');
