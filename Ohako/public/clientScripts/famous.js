@@ -110,8 +110,10 @@ function famousRightHeaderClick() {
 				header.buttonsLoginInit();
 				loginButtonsInit();
 			}
-			else
+			else{
 				header.checkInButtonsInit();
+				chat.buttontsInit();
+			}
 		});
 	});
 }

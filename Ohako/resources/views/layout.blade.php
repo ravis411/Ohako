@@ -16,6 +16,10 @@
 	<link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.3.4/famous.css" />
     <script type="text/javascript" src="http://code.famo.us/famous/0.3.4/famous-global.min.js"></script>
 
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
 		{!! HTML::script('/clientScripts/rateIt/jquery.rateit.js') !!}
 		{!! HTML::style('/clientScripts/rateIt/rateit.css') !!}
 
@@ -99,20 +103,6 @@
 		</div>
 
 		</div>
-
-<div id="chatTest">
-		<div id="head">
-		<form id="roomInput" action="">
-      <input id="r" autocomplete="off" /><button>Change Room</button>
-    </form>
-	</div>
-  <div id="Chat_Container">
-  QERERTERTWE
-   <div id="Chat"></div>
-  </div>
-  </div>
-
-
 
 </body>
 </html>

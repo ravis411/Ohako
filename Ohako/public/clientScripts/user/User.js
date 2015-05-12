@@ -29,6 +29,8 @@ User.prototype.isLoggedIn = function() {
 User.prototype.checkIn = function(venueID) {
 	this.checkedIn = venueID;
 
+	// SETUP CHAT
+
 	//Update database
 	$.post("/scripts/User/",
 		{
