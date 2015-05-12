@@ -8,6 +8,31 @@ function Header() {
 
 	var EventHandler = famous.core.EventHandler;
 
+	this.down = false;
+
+	this.loginForm = '<div id="upperDiv">\
+				<div id="loginDiv">\
+					<form action="login" id="loginForm" name="loginForm" method="post">\
+						<input type="hidden" name="_token" value="' + inputToken + '">\
+						<div id="loginFail" class="fail"></div>\
+						<input id="loginFormUserName" name="email" type="text" placeholder="Email" autofocus required /><br>\
+						<input id="loginFormPassword" name="password" type="password" placeholder="Password" required /><br>\
+						<input id="loginFormSubmitButton" type="submit" name="submit" class="button" value="Login" /><div id="loginFormSwitchToRegistrationButton">Register?</div>\
+					</form>\
+				</div>\
+				<div id="registrationDiv">\
+					 <form role="form" id="registrationForm" method="post" action="/auth/register">\
+						<div id="registrationFail" class="fail"></div>\
+						<input type="hidden" name="_token" value="' + inputToken + '">\
+						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>\
+						<input id="registrationUserName" name="userName" type="text" placeholder="User Name" required /><br>\
+						<input id="registrationEmail" name="email" type="email" placeholder="Email" required /><br>\
+						<input id="registrationPassword" name="password" type="password" placeholder="Password" required /><br>\
+						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />\
+						<div id="registrationSwitchToLoginButton">Login?</div>\
+					</form>\
+				</div></div>';
+
 	headerDiv = document.getElementById('header');
 
 	this.background = new Surface({
@@ -50,28 +75,7 @@ function Header() {
 	});
 
 	this.content = new Surface({
-		content: '<div id="upperDiv">\
-				<div id="loginDiv">\
-					<form action="login" id="loginForm" name="loginForm" method="post">\
-						<input type="hidden" name="_token" value="' + inputToken + '">\
-						<div id="loginFail" class="fail"></div>\
-						<input id="loginFormUserName" name="email" type="text" placeholder="Email" autofocus required /><br>\
-						<input id="loginFormPassword" name="password" type="password" placeholder="Password" required /><br>\
-						<input id="loginFormSubmitButton" type="submit" name="submit" class="button" value="Login" /><div id="loginFormSwitchToRegistrationButton">Register?</div>\
-					</form>\
-				</div>\
-				<div id="registrationDiv">\
-					 <form role="form" id="registrationForm" method="post" action="/auth/register">\
-						<div id="registrationFail" class="fail"></div>\
-						<input type="hidden" name="_token" value="' + inputToken + '">\
-						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>\
-						<input id="registrationUserName" name="userName" type="text" placeholder="User Name" required /><br>\
-						<input id="registrationEmail" name="email" type="email" placeholder="Email" required /><br>\
-						<input id="registrationPassword" name="password" type="password" placeholder="Password" required /><br>\
-						<input id="registrationSubmitButton" type="submit" name="submit" class="button" value="Register" />\
-						<div id="registrationSwitchToLoginButton">Login?</div>\
-					</form>\
-				</div></div>'
+		content: this.loginForm
 	});
 
 	this.alignRight = new Modifier({
@@ -104,9 +108,15 @@ Header.prototype.buttonsInit = function() {
 	});
 }
 
+Header.prototype.isDown = function() {
+	return this.down;
+}
+
 Header.prototype.loggedIn = function(response) {
-	if (response=="good")
+	if (response=="good"){
 		console.log("logged In!");
+		this.pullUp();
+	}
 	else
 		console.log("Error logging in");
 }
@@ -176,12 +186,21 @@ Header.prototype.buttonsLoginInit = function() {
 }
 
 Header.prototype.displayLogIn = function() {
+	this.content.setContent(this.loginForm);
 	this.view.add(this.contentMod).add(this.content);
 	this.contentMod.setOpacity(1, {duration: 500});
 }
 
 Header.prototype.pullDown = function() {
+	this.down = true;
 	this.backgroundMod.setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeOut'});
+}
+
+Header.prototype.pullUp = function() {
+	this.down = false;
+	this.content.setContent("");
+	//this.contentMod.setOpacity(0, {duration: 10});
+ 	this.backgroundMod.setTransform(Transform.translate(0,-150,0), {duration: 500, curve: 'easeOut'});
 }
 
 Header.prototype.setContent = function(htmlContent) {

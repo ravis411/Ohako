@@ -17,12 +17,14 @@ var Transitionable = famous.transitions.Transitionable;
 var SpringTransition = famous.transitions.Spring;
 var Easing = famous.transitions.Easing;
 var Lightbox = famous.views.Lightbox;
+var RenderController = famous.views.RenderController;
 
 Transitionable.registerMethod('spring', SpringTransition);
 
 var headerContext;
 var mainContext;
 var clickLocation;
+var renderController;
 
 var content;
 var header;
@@ -34,6 +36,8 @@ var belowHeader = new Modifier({
 	});
 
 function famousInit(){
+
+	renderController = new RenderController();
 
 	var mainContentDiv = document.getElementById('contents');
 
@@ -80,7 +84,10 @@ function closeFamousView(){
 }
 
 function famousPullDown() {
-	header.pullDown();
+	if (header.isDown())
+		header.pullUp();
+	else
+		header.pullDown();
 }
 
 function famousRightHeaderClick() {
