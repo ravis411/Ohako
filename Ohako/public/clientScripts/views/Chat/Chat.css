@@ -7,57 +7,69 @@
 	margin:0px;
 	padding:0px;
 	position:relative;
+	font-size: 10pt;
 }
 
 .Chat_wrapper{
-	height:205px;
+	height:200px;
 	position:relative;
+	background-color: #cccccc;
 }
 
 .Chat_messages_container{
-	height:100%;
+	height:200px;
 	overflow:auto;
 	padding-bottom:50px;
 }
 
+#chat_input_form {
+	margin-top: 0px;
+}
+
 .chat_input_form{
 	width:100%;
-	position:absolute;
-	bottom:0;
-	margin-top:5px; line-height:40px;
+	line-height:40px;
 	text-align:center;
 }
 
 .chat_input_form input{
 	height:30px;
-	width:90%;
+	width:100%;
 	padding:5px;
 }
 
 .chatMessage {
 	clear:both;
 	max-width:90%;
-	border:1px solid white;
-	border-radius:8px;
+	border:2px outset #ba26ff;
+	border-radius:5px;
 	margin:5px;
-	padding:4px;
+	padding:5px;
 	word-wrap: break-word;
+}
+
+#chat_wrapper {
+	width: 275px;
+	float: right;
 }
 
 .chatMessageDetails{
 	float:left;
 	clear:both;
 	font-weight:default;
+	color: #333333;
 }
 
 .recievedChat{
 	float:left;
 	text-align: left;
+	color: #333333;
 }
 
 .sentChat{
 	float:right;
 	text-align: right;
+	color: white;
 }
 
 .roomChangeMessage{
