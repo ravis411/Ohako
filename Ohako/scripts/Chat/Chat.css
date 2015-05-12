@@ -1,0 +1,61 @@
+/*Blog.css*/
+
+.Chat{
+	height:100%;
+	min-height:100px;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	position:relative;
+}
+
+.Chat_wrapper{
+	height:100%;
+	position:relative;
+}
+
+.Chat_messages_container{
+	height:100%;
+	overflow:auto;
+}
+
+.chat_input_form{
+	width:100%;
+	position:absolute;
+	bottom:0;
+	margin-top:5px; line-height:35px;
+	text-align:center;
+}
+
+/*.chat_input_form input{
+	height:25px;
+	width:90%;
+}*/
+
+.chatMessage {
+	clear:both;
+	max-width:90%;
+	border:1px solid white;
+	border-radius:8px;
+	margin:5px;
+	padding:4px;
+	word-wrap: break-word;
+}
+
+.chatMessageDetails{
+	float:left;
+	clear:both;
+	font-weight:default;
+}
+
+.recievedChat{
+	float:left;
+}
+
+.sentChat{
+	float:right;
+}
+
+.chat_input_form { background: #000; }
+.chat_input_form input { border: 0; padding: 10px;}
+.chat_input_form button { background: rgb(130, 224, 255); border: none; padding: 10px; }

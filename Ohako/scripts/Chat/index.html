@@ -5,20 +5,22 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-#head { background: #000; padding: 3px; position: relative; top: 0; width: 100%; height:50px; }
-      .chat_input_form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      #head { background: #000; padding: 3px; position: relative; top: 0; width: 100%; height:50px; }
+      #head form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      #head form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
  
 
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+      
+      
 
-      #Chat{
-        width: 100%;
-        height: 500px;
+      #Chat_Container{
+        margin: auto;
+        width: 200px;
+        height: 420px;
+        background: red;
+        border:5px solid blue;
       }
+
     </style>
   </head>
   <body>
@@ -27,8 +29,9 @@
       <input id="r" autocomplete="off" /><button>Change Room</button>
     </form>
 	</div>
+  <div id="Chat_Container">
    <div id="Chat"></div>
-    
+  </div>
 	
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -41,12 +44,6 @@
     var divID = "Chat";
     initChat();
 
-    $('#roomInput').submit(function(){
-      room = $('#r').val();
-      console.log("Changeing to room: ", room);
-      joinRoom(room);
-    return false;
-    });
 
 
 function initChat(){
@@ -54,15 +51,17 @@ function initChat(){
 }
 
 
+    //This simulates checking into a venue.
+    $('#roomInput').submit(function(){
+      room = $('#r').val();
+      console.log("Changeing to room: ", room);
 
-function leaveRoom(room){
-	socket.emit('leaveRoom', room);
-  console.log("Left Room: ", room);
-}
+      //Checks a user out of the current room and into a room.
+      chat.switchRooms(room);
+      //Same as chat.leaveRoom(); chat.joinRoom(room);
 
-function joinRoom(room){
-	chat.joinRoom(room);
-}
+    return false;
+    });
 
 
 

@@ -70,22 +70,39 @@ Chat.prototype.addRoomLeftMessage = function(data){
 
 Chat.prototype.joinRoom = function(room){
 	this.socket.emit('joinRoom', room);
+	this.room = room;
 }
-
+// Leave the chat room
+//If room is supplied leaves only that room
+//If not given leaves the current room.
+Chat.prototype.leaveRoom = function(room){
+	if(room === null || room === undefined){
+		room = this.room;
+		this.room = null;
+	}
+	this.socket.emit('leaveRoom', room);
+}
+Chat.prototype.switchRooms = function(room){
+	this.leaveRoom(this.room);
+	this.joinRoom(room);
+}
 
 Chat.prototype.initHTML = function(){
 	
-
+	this.$div.html('');
+	this.$div.addClass("Chat");
+	this.$div.append('<link rel="stylesheet" type="text/css" href="/scripts/Chat/Chat.css">');
 	this.$input = $('<form class="chat_input_form" action=""><input class="messageInput" autocomplete="off" /><button>Send</button></form>');
 	this.$messages = $('<div class="Chat_messages_container"></div>');
+	var $wrapper = $("<div class='Chat_wrapper'></div>");
 
-	this.$div.append(this.$messages);
+	$wrapper.append(this.$messages);
+	this.$div.append($wrapper);
 	this.$div.append(this.$input);
 
 	this.$div.on('submit', 'form', function(){
 		var msg = chat.$input.children('.messageInput').val();
-		var room = "all";
-		chat.socket.emit('chat message', {room: room, msg: msg});
+		chat.socket.emit('chat message', {room: chat.room, msg: msg});
 		chat.$input.children('.messageInput').val('');
 		console.log('Sending message: ', msg);
 		return false;
