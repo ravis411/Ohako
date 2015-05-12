@@ -254,6 +254,7 @@ function checkIn(){
 		if(user != null)
 			user.checkOut();
 		$('#buttonCheckIn').attr("src", '/images/checkIn/checkin.png');
+		content.closeKaraoke();
 	}
 
 	// if (pullDown != PullDown.Closed)

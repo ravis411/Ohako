@@ -43,16 +43,6 @@ function Content() {
 				</div>\
 				<!-- END KaraokeSongBook: View.KaraokeSongBook -->'});
 
-	this.chatRoom = new Surface({
-		content: '<div id="head">\
-		<form id="roomInput" action="">\
-      <input id="r" autocomplete="off" /><button>Change Room</button>\
-    </form>\
-	</div>\
-  <div id="Chat_Container">\
-   <div id="Chat"></div>\
-  </div>'});
-
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
 	});
@@ -101,6 +91,11 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
+					<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
   <div id="Chat_Container">\
    <div id="Chat"></div>\
   </div>\
@@ -124,11 +119,11 @@ Content.prototype.openChat = function() {
 		transform: Transform.translate(0, 225, 0)
 	});
 
-	//This adds the user to the chat room
-	//Where "venueID" is the venue name or id
-	globalChat.switchRooms("venueID");
-
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
+}
+
+Content.prototype.closeKaraoke = function() {
+	this.karaokeBookMod.setOpacity(0);
 }
 
 Content.prototype.openVenueProfile = function(html) {
