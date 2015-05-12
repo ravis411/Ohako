@@ -20,6 +20,7 @@ var Chat = function(userID, divID, room){
 	this.$div = $("#" + divID);
 	this.$input = null;
 	this.$messages = null;
+	this.userID = userID;
 	this.initSocket(userID);
 	this.initHTML();
 }
@@ -56,16 +57,41 @@ Chat.prototype.initSocket = function(userID){
 }///End initSocket
 
 //Function addChatMessage
-// params: data {room: x, username: x}
+// params: data {room: x, username: x, msg: x}
+Chat.prototype.tempLastSender = null;
 Chat.prototype.addChatMessage = function(data){
-	appendMessage(data.username + ": " + data.msg);
+	var message = ""
+		
+		//If a different sender than the last sender and not the current user
+		if(chat.tempLastSender != data.username && chat.tempLastSender != chat.userID )
+		{
+			message = message + '<div class="chatMessageDetails">' + data.username + ':</div>';
+		}
+		
+		message += '<div class="chatMessage ';
+			if(data.username == chat.userID)
+				message += 'sentChat';
+			else
+				message += 'recievedChat';
+		message += "title='By:"+ data.username + "'>";
+		message += data.msg + '</div>';
+		chat.tempLastSender = data.username;
+	
+	//appendMessage(data.username + ": " + data.msg);
+	chat.appendMessage(message);
+}
+
+
+
+Chat.prototype.appendMessage = function(message){
+	chat.$messages.append(message);
 }
 
 Chat.prototype.addRoomJoinedMessage = function(data){
-	appendMessage(data.username + " joined room " + data.room);
+	chat.appendMessage(data.username + " joined room " + data.room);
 }
 Chat.prototype.addRoomLeftMessage = function(data){
-	appendMessage(data.username + " left room " + data.room);
+	chat.appendMessage(data.username + " left room " + data.room);
 }
 
 Chat.prototype.joinRoom = function(room){
@@ -84,6 +110,7 @@ Chat.prototype.leaveRoom = function(room){
 }
 Chat.prototype.switchRooms = function(room){
 	this.leaveRoom(this.room);
+	this.clearChat();
 	this.joinRoom(room);
 }
 
@@ -100,6 +127,10 @@ Chat.prototype.initHTML = function(){
 	this.$div.append($wrapper);
 	this.$div.append(this.$input);
 
+	$(window).on('resize', function(){
+		setHeightOfMessagesContainer();
+	});
+
 	this.$div.on('submit', 'form', function(){
 		var msg = chat.$input.children('.messageInput').val();
 		chat.socket.emit('chat message', {room: chat.room, msg: msg});
@@ -110,8 +141,10 @@ Chat.prototype.initHTML = function(){
 }
 
 
+Chat.prototype.scrollToBottom = function(){
+	chat.$messages.scrollTop((chat.$messages)[0].scrollHeight);
+}
 
-
-function appendMessage(message){
-	chat.$messages.append("<li>" + message + "</li>");
+Chat.prototype.clearChat = function(){
+	chat.$messages.html("");
 }
