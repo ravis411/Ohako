@@ -6,6 +6,7 @@
 	use App\Models\DailyEvent;
 	use App\Models\User;
 	use App\Models\UserPictures;
+	use App\Models\Artist;
 
 	use Illuminate\Http\Request;
 
@@ -14,6 +15,13 @@ class MainController extends Controller {
 	public function index()
 	{
 		return view('layout');
+	}
+
+	public function songBook($id)
+	{
+		$songs = Artist::with('songs')->get();
+
+ 		return $songs;
 	}
 
 	public function login(Request $request)

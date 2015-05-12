@@ -124,7 +124,7 @@ Content.prototype.setExteriorMain = function(data) {
 
 Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
-		transform: Transform.translate(0, 100, 0)
+		transform: Transform.translate(0, 150, 0)
 	});
 
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);

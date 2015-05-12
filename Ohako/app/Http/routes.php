@@ -23,6 +23,8 @@ Route::get('venueProfile/{id}', 'MainController@venueProfile');
 
 Route::get('userProfile/{id}', 'MainController@userProfile');
 
+Route::get('getSongs/{id}', 'MainController@songBook');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
