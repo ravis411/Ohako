@@ -1,6 +1,6 @@
 #karaokeSongBook
 {
-	height: 200px;
+	height: 165px;
 	width: 355px;
 	float: left;
 
@@ -106,7 +106,7 @@
 
 #karaokeSongBookNavMenu{
 	width: 135px;
-	height: 200px;
+	height: 165px;
 	float: left;
 	padding-left: 5px;
 	font-size: 10pt;
@@ -136,7 +136,7 @@
 #karaokeSongBookList{
 	float: left;
 	width: 210px;
-	height: 200px;
+	height: 165px;
 
 	padding-left: 4px;
 
