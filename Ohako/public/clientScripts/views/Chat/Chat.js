@@ -103,7 +103,12 @@ Chat.prototype.appendMessage = function(message){
 //
 Chat.prototype.addRoomJoinedMessage = function(data){
 	chatManager.appendMessage("<div class='joinedRoom roomChangeMessage'>" + data.username + " joined the room</div>");
-	chatManager.$users.append('<div class="userProfile" id="' + data.username + '">' + data.username + ' </div> ');
+	
+	if(chatManager.$users.find("#" + data.username).is(".userProfile") ){
+				console.log("User already in chat.");
+	}else{
+		chatManager.$users.prepend('<div class="userProfile" id="' + data.username + '">' + data.username + ' </div> ');
+	}
 }
 Chat.prototype.addRoomLeftMessage = function(data){
 	chatManager.appendMessage("<div class='leftRoom roomChangeMessage'>" + data.username + " left</div>");
