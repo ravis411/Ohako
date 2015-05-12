@@ -41,7 +41,7 @@ function requestSong(song, artist){
 
 			$('#queue').html(string);
 			//toggleBook();
-		//	$('#queue').jScrollPane();
+			//$('#queue').jScrollPane();
 
 			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			// $('#profileUserName').html(profileData[0].userName);
@@ -73,8 +73,8 @@ function getSongs(song, artist){
 		}
 
 			$('#queue').html(string);
-			$('#requestScreen').css("display", "block");
-			$('#queue').jScrollPane();
+			//$('#requestScreen').css("display", "block");
+		//	$('#queue').jScrollPane();
 
 			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			// $('#profileUserName').html(profileData[0].userName);

@@ -189,7 +189,7 @@ function getSongBook(vID) {
 			songBook = "";
 			for (artist in songs){
 				if(songs[artist]['songs'].length<1)
-					break;
+					continue;
 
 				songBook += " <li>\
 					<a href=\"#\" onclick=\"swap('"+songs[artist]['id']+"');return false;\">"+songs[artist]['artist_name'] + "</a>\
@@ -204,6 +204,7 @@ function getSongBook(vID) {
 			// $('#profilePicture').html("<img width=120 height=105 src=\"" + profileData[0].profilePicture +"\" />");
 			// $('#profileUserName').html(profileData[0].userName);
 			$('#songBookAdd').html(songBook);
+			$('#karaokeSongBookList').jScrollPane();
 			karaokeInit();
 
 			//$('#karaokeSongBookList').jScrollPane();
