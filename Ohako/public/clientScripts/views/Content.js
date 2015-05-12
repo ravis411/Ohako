@@ -99,11 +99,6 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
-					<div id="head">\
-		<form id="roomInput" action="">\
-      <input id="r" autocomplete="off" /><button>Change Room</button>\
-    </form>\
-	</div>\
   <div id="Chat_Container">\
    <div id="Chat"></div>\
   </div>\
