@@ -1,10 +1,11 @@
 #checkIn
 {
 	position:absolute;
-	height: 200px;
-	width: 360px;
+	height: 184px;
+	width: 353px;
 	top: 0px;
 	padding: 5px;
+	overflow: hidden;
 
 	background-image: url("blackBackground.png");
 	z-index: 2;

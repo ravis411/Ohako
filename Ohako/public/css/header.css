@@ -24,14 +24,12 @@ html, body{
 /*************************************/
 /*Header Styles*/
 #header{
-	background:#ffdcaa;
 	text-align:left;
 	height:200px;
 	font-size: 15pt;
 	width: 100%;
-	border:1px solid black;
-	border-bottom: 2px solid #ffc066;
 	font-family: viaFont;
+	background-image: url("/images/app/headerBackground.png");
 
 	z-index: 5;
 }

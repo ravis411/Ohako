@@ -13,6 +13,11 @@
 	background-color: #ffe8c7;
 }
 
+#chatTest {
+	float: left;
+	margin-left: 400px;
+}
+
 #home{
 	position:absolute;
 	display:inline-block;

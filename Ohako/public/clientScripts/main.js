@@ -224,26 +224,22 @@ function getProfileData(userID) {
 function checkIn(){
 //	 venueID = typeof a !== 'undefined' ? venueID : 0;
 
-	venueID = $('#buttonCheckIn').val();
-	console.log(venueID);
+	venueID = 4; //$('#buttonCheckIn').val();
 
 	if (!checkedIn){
 		
-		//TODO Set venueID
-		//var venueID = 0;
-	// 	if(user.isLoggedIn())
-	// //		user.checkIn(venueID);
-	// 	else
-	// 		alert("You should probably log in before checking in!");
-		
 		checkedIn = true; 
-		$('#buttonCheckIn').attr("src", 'images/checkIn/checkout.png');
+
+		if(user.isLoggedIn())
+			user.checkIn(venueID);
+		else
+			alert("You should probably log in before checking in!");
 	}
 	else{
 		checkedIn = false;
-		if(currentUser != null)
-			currentUser.checkOut();
-		$('#buttonCheckIn').attr("src", 'images/checkin.png');
+		if(user != null)
+			user.checkOut();
+		$('#buttonCheckIn').attr("src", '/images/checkIn/checkin.png');
 	}
 
 	// if (pullDown != PullDown.Closed)
@@ -276,10 +272,12 @@ function initCheckIn(){
 function changeHome(){
 	if (home == Home.SearchAndDiscover && checkedIn){
 			home = Home.Venue;
-			$('#searchAndDiscover').fadeOut();
-			$('#homeVenue').fadeIn();
-			$('#interiorControlsBox').fadeIn();
-			nightUI();
+			// $('#searchAndDiscover').fadeOut();
+			// $('#homeVenue').fadeIn();
+			 $('#interiorControlsBox').fadeIn();
+			 content.openChat();
+			//nightUI();
+			
 			reloadChats();
 		}
 

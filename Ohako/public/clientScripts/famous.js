@@ -96,8 +96,12 @@ function famousRightHeaderClick() {
 	//header.setContent(data);
 	if (!user.isLoggedIn())
 		header.displayLogIn();
-	else
-		header.displayCheckIn();
+	else{
+		if (checkedIn)
+			header.displayCheckOut();
+		else
+			header.displayCheckIn();
+	}
 	famousPullDown();
 
 	Engine.defer(function() {

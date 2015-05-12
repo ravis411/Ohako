@@ -26,17 +26,36 @@
 	position: absolute;
 }
 
-#adHeader
+#adHeaderFeatured
 {
 	padding-top: 5px;
 	padding-left: 5px;
 	text-align: left;
 	position: absolute;
 	padding-right: 10px;
+	height: 43px;
+	width: 151px;
 
 	border-bottom-right-radius: 22px;
 
-	background-color: #000000;
+	background-image: url("/images/app/featured.png");
+	background-repeat: no-repeat;
+}
+
+#adHeaderTonight
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	text-align: left;
+	position: absolute;
+	padding-right: 10px;
+	width: 135px;
+	height: 43px;
+
+	border-bottom-right-radius: 22px;
+
+	background-image: url("/images/app/tonight.png");
+	background-repeat: no-repeat;
 }
 
 #customContent

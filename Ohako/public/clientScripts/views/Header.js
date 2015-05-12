@@ -26,6 +26,22 @@ function Header() {
 						</div>\
 					</div>';
 
+	this.checkOut = '<div id="checkIn">\
+						<div id="checkInInterior">\
+							<div id="checkInLogo">\
+								<img src="images/checkIn/901bar.png"/>\
+							</div>\
+	\
+							<div id="checkInDetails">\
+								Come back again!\
+							</div>\
+	\
+							<div value="4" id="buttonCheckIn">\
+								<img src="images/checkIn/checkout.png"/>\
+							<div>\
+						</div>\
+					</div>';
+
 	this.loginForm = '<div id="upperDiv">\
 				<div id="loginDiv">\
 					<form action="login" id="loginForm" name="loginForm" method="post">\
@@ -52,7 +68,13 @@ function Header() {
 	headerDiv = document.getElementById('header');
 
 	this.background = new Surface({
-		content: '<div id="header"> </div>'
+		content: '<div id="header"> </div>',
+		size: [361, 200],
+		// properties: {
+		// 	backgroundImage: 'url(images/app/headerBackground.png)',
+		// 	backgroundSize: '[undefined, undefined]',
+		// 	backgroundRepeat: 'no-repeat'
+		// }
 	});
 
 	this.backgroundMod = new Modifier({
@@ -139,6 +161,12 @@ Header.prototype.loggedIn = function(response) {
 	}
 }
 
+Header.prototype.displayCheckOut = function() {
+	this.content.setContent(this.checkOut);
+	this.view.add(this.contentMod).add(this.content);
+	this.contentMod.setOpacity(1, {duration: 500});
+}
+
 Header.prototype.buttonsLoginInit = function() {
 	$('#loginForm').submit(function(event) { 
 				event.preventDefault();
@@ -211,6 +239,7 @@ Header.prototype.displayLogIn = function() {
 
 Header.prototype.checkInButtonsInit = function() {
 	$('#buttonCheckIn').on('click', function(){checkIn()});
+	$('#checkInInterior').on('click', function(){famousPullDown()});
 }
 
 Header.prototype.pullDown = function() {
@@ -220,6 +249,7 @@ Header.prototype.pullDown = function() {
 
 Header.prototype.displayCheckIn = function() {
 	this.content.setContent(this.checkIn);
+	this.view.add(this.contentMod).add(this.content);
 	this.contentMod.setOpacity(1, {duration: 500});
 }
 
@@ -229,9 +259,9 @@ Header.prototype.pullUp = function() {
  	this.backgroundMod.setTransform(Transform.translate(0,-150,0), {duration: 500, curve: 'easeOut'});
 }
 
-Header.prototype.setContent = function(htmlContent) {
-	this.content.setContent(htmlContent);
-}
+// Header.prototype.setContent = function(htmlContent) {
+// 	this.content.setContent(htmlContent);
+// }
 
 Header.prototype.getView = function() {
 	return this.view;

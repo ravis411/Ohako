@@ -96,6 +96,22 @@
 
 		<div id="contents">
 
+		</div>
+
+		</div>
+
+<div id="chatTest">
+		<div id="head">
+		<form id="roomInput" action="">
+      <input id="r" autocomplete="off" /><button>Change Room</button>
+    </form>
+	</div>
+  <div id="Chat_Container">
+  QERERTERTWE
+   <div id="Chat"></div>
+  </div>
+  </div>
+
 
 
 </body>

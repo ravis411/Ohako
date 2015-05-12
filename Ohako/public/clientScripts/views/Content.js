@@ -9,6 +9,15 @@ function Content() {
 
 	var EventHandler = famous.core.EventHandler;
 
+	this.chatRoom = '<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
+  <div id="Chat_Container">\
+   <div id="Chat"></div>\
+  </div>';
+
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
 	});
@@ -44,12 +53,12 @@ Content.prototype.setExteriorMain = function(data) {
 				<!-- Home.SearchAndDiscover -->\
 	        	<div id="searchAndDiscover">\
 	                <div id="featuredContent">\
-	                    <div id="adHeader"> Featured This Week </div>\
+	                    <div id="adHeaderFeatured">  </div>\
 	                    <img value="1" class="contentVenueImage" src="images/ads/1.png" id="featuredImage"/>\
 	                </div>\
 	\
 	                <div id="customContent">\
-	                    <div id="adHeader"> Happening Tonight </div>\
+	                    <div id="adHeaderTonight">  </div>\
 	                    <img value="3" class="contentVenueImage" src="images/ads/3.png" id="customImage"/>\
 	                </div>\
 	            </div>\
@@ -88,6 +97,10 @@ Content.prototype.setExteriorMain = function(data) {
 		if (id)
 			displayView(View.Venue, id);
 	});
+}
+
+Content.prototype.openChat = function() {
+	this.exteriorMain.setContent(this.chatRoom);
 }
 
 Content.prototype.openVenueProfile = function(html) {
