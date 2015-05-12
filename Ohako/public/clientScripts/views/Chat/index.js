@@ -90,7 +90,7 @@ var chat = io.of('/chat/')
 
 
 function leaveRoom(socket, room){
-	socket.userData
+	
 	console.log(socket.id, " leaving room ", room)
 	chat.to(room).emit('left room', {username: socket.userData.userID, room: room})
 	socket.leave(room)
