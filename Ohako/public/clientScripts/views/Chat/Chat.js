@@ -55,6 +55,9 @@ Chat.prototype.initSocket = function(userID){
 	this.socket.on('stop typing', function(data){
 
 	});
+	this.socket.on('request room members', function(data){
+		console.log("Room members: " + data.toString());
+	});
 
 
 }///End initSocket
@@ -121,6 +124,7 @@ Chat.prototype.switchRooms = function(room){
 	this.leaveRoom(this.room);
 	this.clearChat();
 	this.joinRoom(room);
+	this.socket.emit('request room members', room);
 }
 
 Chat.prototype.initHTML = function(){
@@ -151,6 +155,7 @@ Chat.prototype.initHTML = function(){
 
 
 Chat.prototype.setHeightOfMessagesContainer = function(scroll){
+	return;
 	var prevHeight = $(".Chat").height();
 	$(".Chat_wrapper").height( $(".Chat").height() - $(".Chat_input_form").outerHeight(true) );
 	setTimeout(function(){if(prevHeight != $(".Chat").height())setHeightOfMessagesContainer();}, 100);

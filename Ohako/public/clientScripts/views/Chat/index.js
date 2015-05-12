@@ -56,8 +56,9 @@ var chat = io.of('/chat/')
 		socket.userData.joinRoom(room);
 		if(rooms[room] === null || rooms[room] === undefined){
 			rooms[room] = [];
-			rooms[room].push(socket.userData.userID);
 		}
+		if(rooms[room].indexOf(socket.userData.userID) < 0)
+			rooms[room][rooms[room].length] = socket.userData.userID;
 		console.log("RRRRooms: ", rooms);
 	});
 
@@ -67,10 +68,8 @@ var chat = io.of('/chat/')
 
 
 	socket.on('request room members', function(room){
-		socket.to(room).broadcast.emit('request room', room);
-	});
-	socket.on('response room', function(room){
-
+		console.log("Request room members: ", room);
+		socket.emit('request room members', rooms[room]);
 	});
 
 	socket.on('disconnect', function(reason){
@@ -91,6 +90,7 @@ var chat = io.of('/chat/')
 
 
 function leaveRoom(socket, room){
+	socket.userData
 	console.log(socket.id, " leaving room ", room)
 	chat.to(room).emit('left room', {username: socket.userData.userID, room: room})
 	socket.leave(room)
