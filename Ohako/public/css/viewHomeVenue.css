@@ -14,9 +14,9 @@
 }
 
 #chatUsers{
-	height: 249px;
-	width: 89px;
-	margin-top:5px;
+	height: 200px;
+	width: 80px;
+	margin-top:0px;
 	position:relative;
 	float:left;
 	background-image: url("whiteBackgroundT.png");
@@ -26,6 +26,32 @@
 	z-index: 2;
 
 	text-align: center;
+}
+
+#chatUsersList{
+	padding: 5px;
+	font-size: 9pt;
+	width: 80px;
+	height: 200px;
+	margin: auto;
+
+	overflow: hidden;
+
+	float: left;
+	text-align: left;
+}
+.userProfile{
+	background-color: #f2f2f2;
+	margin-bottom: 2px;
+	border: 1px outset white;
+	padding: 2px;
+
+	cursor:pointer;
+}
+
+#usersLogo{
+	text-align: center;
+	margin: auto;
 }
 /*
 #chatBox{
@@ -74,24 +100,6 @@
 	width:256px;
 }
 
-#usersLogo{
-	text-align: center;
-	margin: auto;
-}
-
-#chatUsersList{
-	padding: 5px;
-	font-size: 9pt;
-	width: 80px;
-	height: 224px;
-	margin: auto;
-
-	overflow: hidden;
-
-	float: left;
-	text-align: left;
-}
-
 .chatMessage {
 	clear:both;
 	max-width:215px;
@@ -115,12 +123,4 @@
 .sentChat{
 	float:right;
 }
-
-.userProfile{
-	background-color: #f2f2f2;
-	margin-bottom: 2px;
-	border: 1px outset white;
-	padding: 2px;
-
-	cursor:pointer;
-}*/
+*/
