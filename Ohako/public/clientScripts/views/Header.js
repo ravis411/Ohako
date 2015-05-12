@@ -10,6 +10,22 @@ function Header() {
 
 	this.down = false;
 
+	this.checkIn = '<div id="checkIn">\
+						<div id="checkInInterior">\
+							<div id="checkInLogo">\
+								<img src="images/checkIn/901bar.png"/>\
+							</div>\
+	\
+							<div id="checkInDetails">\
+								Welcome!\
+							</div>\
+	\
+							<div value="4" id="buttonCheckIn">\
+								<img src="images/checkIn/checkin.png"/>\
+							<div>\
+						</div>\
+					</div>';
+
 	this.loginForm = '<div id="upperDiv">\
 				<div id="loginDiv">\
 					<form action="login" id="loginForm" name="loginForm" method="post">\
@@ -193,15 +209,23 @@ Header.prototype.displayLogIn = function() {
 	this.contentMod.setOpacity(1, {duration: 500});
 }
 
+Header.prototype.checkInButtonsInit = function() {
+	$('#buttonCheckIn').on('click', function(){checkIn()});
+}
+
 Header.prototype.pullDown = function() {
 	this.down = true;
 	this.backgroundMod.setTransform(Transform.translate(0,0,0), {duration: 500, curve: 'easeOut'});
 }
 
+Header.prototype.displayCheckIn = function() {
+	this.content.setContent(this.checkIn);
+	this.contentMod.setOpacity(1, {duration: 500});
+}
+
 Header.prototype.pullUp = function() {
 	this.down = false;
 	this.content.setContent("");
-	//this.contentMod.setOpacity(0, {duration: 10});
  	this.backgroundMod.setTransform(Transform.translate(0,-150,0), {duration: 500, curve: 'easeOut'});
 }
 

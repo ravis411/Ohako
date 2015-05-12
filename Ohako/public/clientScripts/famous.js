@@ -29,6 +29,8 @@ var renderController;
 var content;
 var header;
 
+var user;
+
 var mailBox;
 
 var belowHeader = new Modifier({ 
@@ -92,13 +94,20 @@ function famousPullDown() {
 
 function famousRightHeaderClick() {
 	//header.setContent(data);
-	header.displayLogIn();
+	if (!user.isLoggedIn())
+		header.displayLogIn();
+	else
+		header.displayCheckIn();
 	famousPullDown();
 
 	Engine.defer(function() {
 		Engine.nextTick(function() {
-			header.buttonsLoginInit();
-			loginButtonsInit();
+			if (!user.isLoggedIn()) {
+				header.buttonsLoginInit();
+				loginButtonsInit();
+			}
+			else
+				header.checkInButtonsInit();
 		});
 	});
 }

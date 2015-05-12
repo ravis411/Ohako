@@ -13,21 +13,20 @@ checkedIn = false;
 
 //The current user
 currentUser = null;
-user = null;
+var user = null;
 inputToken = null;
 
 // Called after page loads to set up functionality.
 function init(){
 	inputToken = $('meta[name="csrf-token"]').attr('content');
 
+	user = new User();
 
-	
 	famousInit();
 	//buttonsInit();
 	view = View.Home;
 
 	//currentUser=1;
-	user = new User();
 
 	/*
 		TODO
@@ -222,20 +221,23 @@ function getProfileData(userID) {
 		TODO:  Add parameter to allow function to check User in.
 			Will pull the necessary data for the Venue page, log user in on server, etc...
 */
-function checkIn(venueID){
-	 venueID = typeof a !== 'undefined' ? venueID : 0;
+function checkIn(){
+//	 venueID = typeof a !== 'undefined' ? venueID : 0;
+
+	venueID = $('#buttonCheckIn').val();
+	console.log(venueID);
 
 	if (!checkedIn){
 		
 		//TODO Set venueID
 		//var venueID = 0;
-		if(currentUser != null)
-			currentUser.checkIn(venueID);
-		else
-			alert("You should probably log in before checking in!");
+	// 	if(user.isLoggedIn())
+	// //		user.checkIn(venueID);
+	// 	else
+	// 		alert("You should probably log in before checking in!");
 		
 		checkedIn = true; 
-		$('#buttonCheckIn').attr("src", 'images/checkout.png');
+		$('#buttonCheckIn').attr("src", 'images/checkIn/checkout.png');
 	}
 	else{
 		checkedIn = false;
@@ -244,8 +246,8 @@ function checkIn(venueID){
 		$('#buttonCheckIn').attr("src", 'images/checkin.png');
 	}
 
-	if (pullDown != PullDown.Closed)
-		displayPullDown();
+	// if (pullDown != PullDown.Closed)
+	// 	displayPullDown();
 
 	changeHome();
 }

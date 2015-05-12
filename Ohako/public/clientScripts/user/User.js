@@ -13,31 +13,36 @@ User.prototype.setUser = function(data) {
 	this.email = data.email;
 
 	this.loggedIn = true;
+	this.checkIn = null;
 }
 
-User.prototype.loggedIn = function() {
+User.prototype.setLoggedIn = function(name) {
+	this.userName = name;
+	this.loggedIn = true;
+}
+
+User.prototype.isLoggedIn = function() {
 	return this.loggedIn;
 }
-
 
 //Checks a User into the venue
 User.prototype.checkIn = function(venueID) {
 	this.checkedIn = venueID;
 
-	//Update database
-	$.post("/scripts/User/",
-		{
-			intent: "checkIn",
-			location: venueID
-		},
-		function(data, status){
-			if(data == "Success"){
-				//alert("Data: " + data + "\nStatus: " + status);
-			}else{
-				//alert("Data: " + data + "\nStatus: " + status);
-			}
-	});
-};
+	// //Update database
+	// $.post("/scripts/User/",
+	// 	{
+	// 		intent: "checkIn",
+	// 		location: venueID
+	// 	},
+	// 	function(data, status){
+	// 		if(data == "Success"){
+	// 			//alert("Data: " + data + "\nStatus: " + status);
+	// 		}else{
+	// 			//alert("Data: " + data + "\nStatus: " + status);
+	// 		}
+	// });
+}
 
 //Checks a User out of the venue
 User.prototype.checkOut = function() {
