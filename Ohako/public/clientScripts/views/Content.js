@@ -137,6 +137,8 @@ Content.prototype.openChat = function() {
 		transform: Transform.translate(0, 100, 0)
 	});
 
+	this.view.add(this.chatRoom);
+
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);
 }
 
