@@ -184,7 +184,8 @@ function getVenueData(venueID) {
 
 function getSongBook(vID) {
 	$.get("/getSongs/"+vID, function(result){
-			songs = jQuery.parseJSON(result);
+			songs = result; //jQuery.parseJSON(result);
+			console.log(result);
 			songBook = "";
 			for (artist in songs){
 				if(songs[artist]['songs'].length<1)

@@ -42,9 +42,14 @@ function Content() {
 				<!-- END KaraokeSongBook: View.KaraokeSongBook -->'});
 
 	this.chatRoom = new Surface({
-		content: '<div id="Chat_Container">\
-			<div id="Chat"></div>\
-		</div>'});
+		content: '<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
+  <div id="Chat_Container">\
+   <div id="Chat"></div>\
+  </div>'});
 
 	this.background = new Surface({
 		content: '<div id="content"> </div>'
@@ -94,8 +99,13 @@ Content.prototype.setExteriorMain = function(data) {
 	\
 	            <!-- Home.Venue -->\
 	            <div id="homeVenue">\
+					<div id="head">\
+		<form id="roomInput" action="">\
+      <input id="r" autocomplete="off" /><button>Change Room</button>\
+    </form>\
+	</div>\
   <div id="Chat_Container">\
-   	<div id="Chat"></div>\
+   <div id="Chat"></div>\
   </div>\
 	            </div>\
 	        </div>   \
@@ -114,7 +124,7 @@ Content.prototype.setExteriorMain = function(data) {
 
 Content.prototype.openChat = function() {
 	this.karaokeBookMod = new Modifier({
-		transform: Transform.translate(0, 150, 0)
+		transform: Transform.translate(0, 200, 0)
 	});
 
 	this.view.add(this.karaokeBookMod).add(this.karaokeBook);

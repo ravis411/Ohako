@@ -7,6 +7,8 @@
 	use App\Models\User;
 	use App\Models\UserPictures;
 	use App\Models\Artist;
+	use App\Models\Song;
+	use App\Models\Request as SongRequest;
 
 	use Illuminate\Http\Request;
 
@@ -15,6 +17,20 @@ class MainController extends Controller {
 	public function index()
 	{
 		return view('layout');
+	}
+
+	public function addRequest(Request $request)
+	{
+		$songRequest = new SongRequest();
+		$songRequest->user_id = $request->input('userID');
+		$songRequest->artist = $request->input('artist');
+		$songRequest->song = $request->input('song');
+
+		$songRequest->save();
+
+		$return = $songRequest::orderBy('updated_at', 'ASC')->take(5)->get();
+
+		return $return;
 	}
 
 	public function songBook($id)

@@ -16,8 +16,8 @@ function toggleBook()
 
 function requestSong(song, artist){
 
-	$.post("/scripts/putData/addRequest.php", {artist: artist, song: song}, function(result){
-			requests = jQuery.parseJSON(result);
+	$.post("/addRequest", {_token: inputToken, userID: user.id, artist: artist, song: song}, function(result){
+			console.log(result);
 			string = "";
 			counter=0;
 			for (request=0; request<10 && request<requests.length; request++) {

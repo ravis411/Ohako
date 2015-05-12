@@ -6,11 +6,7 @@ class Artist extends Model {
 
   public function songs()
   {
-    return $this->hasMany('Song');
+    return $this->hasMany('App\Models\Song');
   }
 
-  public function jam()
-  {
-    echo 'jamming';
-  }
 }
