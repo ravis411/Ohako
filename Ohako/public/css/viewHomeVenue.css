@@ -16,7 +16,7 @@
 #chatUsers{
 	height: 200px;
 	width: 80px;
-	margin-top:5px;
+	margin-top:0px;
 	position:relative;
 	float:left;
 	background-image: url("whiteBackgroundT.png");
