@@ -20,6 +20,7 @@ var Chat = function(userID, divID, room){
 	this.$div = $("#" + divID);
 	this.$input = null;
 	this.$messages = null;
+	this.$users = null;
 	if(userID !== null && userID !== undefined){
 		this.userID = userID;
 		
@@ -102,6 +103,7 @@ Chat.prototype.appendMessage = function(message){
 //
 Chat.prototype.addRoomJoinedMessage = function(data){
 	chatManager.appendMessage("<div class='joinedRoom roomChangeMessage'>" + data.username + " joined the room</div>");
+	chatManager.$users.append('<div class="userProfile" id="' + data.username + '">' + data.username + ' </div> ');
 }
 Chat.prototype.addRoomLeftMessage = function(data){
 	chatManager.appendMessage("<div class='leftRoom roomChangeMessage'>" + data.username + " left</div>");
@@ -136,11 +138,11 @@ Chat.prototype.initHTML = function(){
 	this.$input = $('<form class="chat_input_form" id="chat_input_form" action=""><input class="messageInput" autocomplete="off" placeholder="Chat"/></form>');//<button>Send</button>
 	this.$messages = $('<div id="chatMessagesContainer" class="Chat_messages_container"></div>');
 	var $wrapper = $("<div id='chat_wrapper' class='Chat_wrapper'></div>");
-
+	this.$div.append($('<div id="chatUsers"><img id="usersLogo" src="images/logo_users.png" alt="Current Users" width="80px" height="26" /><div id="chatUsersList"></div></div>'));
 	$wrapper.append(this.$messages);
 	this.$div.append($wrapper);
 	this.$div.append(this.$input);
-
+	this.$users = $("#chatUsersList");
 	$(window).on('resize', function(){
 		//chat.setHeightOfMessagesContainer();
 	});
@@ -170,4 +172,5 @@ Chat.prototype.scrollToBottom = function(){
 
 Chat.prototype.clearChat = function(){
 	chatManager.$messages.html("");
+	chatManager.$users.html("");
 }
