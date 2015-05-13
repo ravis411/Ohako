@@ -23,7 +23,9 @@
 						<div id="profileSongBook">
 						<div id="topSongs">
 							<div class="profileLabel"> My Top Songs </div>
-								None yet to show...  I need to get singing! 
+								None yet to show...  I need to get singing!<br/><br/> 
+							<div class="profileLabel"> My Top Artists </div>
+								None yet to show...  You need to sing!
 						</div>
 						</div>
 					</div>

@@ -33,14 +33,14 @@ function Settings() {
 						<div id="submitContact" class="label" type="submit">\
 				    		<input type="submit" value="Save" id="submit"/>\
 				    	</div>\
-						</form>\
+						</form><br/>\
 \
 						<form action="/scripts/putData/uploadPhoto.php" method="post" enctype="multipart/form-data">\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
 						    Select image to upload:\
 						    <input type="file" name="fileToUpload" id="fileToUpload">\
 						    <input type="submit" value="Upload Image" name="submit">\
-						</form>\
+						</form><br/>\
 \
 						<div id="settingsLogout">\
 							<a href="/scripts/login/logout.php"> Log out</a>\

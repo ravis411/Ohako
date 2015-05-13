@@ -44,13 +44,15 @@
 				<br style="clear: both;"/>
 
 				<div id="venueRating">
-					<div id="venueStarCount" class="rateit">
-					</div>
+					{!! HTML::image("/images/venueRanking.jpg", "rating", array( 'width' => 275, 'height' => 40 )) !!}
 				</div>
 				<script> $('#venueStarCount').rateit('value', {{ $venue[0]['rating'] }}); </script>
 
 				<div id="venueContent">
-					{{ $venue[0]['description'] }}
+					<div class="profileLabel"> About </div>
+						{{ $venue[0]['description'] }} <br/><br/>
+					<div class="profileLabel"> Top Songs </div>
+						None available...  Get to singing!
 				</div>
 			</div>
 		</div>

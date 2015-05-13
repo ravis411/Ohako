@@ -33,6 +33,7 @@
 	margin-top: 5px;
 	margin-left: 15px;
 	border: 2px outset #ba26ff;
+	overflow: hidden;
 
 	text-align: center;
 

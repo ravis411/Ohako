@@ -100,7 +100,6 @@ function famousEngine() {
 }
 
 function famousRightHeaderClick() {
-	//header.setContent(data);
 	if (!user.isLoggedIn())
 		header.displayLogIn();
 	else{
@@ -124,7 +123,9 @@ function famousRightHeaderClick() {
 		});
 	});
 }
+
 var globalChat = null;
+
 function famousInitHTML() {
 	Engine.defer(function() {
 		Engine.nextTick(function() {

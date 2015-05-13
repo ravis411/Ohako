@@ -6,6 +6,11 @@
 	overflow: hidden;
 }
 
+#venueContent
+{
+	padding: 5px;
+}
+
 #songBookInterior
 {
 	width: 100%%;

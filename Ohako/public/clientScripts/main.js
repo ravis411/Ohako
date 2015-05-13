@@ -240,10 +240,6 @@ function checkIn(){
 			user.checkIn(venueID);
 			famousEngine().defer(function() {
 				famousEngine().nextTick(function() {
-					// ADD ALL HTML DEPENDENCIES HERE
-						// Load everything in resources/views/layout.blade.php
-						// Call their functions here.
-						// Or load things in here....
 						getSongBook(venueID);
 				});
 			});
@@ -258,9 +254,6 @@ function checkIn(){
 		$('#buttonCheckIn').attr("src", '/images/checkIn/checkin.png');
 		content.closeKaraoke();
 	}
-
-	// if (pullDown != PullDown.Closed)
-	// 	displayPullDown();
 
 	changeHome();
 }
