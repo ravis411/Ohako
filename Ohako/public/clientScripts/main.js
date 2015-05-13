@@ -179,7 +179,7 @@ function displayView(div, id)
 }
 
 function getVenueData(venueID) {
-	$.get("venueProfile/"+venueID, function(result){
+	$.get("/venueProfile/"+venueID, function(result){
 			famousDisplayVenueProfile(result);
 		});
 }
