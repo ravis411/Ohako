@@ -53,7 +53,7 @@ function Header() {
 					</form>\
 				</div>\
 				<div id="registrationDiv">\
-					 <form role="form" id="registrationForm" method="post" action="/auth/register">\
+					 <form role="form" id="registrationForm" method="post" action="register">\
 						<div id="registrationFail" class="fail"></div>\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
 						<input id="registrationFirstName" class="registrationName" name="firstName" type="text" placeholder="First Name" required /><input id="registrationLastName" class="registrationName" name="lastName" type="text" placeholder="Last Name" required /><br>\

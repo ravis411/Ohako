@@ -68,6 +68,35 @@ class MainController extends Controller {
 			return $user;
 	}
 
+	public function register(Request $request)
+	{
+		$firstName = $request->input('firstName');
+		$lastName = $request->input('lastName');
+		$email = $request->input('email');
+		$password = $request->input('password');
+
+		$user = User::where('email', '=', $email)->first();
+
+		if ($user!=NULL)
+			return "Email registered";
+		else {
+			$user = new User();
+			$user->firstName = $firstName;
+			$user->lastName = $lastName;
+			$user->userName = $firstName;
+			$user->email = $email;
+			$user->password = $password;
+			$user->save();
+
+			$picture = new UserPictures();
+	        $picture->user_id=$user->ID;
+	        $picture->location="images/users/default.png";
+	        $picture->save();
+
+			return $user;
+		}
+	}
+
 	public function getHeader()
 	{
 		if (\Auth::check())	

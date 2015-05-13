@@ -214,7 +214,8 @@ function getSongBook(vID) {
 }
 
 function getProfileData(userID) {
-	userID=5;
+	if (userID==null)
+		userID=user.id;
 	$.get("/userProfile/"+userID, function(result){
 			famousSetUserProfile(result);
 		});
