@@ -35,15 +35,16 @@ function Settings() {
 				    	</div>\
 						</form><br/>\
 \
-						<form action="/scripts/putData/uploadPhoto.php" method="post" enctype="multipart/form-data">\
+						<form id="photoForm" action="" method="post" enctype="multipart/form-data">\
 						<input type="hidden" name="_token" value="' + inputToken + '">\
+						<input type="hidden" name="user_id" value="' + user.id + '">\
 						    Select image to upload:\
 						    <input type="file" name="fileToUpload" id="fileToUpload">\
 						    <input type="submit" value="Upload Image" name="submit">\
 						</form><br/>\
 \
 						<div id="settingsLogout">\
-							<a href="/scripts/login/logout.php"> Log out</a>\
+							<a href="logout"> Log out</a>\
 						</div>\
 					</div>\
 				</div>\
@@ -53,6 +54,47 @@ function Settings() {
 	this.view = new View();
 
 	this.view.add(this.entirePage);
+}
+
+Settings.prototype.uploadedGood = function(data){
+	console.log(data);
+}
+
+Settings.prototype.initButtons = function() {
+	return;
+	$("#photoForm").submit(function(event) { 
+				event.preventDefault();
+				return false;
+				$('#photoForm').find('input[name="user_id"]').val(user.id);
+				console.log(user.id);
+
+				var options = { 
+			        //target:        '#output2',   // target element(s) to be updated with server response 
+			        //beforeSubmit:  settings.showRequest,  // pre-submit callback 
+			        success:       settings.uploadedGood,  // post-submit callback 
+			 		//contentType: false,
+			 		//processData: false,
+			 		//iframe: true,
+			 		//data: 'uploadButton',
+			        // other available options: 
+			       // url:       "uploadPhoto",         // override for form's 'action' attribute 
+			    //    type:      'POST',        // 'get' or 'post', override for form's 'method' attribute 
+			       // dataType:  'multipart/form-data'        // 'xml', 'script', or 'json' (expected server response type) 
+			        clearForm: true,        // clear all form fields after successful submit 
+			        resetForm: true,        // reset the form after successful submit 
+			 
+			        // $.ajax options can be used here too, for example: 
+			       // timeout:   3000 
+			    }; 
+
+		        // inside event callbacks 'this' is the DOM element so we first 
+		        // wrap it in a jQuery object and then invoke ajaxSubmit 
+		       	 $(this).ajaxSubmit(options); 
+
+		        // !!! Important !!! 
+		        // always return false to prevent standard browser submit and page navigation 
+		        return false; 
+    		}); 
 }
 
 Settings.prototype.slideIn = function() {

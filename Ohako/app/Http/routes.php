@@ -21,6 +21,8 @@ Route::post('login', 'MainController@login');
 
 Route::post('register', 'MainController@register');
 
+Route::post('uploadPhoto', 'MainController@updatePhoto');
+
 Route::post('addRequest', 'MainController@addRequest');
 
 Route::get('venueProfile/{id}', 'MainController@venueProfile');

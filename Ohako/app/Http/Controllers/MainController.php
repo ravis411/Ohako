@@ -132,6 +132,36 @@ class MainController extends Controller {
 									  'location' => $location ]);
 	}
 
+	public function updatePhoto(Request $request)
+	{
+		$target_dir = public_path('/images/users/');
+
+		$file = array('image' => \Input::file('fileToUpload'));
+		$rules = array('image' => 'image');
+		$user = $request->input('user_id');
+		// $validator = \Validator::make($file, $rules);
+
+		// if ($validator->fails())
+	 //        return Redirect::to('/')->withErrors();
+
+
+		// if (\Input::file('fileToUpload')->isValid()) {
+			$extension = $file->getClientOriginalExtension();
+			$fileName = $user . '.' . $extension;
+			\Input::file('fileToUpload')->move($target_dir, $fileName);
+
+			$profile = UserPictures::where('user_id', $user)->first();
+
+		    if(sizeof($profile)<1){
+		        $profile = new UserPictures();
+		        $profile->user_id=$user;
+		    }
+
+		    $profile->location = 'images/users/' . $user . '.' . $extension;
+		    $profile->save();
+	    return "success";
+	}
+
 	/*
 		TODO
 		Check if valid id.

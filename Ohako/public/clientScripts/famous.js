@@ -134,6 +134,7 @@ function famousInitHTML() {
 				// Call their functions here.
 				// Or load things in here....
 				globalChat = new Chat("userID", "Chat", "venue");
+				settings.initButtons();
 		});
 	});
 }
