@@ -57,7 +57,7 @@ function init(){
 
 function getAds(location) {
 	slideImages();
-	$.get("/getAds", {location: location}, function(result){
+	$.get("getAds", {location: location}, function(result){
 			console.log(result);
 			//venueData = jQuery.parseJSON(result);
 		});
@@ -179,13 +179,13 @@ function displayView(div, id)
 }
 
 function getVenueData(venueID) {
-	$.get("/venueProfile/"+venueID, function(result){
+	$.get("venueProfile/"+venueID, function(result){
 			famousDisplayVenueProfile(result);
 		});
 }
 
 function getSongBook(vID) {
-	$.get("/getSongs/"+vID, function(result){
+	$.get("getSongs/"+vID, function(result){
 			songs = result; //jQuery.parseJSON(result);
 			console.log(result);
 			songBook = "";
@@ -216,7 +216,7 @@ function getSongBook(vID) {
 function getProfileData(userID) {
 	if (userID==null)
 		userID=user.id;
-	$.get("/userProfile/"+userID, function(result){
+	$.get("userProfile/"+userID, function(result){
 			famousSetUserProfile(result);
 		});
 	famousDisplayUserProfile();
@@ -252,7 +252,7 @@ function checkIn(){
 		checkedIn = false;
 		if(user != null)
 			user.checkOut();
-		$('#buttonCheckIn').attr("src", '/images/checkIn/checkin.png');
+		$('#buttonCheckIn').attr("src", 'images/checkIn/checkin.png');
 		content.closeKaraoke();
 	}
 
@@ -264,7 +264,7 @@ function initCheckIn(){
 	
 	//This doesn't belong here....
 	if(currentUser != null){
-		$.post("/scripts/User/",
+		$.post("scripts/User/",
 			{
 				intent: "checkedIn"
 			},
@@ -309,7 +309,7 @@ function closeInteriorViews(){
 
 function nightUI(){
 	console.log("g");
-	$('#header').css("background-image", 'url("/images/app/appHeaderInterior.png")');
+	$('#header').css("background-image", 'url("images/app/appHeaderInterior.png")');
 //	$('#header').css("border-bottom", '2px solid #a4a4a4');
 
 	$('#content').css("background-color", '#b0b0b0');
@@ -322,7 +322,7 @@ function nightUI(){
 }
 
 function dayUI(){
-	$('#header').css("background-image", 'url("/images/app/headerBackground.png")');
+	$('#header').css("background-image", 'url("images/app/headerBackground.png")');
 	//$('#header').css("border-bottom", '2px solid #ffc066');
 
 	$('#content').css("background-color", '#ffe8c7');

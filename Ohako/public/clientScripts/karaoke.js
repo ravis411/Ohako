@@ -18,7 +18,7 @@ function toggleBook()
 
 function requestSong(song, artist){
 
-	$.post("/addRequest", {_token: inputToken, userID: user.id, artist: artist, song: song}, function(result){
+	$.post("addRequest", {_token: inputToken, userID: user.id, artist: artist, song: song}, function(result){
 			console.log(result);
 			requests = result;
 			string = "";
@@ -50,7 +50,7 @@ function requestSong(song, artist){
 
 function getSongs(song, artist){
 
-	$.get("/getRequests", function(result){
+	$.get("getRequests", function(result){
 			requests = result;
 	
 			string = "";
