@@ -29,7 +29,7 @@ html, body{
 	font-size: 15pt;
 	width: 100%;
 	font-family: viaFont;
-	background-image: url("images/app/headerBackground.png");
+	background-image: url("/images/app/headerBackground.png");
 
 	z-index: 5;
 }

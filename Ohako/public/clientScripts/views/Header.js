@@ -29,7 +29,7 @@ function Header() {
 	this.checkOut = '<div id="checkIn">\
 						<div id="checkInInterior">\
 							<div id="checkInLogo">\
-								<img src="images/checkIn/901bar.png"/>\
+								<img src="images/901.jpg" width="100" height="80"/>\
 							</div>\
 	\
 							<div id="checkInDetails">\
